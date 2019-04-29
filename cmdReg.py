@@ -42,7 +42,7 @@ class Reg(commands.Cog):
                     await ctx.send('{} user with {} allycode is already REGISTERED'.format(ctx.author, ally_code))
                 else:
                     await ctx.send('Something went wrong, check Bot logs') 
-            except Exception as identifier:
+            except Exception as error:
                 pass
         except:
             await ctx.send('Hahooo {} \

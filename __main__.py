@@ -69,7 +69,7 @@ async def unload(ctx, extension):
         await ctx.send('{} cannot be unloaded. [{}]'.format(extension, error))
         logger.exception ('{} cannot be unloaded. [{}]'.format(extension, error))
     
-extensions = ['cmdReg', 'cmdEmbed']       
+extensions = ['cmdReg', 'cmdEmbed', 'cmdCheckUser', 'cmdGetLinks']       
 
 # -----------------------------------------
 if __name__ == '__main__':

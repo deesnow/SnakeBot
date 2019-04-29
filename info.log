@@ -1,0 +1,318 @@
+2019-04-29 14:30:40,325 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-04-29 14:30:40,377 - db_handler - INFO - Init DB connection
+2019-04-29 14:30:40,389 - db_handler - INFO - Init DB connection
+2019-04-29 14:30:40,404 - discord.client - INFO - logging in using static token
+2019-04-29 14:30:41,885 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-04-29 14:30:41,888 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-04-29 14:30:42,100 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-xsd1, discord-sessions-prd-1-14 (Session ID: 9ade061afa0bd6f114db1c4fe77a1d27).
+2019-04-29 14:31:10,068 - db_handler - INFO - User Deesnow#0840 added to the MongoDB
+2019-04-29 14:45:33,658 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-04-29 14:45:33,661 - db_handler - INFO - Init DB connection
+2019-04-29 14:45:33,669 - db_handler - INFO - Init DB connection
+2019-04-29 14:45:33,688 - discord.client - INFO - logging in using static token
+2019-04-29 14:45:34,743 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-04-29 14:45:34,745 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-04-29 14:45:34,920 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-jjz2, discord-sessions-prd-1-26 (Session ID: eae3b9a4255cd18ce649d8ec72c11c91).
+2019-04-29 14:48:22,347 - __main__ - ERROR - cmdGetLink cannot be unloaded. [Extension 'cmdGetLink' has not been loaded.]
+Traceback (most recent call last):
+  File "f:\_DEV\Discord\SnakeBot\__main__.py", line 64, in unload
+    bot.unload_extension(extension)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\ext\commands\bot.py", line 650, in unload_extension
+    raise errors.ExtensionNotLoaded(name)
+discord.ext.commands.errors.ExtensionNotLoaded: Extension 'cmdGetLink' has not been loaded.
+2019-04-29 14:48:41,076 - __main__ - ERROR - cmdGetLink cannot be loaded. [Extension 'cmdGetLink' could not be loaded.]
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\ext\commands\bot.py", line 618, in load_extension
+    lib = importlib.import_module(name)
+  File "F:\_DEV\Envs\SnakeBot\lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 978, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 961, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 948, in _find_and_load_unlocked
+ModuleNotFoundError: No module named 'cmdGetLink'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "f:\_DEV\Discord\SnakeBot\__main__.py", line 53, in load
+    bot.load_extension(extension)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\ext\commands\bot.py", line 620, in load_extension
+    raise errors.ExtensionNotFound(name, e) from e
+discord.ext.commands.errors.ExtensionNotFound: Extension 'cmdGetLink' could not be loaded.
+2019-04-29 15:50:51,844 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-04-29 15:50:51,860 - db_handler - INFO - Init DB connection
+2019-04-29 15:50:51,869 - db_handler - INFO - Init DB connection
+2019-04-29 15:50:52,046 - db_handler - INFO - Init DB connection
+2019-04-29 15:50:52,052 - discord.client - INFO - logging in using static token
+2019-04-29 15:50:53,603 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-04-29 15:50:53,606 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-04-29 15:50:53,754 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-h5b1, discord-sessions-prd-1-17 (Session ID: 4f7f9353389922c8e3548de30a0c4701).
+2019-04-29 15:52:27,436 - db_handler - INFO - Init DB connection
+2019-04-29 15:52:51,141 - db_handler - ERROR - Get allycode is FAILED. 'str' object has no attribute 'formant'
+Traceback (most recent call last):
+  File "f:\_DEV\Discord\SnakeBot\db_handler.py", line 116, in get_allycode
+    self.logger.info('{} found for {}'.formant(self.allycode, self.user_id))
+AttributeError: 'str' object has no attribute 'formant'
+2019-04-29 15:52:51,806 - swgoh_handler - INFO - Response 200 OK
+2019-04-29 15:52:51,806 - swgoh_handler - ERROR - GET url is failed - [Expecting value: line 2 column 1 (char 1)]
+Traceback (most recent call last):
+  File "f:\_DEV\Discord\SnakeBot\swgoh_handler.py", line 25, in swgoh_getuser
+    return json.loads(self.response.text)
+  File "d:\python3.6-64\Lib\json\__init__.py", line 354, in loads
+    return _default_decoder.decode(s)
+  File "d:\python3.6-64\Lib\json\decoder.py", line 339, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+  File "d:\python3.6-64\Lib\json\decoder.py", line 357, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 2 column 1 (char 1)
+2019-04-29 15:57:23,117 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-04-29 15:57:23,124 - db_handler - INFO - Init DB connection
+2019-04-29 15:57:23,141 - db_handler - INFO - Init DB connection
+2019-04-29 15:57:23,400 - discord.client - INFO - logging in using static token
+2019-04-29 15:57:24,485 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-04-29 15:57:24,499 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-04-29 15:57:25,108 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-kccm, discord-sessions-prd-1-28 (Session ID: ea2a32958406b3a2481f5654961c514c).
+2019-04-29 15:59:20,023 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-04-29 15:59:20,037 - db_handler - INFO - Init DB connection
+2019-04-29 15:59:20,065 - db_handler - INFO - Init DB connection
+2019-04-29 15:59:20,422 - discord.client - INFO - logging in using static token
+2019-04-29 15:59:21,597 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-04-29 15:59:21,606 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-04-29 15:59:21,757 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-9xgj, discord-sessions-prd-1-19 (Session ID: 5ce2f081f9297e654c16ae1df0735ddb).
+2019-04-29 16:02:27,445 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-04-29 16:02:27,455 - db_handler - INFO - Init DB connection
+2019-04-29 16:02:27,498 - db_handler - INFO - Init DB connection
+2019-04-29 16:02:27,777 - discord.client - INFO - logging in using static token
+2019-04-29 16:02:28,847 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-04-29 16:02:28,854 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-04-29 16:02:29,031 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-zsf1, discord-sessions-prd-1-13 (Session ID: dde0aa8d33f5bc8236aa203b39e7d000).
+2019-04-29 16:04:09,382 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-04-29 16:04:09,385 - db_handler - INFO - Init DB connection
+2019-04-29 16:04:09,392 - db_handler - INFO - Init DB connection
+2019-04-29 16:04:09,557 - discord.client - INFO - logging in using static token
+2019-04-29 16:04:10,607 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-04-29 16:04:10,639 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-04-29 16:04:10,794 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-fgf7, discord-sessions-prd-1-8 (Session ID: 543505e921ef231d31d9e9a33ae195ad).
+2019-04-29 16:08:27,814 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-04-29 16:08:27,824 - db_handler - INFO - Init DB connection
+2019-04-29 16:08:27,840 - db_handler - INFO - Init DB connection
+2019-04-29 16:08:28,110 - db_handler - INFO - Init DB connection
+2019-04-29 16:08:28,132 - discord.client - INFO - logging in using static token
+2019-04-29 16:08:29,259 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-04-29 16:08:29,267 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-04-29 16:08:29,429 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-8h8j, discord-sessions-prd-1-28 (Session ID: d3e874f32c09af5fc6889fb93630e021).
+2019-04-29 16:09:15,518 - discord.gateway - WARNING - Heartbeat blocked for more than 5 seconds.
+2019-04-29 16:09:20,522 - discord.gateway - WARNING - Heartbeat blocked for more than 10 seconds.
+2019-04-29 16:09:25,529 - discord.gateway - WARNING - Heartbeat blocked for more than 15 seconds.
+2019-04-29 16:09:30,531 - discord.gateway - WARNING - Heartbeat blocked for more than 20 seconds.
+2019-04-29 16:09:35,534 - discord.gateway - WARNING - Heartbeat blocked for more than 25 seconds.
+2019-04-29 16:09:40,540 - discord.gateway - WARNING - Heartbeat blocked for more than 30 seconds.
+2019-04-29 16:09:45,544 - discord.gateway - WARNING - Heartbeat blocked for more than 35 seconds.
+2019-04-29 16:09:46,303 - db_handler - ERROR - Get allycode is FAILED. 'str' object has no attribute 'formant'
+Traceback (most recent call last):
+  File "f:\_DEV\Discord\SnakeBot\db_handler.py", line 116, in get_allycode
+    self.logger.info('{} found for {}'.formant(self.allycode, self.user_id))
+AttributeError: 'str' object has no attribute 'formant'
+2019-04-29 16:09:50,548 - discord.gateway - WARNING - Heartbeat blocked for more than 40 seconds.
+2019-04-29 16:09:55,586 - discord.gateway - WARNING - Heartbeat blocked for more than 45 seconds.
+2019-04-29 16:10:00,597 - discord.gateway - WARNING - Heartbeat blocked for more than 50 seconds.
+2019-04-29 16:10:05,599 - discord.gateway - WARNING - Heartbeat blocked for more than 55 seconds.
+2019-04-29 16:10:10,604 - discord.gateway - WARNING - Heartbeat blocked for more than 60 seconds.
+2019-04-29 16:10:15,607 - discord.gateway - WARNING - Heartbeat blocked for more than 65 seconds.
+2019-04-29 16:12:57,456 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-04-29 16:12:57,462 - db_handler - INFO - Init DB connection
+2019-04-29 16:12:57,490 - db_handler - INFO - Init DB connection
+2019-04-29 16:12:57,792 - db_handler - INFO - Init DB connection
+2019-04-29 16:12:57,828 - discord.client - INFO - logging in using static token
+2019-04-29 16:12:59,017 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-04-29 16:12:59,027 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-04-29 16:12:59,185 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-gfs7, discord-sessions-prd-1-19 (Session ID: 95835d036e706dc87df53d634368e1ab).
+2019-04-29 16:13:45,278 - discord.gateway - WARNING - Heartbeat blocked for more than 5 seconds.
+2019-04-29 16:13:50,281 - discord.gateway - WARNING - Heartbeat blocked for more than 10 seconds.
+2019-04-29 16:13:55,284 - discord.gateway - WARNING - Heartbeat blocked for more than 15 seconds.
+2019-04-29 16:14:00,286 - discord.gateway - WARNING - Heartbeat blocked for more than 20 seconds.
+2019-04-29 16:14:05,291 - discord.gateway - WARNING - Heartbeat blocked for more than 25 seconds.
+2019-04-29 16:14:10,294 - discord.gateway - WARNING - Heartbeat blocked for more than 30 seconds.
+2019-04-29 16:14:15,296 - discord.gateway - WARNING - Heartbeat blocked for more than 35 seconds.
+2019-04-29 16:14:20,302 - discord.gateway - WARNING - Heartbeat blocked for more than 40 seconds.
+2019-04-29 16:14:25,305 - discord.gateway - WARNING - Heartbeat blocked for more than 45 seconds.
+2019-04-29 16:14:30,312 - discord.gateway - WARNING - Heartbeat blocked for more than 50 seconds.
+2019-04-29 16:14:35,316 - discord.gateway - WARNING - Heartbeat blocked for more than 55 seconds.
+2019-04-29 16:14:40,322 - discord.gateway - WARNING - Heartbeat blocked for more than 60 seconds.
+2019-04-29 16:14:45,327 - discord.gateway - WARNING - Heartbeat blocked for more than 65 seconds.
+2019-04-29 16:14:50,330 - discord.gateway - WARNING - Heartbeat blocked for more than 70 seconds.
+2019-04-29 16:14:55,339 - discord.gateway - WARNING - Heartbeat blocked for more than 75 seconds.
+2019-04-29 16:15:00,342 - discord.gateway - WARNING - Heartbeat blocked for more than 80 seconds.
+2019-04-29 16:15:05,345 - discord.gateway - WARNING - Heartbeat blocked for more than 85 seconds.
+2019-04-29 16:15:10,347 - discord.gateway - WARNING - Heartbeat blocked for more than 90 seconds.
+2019-04-29 16:15:15,350 - discord.gateway - WARNING - Heartbeat blocked for more than 95 seconds.
+2019-04-29 16:15:20,352 - discord.gateway - WARNING - Heartbeat blocked for more than 100 seconds.
+2019-04-29 16:15:25,358 - discord.gateway - WARNING - Heartbeat blocked for more than 105 seconds.
+2019-04-29 16:15:30,362 - discord.gateway - WARNING - Heartbeat blocked for more than 110 seconds.
+2019-04-29 16:15:35,367 - discord.gateway - WARNING - Heartbeat blocked for more than 115 seconds.
+2019-04-29 16:15:40,372 - discord.gateway - WARNING - Heartbeat blocked for more than 120 seconds.
+2019-04-29 16:15:43,765 - db_handler - INFO - {'ally_code': 376764962} found for 143651954919342080
+2019-04-29 16:15:45,378 - discord.gateway - WARNING - Heartbeat blocked for more than 125 seconds.
+2019-04-29 16:15:50,384 - discord.gateway - WARNING - Heartbeat blocked for more than 130 seconds.
+2019-04-29 16:15:55,387 - discord.gateway - WARNING - Heartbeat blocked for more than 135 seconds.
+2019-04-29 16:16:00,395 - discord.gateway - WARNING - Heartbeat blocked for more than 140 seconds.
+2019-04-29 16:16:05,398 - discord.gateway - WARNING - Heartbeat blocked for more than 145 seconds.
+2019-04-29 16:16:10,402 - discord.gateway - WARNING - Heartbeat blocked for more than 150 seconds.
+2019-04-29 16:16:15,406 - discord.gateway - WARNING - Heartbeat blocked for more than 155 seconds.
+2019-04-29 16:16:20,409 - discord.gateway - WARNING - Heartbeat blocked for more than 160 seconds.
+2019-04-29 16:16:25,412 - discord.gateway - WARNING - Heartbeat blocked for more than 165 seconds.
+2019-04-29 16:16:30,415 - discord.gateway - WARNING - Heartbeat blocked for more than 170 seconds.
+2019-04-29 16:16:35,418 - discord.gateway - WARNING - Heartbeat blocked for more than 175 seconds.
+2019-04-29 16:16:40,425 - discord.gateway - WARNING - Heartbeat blocked for more than 180 seconds.
+2019-04-29 16:16:45,428 - discord.gateway - WARNING - Heartbeat blocked for more than 185 seconds.
+2019-04-29 16:17:20,802 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-04-29 16:17:20,810 - db_handler - INFO - Init DB connection
+2019-04-29 16:17:20,834 - db_handler - INFO - Init DB connection
+2019-04-29 16:17:21,116 - db_handler - INFO - Init DB connection
+2019-04-29 16:17:21,148 - discord.client - INFO - logging in using static token
+2019-04-29 16:17:22,294 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-04-29 16:17:22,307 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-04-29 16:17:22,452 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-rfj9, discord-sessions-prd-1-24 (Session ID: a322dbf2675d61d68ddb755be74ca39b).
+2019-04-29 16:17:53,452 - db_handler - INFO - {'ally_code': 376764962} found for 143651954919342080
+2019-04-29 16:18:08,562 - discord.gateway - WARNING - Heartbeat blocked for more than 5 seconds.
+2019-04-29 16:18:13,566 - discord.gateway - WARNING - Heartbeat blocked for more than 10 seconds.
+2019-04-29 16:18:18,570 - discord.gateway - WARNING - Heartbeat blocked for more than 15 seconds.
+2019-04-29 16:18:23,575 - discord.gateway - WARNING - Heartbeat blocked for more than 20 seconds.
+2019-04-29 16:18:28,577 - discord.gateway - WARNING - Heartbeat blocked for more than 25 seconds.
+2019-04-29 16:18:33,583 - discord.gateway - WARNING - Heartbeat blocked for more than 30 seconds.
+2019-04-29 16:18:38,590 - discord.gateway - WARNING - Heartbeat blocked for more than 35 seconds.
+2019-04-29 16:18:43,599 - discord.gateway - WARNING - Heartbeat blocked for more than 40 seconds.
+2019-04-29 16:18:48,612 - discord.gateway - WARNING - Heartbeat blocked for more than 45 seconds.
+2019-04-29 16:18:53,615 - discord.gateway - WARNING - Heartbeat blocked for more than 50 seconds.
+2019-04-29 16:18:58,621 - discord.gateway - WARNING - Heartbeat blocked for more than 55 seconds.
+2019-04-29 16:19:03,628 - discord.gateway - WARNING - Heartbeat blocked for more than 60 seconds.
+2019-04-29 16:19:08,635 - discord.gateway - WARNING - Heartbeat blocked for more than 65 seconds.
+2019-04-29 16:19:13,640 - discord.gateway - WARNING - Heartbeat blocked for more than 70 seconds.
+2019-04-29 16:19:18,642 - discord.gateway - WARNING - Heartbeat blocked for more than 75 seconds.
+2019-04-29 16:19:23,653 - discord.gateway - WARNING - Heartbeat blocked for more than 80 seconds.
+2019-04-29 16:19:27,510 - swgoh_handler - INFO - Response 200 OK
+2019-04-29 16:19:28,656 - discord.gateway - WARNING - Heartbeat blocked for more than 85 seconds.
+2019-04-29 16:19:33,660 - discord.gateway - WARNING - Heartbeat blocked for more than 90 seconds.
+2019-04-29 16:19:38,662 - discord.gateway - WARNING - Heartbeat blocked for more than 95 seconds.
+2019-04-29 16:19:43,665 - discord.gateway - WARNING - Heartbeat blocked for more than 100 seconds.
+2019-04-29 16:19:48,668 - discord.gateway - WARNING - Heartbeat blocked for more than 105 seconds.
+2019-04-29 16:19:53,671 - discord.gateway - WARNING - Heartbeat blocked for more than 110 seconds.
+2019-04-29 16:19:58,680 - discord.gateway - WARNING - Heartbeat blocked for more than 115 seconds.
+2019-04-29 16:20:02,147 - discord.gateway - INFO - Websocket closed with 1000 (), cannot reconnect.
+2019-04-29 16:20:02,150 - discord.client - ERROR - Attempting a reconnect in 0.84s
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 464, in poll_event
+    msg = await self.recv()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\websockets\protocol.py", line 350, in recv
+    yield from self.ensure_open()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\websockets\protocol.py", line 501, in ensure_open
+    self.close_code, self.close_reason) from self.transfer_data_exc
+websockets.exceptions.ConnectionClosed: WebSocket connection is closed: code = 1000 (OK), no reason
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 431, in connect
+    await self._connect()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 395, in _connect
+    await self.ws.poll_event()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 472, in poll_event
+    raise ConnectionClosed(exc, shard_id=self.shard_id) from exc
+discord.errors.ConnectionClosed: WebSocket connection is closed: code = 1000 (OK), no reason
+2019-04-29 16:20:03,385 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-04-29 16:20:03,398 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-04-29 16:20:03,542 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-5lgk, discord-sessions-prd-1-12 (Session ID: 58f80969733ccc0eaa12be63072517cd).
+2019-04-29 16:20:43,398 - discord.gateway - WARNING - Shard ID None has stopped responding to the gateway. Closing and restarting.
+2019-04-29 16:21:40,252 - db_handler - INFO - Init DB connection
+2019-04-29 16:21:51,704 - db_handler - INFO - {'ally_code': 376764962} found for 143651954919342080
+2019-04-29 16:21:52,424 - swgoh_handler - INFO - Response 200 OK
+2019-04-29 16:23:23,662 - db_handler - INFO - Init DB connection
+2019-04-29 16:23:29,072 - db_handler - INFO - {'ally_code': 376764962} found for 143651954919342080
+2019-04-29 16:23:34,681 - discord.gateway - WARNING - Heartbeat blocked for more than 5 seconds.
+2019-04-29 16:23:39,684 - discord.gateway - WARNING - Heartbeat blocked for more than 10 seconds.
+2019-04-29 16:23:44,685 - discord.gateway - WARNING - Heartbeat blocked for more than 15 seconds.
+2019-04-29 16:23:49,691 - discord.gateway - WARNING - Heartbeat blocked for more than 20 seconds.
+2019-04-29 16:23:54,701 - discord.gateway - WARNING - Heartbeat blocked for more than 25 seconds.
+2019-04-29 16:23:59,702 - discord.gateway - WARNING - Heartbeat blocked for more than 30 seconds.
+2019-04-29 16:24:04,705 - discord.gateway - WARNING - Heartbeat blocked for more than 35 seconds.
+2019-04-29 16:24:05,367 - swgoh_handler - INFO - Response 200 OK
+2019-04-29 16:24:09,708 - discord.gateway - WARNING - Heartbeat blocked for more than 40 seconds.
+2019-04-29 16:24:14,717 - discord.gateway - WARNING - Heartbeat blocked for more than 45 seconds.
+2019-04-29 16:24:19,719 - discord.gateway - WARNING - Heartbeat blocked for more than 50 seconds.
+2019-04-29 16:24:24,721 - discord.gateway - WARNING - Heartbeat blocked for more than 55 seconds.
+2019-04-29 16:24:29,723 - discord.gateway - WARNING - Heartbeat blocked for more than 60 seconds.
+2019-04-29 16:24:34,729 - discord.gateway - WARNING - Heartbeat blocked for more than 65 seconds.
+2019-04-29 16:24:39,731 - discord.gateway - WARNING - Heartbeat blocked for more than 70 seconds.
+2019-04-29 16:24:44,737 - discord.gateway - WARNING - Heartbeat blocked for more than 75 seconds.
+2019-04-29 16:24:49,739 - discord.gateway - WARNING - Heartbeat blocked for more than 80 seconds.
+2019-04-29 16:24:54,743 - discord.gateway - WARNING - Heartbeat blocked for more than 85 seconds.
+2019-04-29 16:24:59,744 - discord.gateway - WARNING - Heartbeat blocked for more than 90 seconds.
+2019-04-29 16:25:04,749 - discord.gateway - WARNING - Heartbeat blocked for more than 95 seconds.
+2019-04-29 16:25:09,753 - discord.gateway - WARNING - Heartbeat blocked for more than 100 seconds.
+2019-04-29 16:25:14,757 - discord.gateway - WARNING - Heartbeat blocked for more than 105 seconds.
+2019-04-29 16:25:19,763 - discord.gateway - WARNING - Heartbeat blocked for more than 110 seconds.
+2019-04-29 16:25:24,769 - discord.gateway - WARNING - Heartbeat blocked for more than 115 seconds.
+2019-04-29 16:25:29,776 - discord.gateway - WARNING - Heartbeat blocked for more than 120 seconds.
+2019-04-29 16:25:34,784 - discord.gateway - WARNING - Heartbeat blocked for more than 125 seconds.
+2019-04-29 16:25:39,786 - discord.gateway - WARNING - Heartbeat blocked for more than 130 seconds.
+2019-04-29 16:25:44,789 - discord.gateway - WARNING - Heartbeat blocked for more than 135 seconds.
+2019-04-29 16:25:49,793 - discord.gateway - WARNING - Heartbeat blocked for more than 140 seconds.
+2019-04-29 16:25:54,799 - discord.gateway - WARNING - Heartbeat blocked for more than 145 seconds.
+2019-04-29 16:25:59,802 - discord.gateway - WARNING - Heartbeat blocked for more than 150 seconds.
+2019-04-29 16:26:04,809 - discord.gateway - WARNING - Heartbeat blocked for more than 155 seconds.
+2019-04-29 16:26:09,816 - discord.gateway - WARNING - Heartbeat blocked for more than 160 seconds.
+2019-04-29 16:26:14,820 - discord.gateway - WARNING - Heartbeat blocked for more than 165 seconds.
+2019-04-29 16:26:19,822 - discord.gateway - WARNING - Heartbeat blocked for more than 170 seconds.
+2019-04-29 16:26:24,826 - discord.gateway - WARNING - Heartbeat blocked for more than 175 seconds.
+2019-04-29 16:26:29,837 - discord.gateway - WARNING - Heartbeat blocked for more than 180 seconds.
+2019-04-29 16:26:34,843 - discord.gateway - WARNING - Heartbeat blocked for more than 185 seconds.
+2019-04-29 16:26:39,845 - discord.gateway - WARNING - Heartbeat blocked for more than 190 seconds.
+2019-04-29 16:26:44,850 - discord.gateway - WARNING - Heartbeat blocked for more than 195 seconds.
+2019-04-29 16:26:49,859 - discord.gateway - WARNING - Heartbeat blocked for more than 200 seconds.
+2019-04-29 16:26:54,861 - discord.gateway - WARNING - Heartbeat blocked for more than 205 seconds.
+2019-04-29 16:26:59,866 - discord.gateway - WARNING - Heartbeat blocked for more than 210 seconds.
+2019-04-29 16:27:04,869 - discord.gateway - WARNING - Heartbeat blocked for more than 215 seconds.
+2019-04-29 16:27:09,874 - discord.gateway - WARNING - Heartbeat blocked for more than 220 seconds.
+2019-04-29 16:27:14,878 - discord.gateway - WARNING - Heartbeat blocked for more than 225 seconds.
+2019-04-29 16:27:19,880 - discord.gateway - WARNING - Heartbeat blocked for more than 230 seconds.
+2019-04-29 16:27:24,883 - discord.gateway - WARNING - Heartbeat blocked for more than 235 seconds.
+2019-04-29 16:27:29,888 - discord.gateway - WARNING - Heartbeat blocked for more than 240 seconds.
+2019-04-29 16:27:34,890 - discord.gateway - WARNING - Heartbeat blocked for more than 245 seconds.
+2019-04-29 16:27:39,895 - discord.gateway - WARNING - Heartbeat blocked for more than 250 seconds.
+2019-04-29 16:27:44,901 - discord.gateway - WARNING - Heartbeat blocked for more than 255 seconds.
+2019-04-29 16:27:49,903 - discord.gateway - WARNING - Heartbeat blocked for more than 260 seconds.
+2019-04-29 16:27:54,908 - discord.gateway - WARNING - Heartbeat blocked for more than 265 seconds.
+2019-04-29 16:27:56,129 - discord.gateway - INFO - Websocket closed with 1000 (), cannot reconnect.
+2019-04-29 16:27:56,135 - discord.client - ERROR - Attempting a reconnect in 0.57s
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 464, in poll_event
+    msg = await self.recv()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\websockets\protocol.py", line 350, in recv
+    yield from self.ensure_open()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\websockets\protocol.py", line 501, in ensure_open
+    self.close_code, self.close_reason) from self.transfer_data_exc
+websockets.exceptions.ConnectionClosed: WebSocket connection is closed: code = 1000 (OK), no reason
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 431, in connect
+    await self._connect()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 395, in _connect
+    await self.ws.poll_event()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 472, in poll_event
+    raise ConnectionClosed(exc, shard_id=self.shard_id) from exc
+discord.errors.ConnectionClosed: WebSocket connection is closed: code = 1000 (OK), no reason
+2019-04-29 16:27:57,050 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-04-29 16:27:57,059 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-04-29 16:27:57,217 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-n3zg, discord-sessions-prd-1-19 (Session ID: 630b40078ec2c6e0dee6c791b823ffec).
+2019-04-29 16:28:12,635 - db_handler - INFO - Init DB connection
+2019-04-29 16:28:17,632 - db_handler - INFO - {'ally_code': 376764962} found for 143651954919342080
+2019-04-29 16:28:21,358 - swgoh_handler - INFO - Response 200 OK
+2019-04-29 16:28:37,377 - discord.gateway - WARNING - Shard ID None has stopped responding to the gateway. Closing and restarting.
+2019-04-29 16:28:53,129 - db_handler - INFO - Init DB connection
+2019-04-29 16:28:59,827 - db_handler - INFO - {'ally_code': 376764962} found for 143651954919342080
+2019-04-29 16:29:03,611 - swgoh_handler - INFO - Response 200 OK
+2019-04-29 16:29:52,628 - db_handler - INFO - Init DB connection
+2019-04-29 16:29:57,301 - db_handler - INFO - {'ally_code': 376764962} found for 143651954919342080
+2019-04-29 16:30:00,703 - swgoh_handler - INFO - Response 200 OK
