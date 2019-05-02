@@ -1,6 +1,6 @@
 import pymongo
 import json
-import datetime
+from dateutil.parser import parse
 
 import logging
 
@@ -99,6 +99,8 @@ class Db_handler(object):
         self.discord_id = discord_id
         self.query = {'discord_id': self.discord_id, 'progress': {"$exists" : True}}
         self.query2 = {'discord_id': self.discord_id}
+        self.datetime = parse(self.data['last_updated'])
+        self.date = str(self.datetime.date())
 
         try:
             self.action1 = self.col_discord.find_one(self.query)
@@ -106,8 +108,9 @@ class Db_handler(object):
             self.logger.exception('User update is FAILED')
             return "Failed"
 
-        if 'progress' in self.action != None:
-            self.date = self.data['last_updated']
+        if self.action1 == None:  
+            
+
             self.new_value = {'$set': {"progress": {self.date: self.data}}}
             try:
                 self.action2 = self.col_discord.update_one(self.query2, self.new_value)
@@ -119,12 +122,12 @@ class Db_handler(object):
 
         else:
             
-            if self.data['last_updated'] > max(list(self.action1['progress'].keys())):
-                self.date = self.data['last_updated']
-                self.new_value = {'$set': {"progress": {self.date: self.data}}}
+            if self.date > max(list(self.action1['progress'].keys())):
+                self.newkey = "progress." + self.date
+                self.new_value = {'$set': {self.newkey: self.data}}
                 try:
                     self.action2 = self.col_discord.update_one(self.query2, self.new_value)
-                    self.logger.info('User update DONE for {} discordID'.format(self.discord_id))
+                    self.logger.info('User update DONE with new {} progress data'.format(self.date))
                     return 'Done'
                 except Exception as error:
                     self.logger.exception('User update is FAILED')

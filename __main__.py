@@ -47,7 +47,7 @@ async def on_ready():
     print('We have logged in as {0.user}'.format(bot))
     await bot.change_presence(activity=Game(name="Under Development"))
         
-@bot.command()
+@bot.command(aliases= ['l'])
 async def load(ctx, extension):
     try:
         bot.load_extension(extension)
@@ -58,7 +58,7 @@ async def load(ctx, extension):
         await ctx.send('{} cannot be loaded. [{}]'.format(extension, error))
         logger.exception ('{} cannot be loaded. [{}]'.format(extension, error))
 
-@bot.command()
+@bot.command(aliases= ['u'])
 async def unload(ctx, extension):
     try:
         bot.unload_extension(extension)

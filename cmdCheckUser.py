@@ -29,11 +29,21 @@ class CkeckUser(commands.Cog):
         
         try:
             self.newdata = sw.swgoh_getuser(self.allycode)['data']
-            await self.ctx.send('Userdata from swgoh.gg --> \n {}'.format(self.newdata['galactic_power']))
+            #await self.ctx.send('Userdata from swgoh.gg --> \n {}'.format(self.newdata['galactic_power']))
         except Exception as error:
             print(error)
 
-        
+        try:
+            self.write_user = db.user_update(self.user_id, self.newdata)
+        except Exception as error:
+            print(error)
+        if self.write_user == "Done":
+            await self.ctx.send('User progress data is updated')
+        elif self.write_user == "Already":
+            await self.ctx.send('Not necessary to update progress data')
+        else:
+            await self.ctx.send('Upate progress date is FAILED, check logs for more datails.')
+
 
        
         
