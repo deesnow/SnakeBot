@@ -45,8 +45,5 @@ class CkeckUser(commands.Cog):
             await self.ctx.send('Upate progress date is FAILED, check logs for more datails.')
 
 
-       
-        
-# ---------------------------------------------
 def setup(bot):
     bot.add_cog(CkeckUser(bot))

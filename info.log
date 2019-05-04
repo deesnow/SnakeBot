@@ -1149,3 +1149,849 @@ socket.gaierror: [Errno 11001] getaddrinfo failed
 2019-05-02 07:51:45,336 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
 2019-05-02 07:51:45,500 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-qcsh, discord-sessions-prd-1-26 (Session ID: e29a44cd26e6a29834cc789afe6e6e83).
 2019-05-02 07:51:49,899 - discord.gateway - WARNING - Shard ID None has stopped responding to the gateway. Closing and restarting.
+2019-05-02 10:13:48,382 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 10:13:48,386 - db_handler - INFO - Init DB connection
+2019-05-02 10:13:48,413 - db_handler - INFO - Init DB connection
+2019-05-02 10:13:49,002 - db_handler - INFO - Init DB connection
+2019-05-02 10:13:49,028 - discord.client - INFO - logging in using static token
+2019-05-02 10:13:50,450 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-02 10:13:50,453 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-02 10:13:50,600 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-jg92, discord-sessions-prd-1-17 (Session ID: 85df427719f16f54d02897942e961e63).
+2019-05-02 10:15:01,640 - db_handler - INFO - User newl#0773 added to the MongoDB
+2019-05-02 10:15:14,263 - db_handler - INFO - {'ally_code': 999134554} found for 353891399550238721
+2019-05-02 10:15:15,568 - swgoh_handler - INFO - Response 200 OK
+2019-05-02 10:15:15,619 - db_handler - INFO - User update DONE for 353891399550238721 discordID
+2019-05-02 11:09:48,688 - db_handler - INFO - {'ally_code': 376764962} found for 143651954919342080
+2019-05-02 11:09:49,966 - swgoh_handler - INFO - Response 200 OK
+2019-05-02 11:10:31,928 - db_handler - INFO - {'ally_code': 376764962} found for 143651954919342080
+2019-05-02 11:10:32,603 - swgoh_handler - INFO - Response 200 OK
+2019-05-02 11:26:13,451 - db_handler - INFO - {'ally_code': 376764962} found for 143651954919342080
+2019-05-02 11:26:14,026 - swgoh_handler - INFO - Response 200 OK
+2019-05-02 11:44:03,504 - db_handler - INFO - {'ally_code': 567793738} found for 396358001646108691
+2019-05-02 11:44:04,855 - swgoh_handler - INFO - Response 200 OK
+2019-05-02 11:44:13,426 - db_handler - INFO - {'ally_code': 471941296} found for 269074011185610762
+2019-05-02 11:44:14,691 - swgoh_handler - INFO - Response 200 OK
+2019-05-02 11:44:14,721 - db_handler - INFO - User update DONE with new 2019-05-01 progress data
+2019-05-02 13:41:16,394 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 13:41:16,399 - db_handler - INFO - Init DB connection
+2019-05-02 13:41:16,472 - db_handler - INFO - Init DB connection
+2019-05-02 13:41:16,862 - db_handler - INFO - Init DB connection
+2019-05-02 13:41:16,919 - discord.client - INFO - logging in using static token
+2019-05-02 13:41:19,007 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-02 13:41:19,028 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-02 13:41:19,187 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-bnfw, discord-sessions-prd-1-26 (Session ID: 62ff8e2b28075291ad4cc533a9b88d9f).
+2019-05-02 13:47:55,583 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 13:52:36,065 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 13:55:20,252 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 14:01:00,566 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 14:01:00,569 - discord.client - INFO - logging in using static token
+2019-05-02 14:01:01,818 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-02 14:01:01,823 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-02 14:01:02,012 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-dp3d, discord-sessions-prd-1-26 (Session ID: 3764d00e4ce4c028da5d03c737ab20fc).
+2019-05-02 14:10:39,130 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 14:10:39,131 - discord.client - INFO - logging in using static token
+2019-05-02 14:10:40,504 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-02 14:10:40,510 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-02 14:10:40,655 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-1zc2, discord-sessions-prd-1-19 (Session ID: 80518cb861e5a8eb84c6728583a01753).
+2019-05-02 14:10:42,661 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-02 14:18:03,888 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 14:18:03,890 - discord.client - INFO - logging in using static token
+2019-05-02 14:18:05,094 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-02 14:18:05,096 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-02 14:18:05,254 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-9xgj, discord-sessions-prd-1-13 (Session ID: 3f9394805ea886726f40f9e8335ae8c7).
+2019-05-02 14:18:07,260 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-02 14:19:42,949 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 14:19:42,951 - db_handler - INFO - Init DB connection
+2019-05-02 14:19:42,961 - db_handler - INFO - Init DB connection
+2019-05-02 14:19:43,136 - db_handler - INFO - Init DB connection
+2019-05-02 14:19:43,143 - discord.client - INFO - logging in using static token
+2019-05-02 14:19:44,527 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-02 14:19:44,533 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-02 14:19:44,699 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-9h15, discord-sessions-prd-1-3 (Session ID: 59a987ed30f250703f8c5ce97c1fe38a).
+2019-05-02 14:19:46,702 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-02 14:20:00,654 - db_handler - INFO - {'ally_code': 376764962} found for 143651954919342080
+2019-05-02 14:20:01,541 - swgoh_handler - INFO - Response 200 OK
+2019-05-02 14:48:59,465 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 14:48:59,471 - db_handler - INFO - Init DB connection
+2019-05-02 14:48:59,485 - db_handler - INFO - Init DB connection
+2019-05-02 14:48:59,707 - db_handler - INFO - Init DB connection
+2019-05-02 14:48:59,722 - discord.client - INFO - logging in using static token
+2019-05-02 14:49:01,258 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-02 14:49:01,261 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-02 14:49:01,412 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-hq1t, discord-sessions-prd-1-10 (Session ID: 5e46022b7f2582c9c4872bde71f1788d).
+2019-05-02 14:49:03,417 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-02 14:49:19,767 - db_handler - INFO - {'ally_code': 471941296} found for 269074011185610762
+2019-05-02 14:49:20,486 - swgoh_handler - INFO - Response 200 OK
+2019-05-02 14:52:53,690 - db_handler - INFO - {'ally_code': 376764962} found for 143651954919342080
+2019-05-02 14:52:54,383 - swgoh_handler - INFO - Response 200 OK
+2019-05-02 14:54:33,485 - db_handler - INFO - {'ally_code': 376764962} found for 143651954919342080
+2019-05-02 14:54:34,140 - swgoh_handler - INFO - Response 200 OK
+2019-05-02 15:41:58,563 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 15:41:58,571 - db_handler - INFO - Init DB connection
+2019-05-02 15:41:58,583 - db_handler - INFO - Init DB connection
+2019-05-02 15:41:58,786 - db_handler - INFO - Init DB connection
+2019-05-02 15:41:58,791 - discord.client - INFO - logging in using static token
+2019-05-02 15:41:59,918 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-02 15:41:59,927 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-02 15:42:01,260 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-z1d0, discord-sessions-prd-1-13 (Session ID: 18ebcfe190240fa19bc8c77422d1a540).
+2019-05-02 15:42:01,859 - discord.gateway - WARNING - Unknown event PRESENCES_REPLACE.
+2019-05-02 15:42:03,251 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-02 15:48:36,520 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 15:48:36,523 - db_handler - INFO - Init DB connection
+2019-05-02 15:48:36,531 - db_handler - INFO - Init DB connection
+2019-05-02 15:48:36,708 - db_handler - INFO - Init DB connection
+2019-05-02 15:49:34,621 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 15:49:34,625 - db_handler - INFO - Init DB connection
+2019-05-02 15:49:34,635 - db_handler - INFO - Init DB connection
+2019-05-02 15:49:34,798 - db_handler - INFO - Init DB connection
+2019-05-02 15:49:34,805 - discord.client - INFO - logging in using static token
+2019-05-02 15:49:36,029 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-02 15:49:36,032 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-02 15:49:36,208 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-0q5p, discord-sessions-prd-1-28 (Session ID: 04dd1d848ec34879fb696937890de1a1).
+2019-05-02 15:49:38,215 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-02 16:00:39,762 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 16:00:39,774 - db_handler - INFO - Init DB connection
+2019-05-02 16:00:39,786 - db_handler - INFO - Init DB connection
+2019-05-02 16:00:39,947 - db_handler - INFO - Init DB connection
+2019-05-02 16:00:39,952 - discord.client - INFO - logging in using static token
+2019-05-02 16:00:41,115 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-02 16:00:41,119 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-02 16:00:41,469 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-lw5f, discord-sessions-prd-1-16 (Session ID: b62e4129834938b703472e4adb0fe3ed).
+2019-05-02 16:00:43,473 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-02 16:01:34,299 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 16:01:34,319 - db_handler - INFO - Init DB connection
+2019-05-02 16:01:34,335 - db_handler - INFO - Init DB connection
+2019-05-02 16:01:34,607 - db_handler - INFO - Init DB connection
+2019-05-02 16:01:34,615 - discord.client - INFO - logging in using static token
+2019-05-02 16:01:35,753 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-02 16:01:35,765 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-02 16:01:35,957 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-2sw1, discord-sessions-prd-1-12 (Session ID: beab339b8635302a06e3ad11cc6e166a).
+2019-05-02 16:01:37,959 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-02 16:02:34,364 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 16:02:34,379 - db_handler - INFO - Init DB connection
+2019-05-02 16:02:34,394 - db_handler - INFO - Init DB connection
+2019-05-02 16:02:34,549 - db_handler - INFO - Init DB connection
+2019-05-02 16:02:34,555 - discord.client - INFO - logging in using static token
+2019-05-02 16:02:35,690 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-02 16:02:35,694 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-02 16:02:35,865 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-9h15, discord-sessions-prd-1-8 (Session ID: 67dc8edbef8de6e9fa143d046fa0f5c9).
+2019-05-02 16:02:37,868 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-02 16:04:18,290 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 16:26:32,513 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 16:26:32,528 - db_handler - INFO - Init DB connection
+2019-05-02 16:26:32,537 - db_handler - INFO - Init DB connection
+2019-05-02 16:26:32,700 - db_handler - INFO - Init DB connection
+2019-05-02 16:43:56,248 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 16:43:56,269 - db_handler - INFO - Init DB connection
+2019-05-02 16:43:56,281 - db_handler - INFO - Init DB connection
+2019-05-02 16:43:56,483 - db_handler - INFO - Init DB connection
+2019-05-02 16:43:56,496 - discord.client - INFO - logging in using static token
+2019-05-02 16:43:57,688 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-02 16:43:57,692 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-02 16:43:57,902 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-hq1t, discord-sessions-prd-1-26 (Session ID: 80f2615d6c7c2c3d2cd3653e82f98af2).
+2019-05-02 16:43:59,906 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-02 16:45:09,657 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 16:45:09,670 - db_handler - INFO - Init DB connection
+2019-05-02 16:45:09,684 - db_handler - INFO - Init DB connection
+2019-05-02 16:45:09,969 - db_handler - INFO - Init DB connection
+2019-05-02 16:45:09,996 - discord.client - INFO - logging in using static token
+2019-05-02 16:45:11,281 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-02 16:45:11,286 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-02 16:45:11,654 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-ln45, discord-sessions-prd-1-3 (Session ID: af427c4535b108d47bdab653a0e00d19).
+2019-05-02 16:45:13,658 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-02 16:46:47,970 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 16:46:47,980 - db_handler - INFO - Init DB connection
+2019-05-02 16:46:47,989 - db_handler - INFO - Init DB connection
+2019-05-02 16:46:48,158 - db_handler - INFO - Init DB connection
+2019-05-02 16:46:48,164 - discord.client - INFO - logging in using static token
+2019-05-02 16:46:49,267 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-02 16:46:49,271 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-02 16:46:49,415 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-h5b1, discord-sessions-prd-1-8 (Session ID: 456ed41d8f97c18a123d9f62d4b5de10).
+2019-05-02 16:46:51,421 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-02 16:49:44,606 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 16:49:44,616 - db_handler - INFO - Init DB connection
+2019-05-02 16:49:44,624 - db_handler - INFO - Init DB connection
+2019-05-02 16:49:44,786 - db_handler - INFO - Init DB connection
+2019-05-02 16:49:44,793 - discord.client - INFO - logging in using static token
+2019-05-02 16:49:45,899 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-02 16:49:45,902 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-02 16:49:46,113 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-xt1j, discord-sessions-prd-1-25 (Session ID: 511255c408b3ca4b01fe745079cf4714).
+2019-05-02 16:49:48,120 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-02 16:53:42,760 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 16:53:42,770 - db_handler - INFO - Init DB connection
+2019-05-02 16:53:42,784 - db_handler - INFO - Init DB connection
+2019-05-02 16:53:42,953 - db_handler - INFO - Init DB connection
+2019-05-02 16:53:42,961 - discord.client - INFO - logging in using static token
+2019-05-02 16:53:44,129 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-02 16:53:44,134 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-02 16:53:44,317 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-jg92, discord-sessions-prd-1-8 (Session ID: bc0289f568125db32236f422b37d1a7e).
+2019-05-02 16:53:46,306 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-02 16:57:05,642 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 16:57:05,663 - db_handler - INFO - Init DB connection
+2019-05-02 16:57:05,685 - db_handler - INFO - Init DB connection
+2019-05-02 16:57:05,893 - db_handler - INFO - Init DB connection
+2019-05-02 16:57:05,898 - discord.client - INFO - logging in using static token
+2019-05-02 16:57:06,959 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-02 16:57:06,961 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-02 16:57:08,197 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-xt1j, discord-sessions-prd-1-12 (Session ID: f1717e3a484ec82da1d9a3936337eaea).
+2019-05-02 16:57:08,484 - discord.gateway - WARNING - Unknown event PRESENCES_REPLACE.
+2019-05-02 16:57:10,203 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-02 17:03:24,672 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 17:03:24,679 - db_handler - INFO - Init DB connection
+2019-05-02 17:03:24,745 - db_handler - INFO - Init DB connection
+2019-05-02 17:03:24,972 - db_handler - INFO - Init DB connection
+2019-05-02 17:03:25,016 - discord.client - INFO - logging in using static token
+2019-05-02 17:03:26,410 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-02 17:03:26,415 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-02 17:03:26,597 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-vt0h, discord-sessions-prd-1-26 (Session ID: 2d57daddb816e9d3dd3ee4dde782f6c2).
+2019-05-02 17:03:28,602 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-02 17:07:04,900 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 17:07:04,916 - db_handler - INFO - Init DB connection
+2019-05-02 17:07:04,925 - db_handler - INFO - Init DB connection
+2019-05-02 17:07:05,071 - db_handler - INFO - Init DB connection
+2019-05-02 17:07:05,082 - discord.client - INFO - logging in using static token
+2019-05-02 17:07:06,114 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-02 17:07:06,117 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-02 17:07:06,259 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-s47l, discord-sessions-prd-1-6 (Session ID: 374966aa95975b00667c3e93ec019dca).
+2019-05-02 17:07:08,263 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-02 17:08:05,750 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 17:08:05,765 - db_handler - INFO - Init DB connection
+2019-05-02 17:08:05,774 - db_handler - INFO - Init DB connection
+2019-05-02 17:08:05,933 - db_handler - INFO - Init DB connection
+2019-05-02 17:08:05,940 - discord.client - INFO - logging in using static token
+2019-05-02 17:08:07,020 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-02 17:08:07,028 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-02 17:08:07,174 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-r48s, discord-sessions-prd-1-8 (Session ID: f9edbd3d71705b3404baf6b53fc8fe8a).
+2019-05-02 17:08:09,178 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-02 17:10:53,796 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 17:10:53,800 - db_handler - INFO - Init DB connection
+2019-05-02 17:10:53,808 - db_handler - INFO - Init DB connection
+2019-05-02 17:10:53,958 - db_handler - INFO - Init DB connection
+2019-05-02 19:05:32,726 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 19:05:32,735 - db_handler - INFO - Init DB connection
+2019-05-02 19:05:32,745 - db_handler - INFO - Init DB connection
+2019-05-02 19:05:32,924 - db_handler - INFO - Init DB connection
+2019-05-02 19:05:32,933 - discord.client - INFO - logging in using static token
+2019-05-02 19:05:34,416 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-02 19:05:34,420 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-02 19:05:34,616 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-01vm, discord-sessions-prd-1-29 (Session ID: b55310cf15ed7821f66352589ec7a861).
+2019-05-02 19:05:36,620 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-02 19:06:49,391 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 19:06:49,400 - db_handler - INFO - Init DB connection
+2019-05-02 19:06:49,409 - db_handler - INFO - Init DB connection
+2019-05-02 19:06:49,529 - db_handler - INFO - Init DB connection
+2019-05-02 19:06:49,535 - discord.client - INFO - logging in using static token
+2019-05-02 19:06:50,645 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-02 19:06:50,652 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-02 19:06:50,812 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-zs49, discord-sessions-prd-1-27 (Session ID: 5728daab8d101605324b0fb59d16c7e8).
+2019-05-02 19:06:52,819 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-02 19:07:31,472 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 19:07:31,481 - db_handler - INFO - Init DB connection
+2019-05-02 19:07:31,489 - db_handler - INFO - Init DB connection
+2019-05-02 19:07:31,604 - db_handler - INFO - Init DB connection
+2019-05-02 19:07:31,610 - discord.client - INFO - logging in using static token
+2019-05-02 19:07:32,762 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-02 19:07:32,770 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-02 19:07:32,968 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-jg92, discord-sessions-prd-1-14 (Session ID: 4f2283bf8ffe28d1c2d7ae5d307c827d).
+2019-05-02 19:07:34,974 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-02 19:10:09,275 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 19:10:09,286 - db_handler - INFO - Init DB connection
+2019-05-02 19:10:09,295 - db_handler - INFO - Init DB connection
+2019-05-02 19:10:09,448 - db_handler - INFO - Init DB connection
+2019-05-02 19:10:09,455 - discord.client - INFO - logging in using static token
+2019-05-02 19:10:10,807 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-02 19:10:10,813 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-02 19:10:10,975 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-2kp3, discord-sessions-prd-1-28 (Session ID: a1528f8e40d8c411d3770f497dbfe305).
+2019-05-02 19:10:12,978 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-02 19:14:33,035 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 19:14:33,041 - db_handler - INFO - Init DB connection
+2019-05-02 19:14:33,052 - db_handler - INFO - Init DB connection
+2019-05-02 19:14:33,186 - db_handler - INFO - Init DB connection
+2019-05-02 19:14:33,192 - discord.client - INFO - logging in using static token
+2019-05-02 19:14:34,474 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-02 19:14:34,480 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-02 19:14:34,662 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-njxv, discord-sessions-prd-1-26 (Session ID: afa291b24295ffe2c06da30a13d44c01).
+2019-05-02 19:14:36,669 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-02 20:58:12,773 - discord.gateway - INFO - Websocket closed with 1006 (), attempting a reconnect.
+2019-05-02 20:58:12,773 - discord.client - INFO - Got a request to RESUME the websocket.
+2019-05-02 20:58:12,986 - discord.client - ERROR - Attempting a reconnect in 0.46s
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 955, in _create_direct_connection
+    traces=traces), loop=self._loop)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 825, in _resolve_host
+    self._resolver.resolve(host, port, family=self._family)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\resolver.py", line 30, in resolve
+    host, port, type=socket.SOCK_STREAM, family=family)
+  File "d:\python3.6-64\Lib\concurrent\futures\thread.py", line 55, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "d:\python3.6-64\Lib\socket.py", line 743, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 431, in connect
+    await self._connect()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 401, in _connect
+    self.ws = await asyncio.wait_for(coro, timeout=180.0, loop=self.loop)
+  File "d:\python3.6-64\Lib\asyncio\tasks.py", line 358, in wait_for
+    return fut.result()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 219, in from_client
+    gateway = await client.http.get_gateway()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 786, in get_gateway
+    data = await self.request(Route('GET', '/gateway'))
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 158, in request
+    async with self.__session.request(method, url, **kwargs) as r:
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 1005, in __aenter__
+    self._resp = await self._coro
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 476, in _request
+    timeout=real_timeout
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 522, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 854, in _create_connection
+    req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 959, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host discordapp.com:443 ssl:None [getaddrinfo failed]
+2019-05-02 20:58:19,596 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-02 20:58:19,969 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-02 20:58:20,178 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-l1kq, discord-sessions-prd-1-18 (Session ID: 6cdc70ce96cfa5b89c9d4210d1c236f5).
+2019-05-02 20:58:22,181 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-02 20:58:42,061 - discord.gateway - WARNING - Shard ID None has stopped responding to the gateway. Closing and restarting.
+2019-05-02 21:03:48,375 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 21:03:48,380 - db_handler - INFO - Init DB connection
+2019-05-02 21:03:48,390 - db_handler - INFO - Init DB connection
+2019-05-02 21:03:48,539 - db_handler - INFO - Init DB connection
+2019-05-02 21:03:48,545 - discord.client - INFO - logging in using static token
+2019-05-02 21:03:49,818 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-02 21:03:49,827 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-02 21:03:49,997 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-z3p2, discord-sessions-prd-1-18 (Session ID: d4721d1473106d8bd6950b1629451a7d).
+2019-05-02 21:03:52,005 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-02 21:05:31,906 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 21:05:31,912 - db_handler - INFO - Init DB connection
+2019-05-02 21:05:31,923 - db_handler - INFO - Init DB connection
+2019-05-02 21:05:32,057 - db_handler - INFO - Init DB connection
+2019-05-02 21:05:32,062 - discord.client - INFO - logging in using static token
+2019-05-02 21:05:33,336 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-02 21:05:33,339 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-02 21:05:33,586 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-nzxs, discord-sessions-prd-1-9 (Session ID: 4812e965838ae4619245d3ae4674cd88).
+2019-05-02 21:05:35,591 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-02 21:21:58,476 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 21:21:58,481 - db_handler - INFO - Init DB connection
+2019-05-02 21:21:58,489 - db_handler - INFO - Init DB connection
+2019-05-02 21:21:58,607 - db_handler - INFO - Init DB connection
+2019-05-02 21:21:58,613 - discord.client - INFO - logging in using static token
+2019-05-02 21:21:59,795 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-02 21:21:59,803 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-02 21:22:00,830 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-v0r8, discord-sessions-prd-1-26 (Session ID: 6270774ddbb4dae0feb868cea5a808db).
+2019-05-02 21:22:02,837 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-02 21:45:08,455 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-02 21:45:08,458 - db_handler - INFO - Init DB connection
+2019-05-02 21:45:08,467 - db_handler - INFO - Init DB connection
+2019-05-02 21:45:08,605 - db_handler - INFO - Init DB connection
+2019-05-02 21:45:08,611 - discord.client - INFO - logging in using static token
+2019-05-02 21:45:09,728 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-02 21:45:09,733 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-02 21:45:09,894 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-890b, discord-sessions-prd-1-8 (Session ID: ca875fdf3dfbb2a29b34312064281ed6).
+2019-05-02 21:45:11,904 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-03 11:46:56,108 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-03 11:46:56,155 - db_handler - INFO - Init DB connection
+2019-05-03 11:46:56,165 - db_handler - INFO - Init DB connection
+2019-05-03 11:46:56,426 - db_handler - INFO - Init DB connection
+2019-05-03 11:47:51,445 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-03 11:47:51,449 - db_handler - INFO - Init DB connection
+2019-05-03 11:47:51,461 - db_handler - INFO - Init DB connection
+2019-05-03 11:47:51,643 - db_handler - INFO - Init DB connection
+2019-05-04 15:42:18,433 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-04 15:42:18,473 - discord.client - INFO - logging in using static token
+2019-05-04 15:42:20,102 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-04 15:42:20,116 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-04 15:42:20,319 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-xsd1, discord-sessions-prd-1-22 (Session ID: 39be72af2a95b30c64201d3710ab92d1).
+2019-05-04 15:49:04,212 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-04 15:49:04,521 - discord.client - INFO - logging in using static token
+2019-05-04 15:49:05,968 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-04 15:49:05,974 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-04 15:49:06,159 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-bnfw, discord-sessions-prd-1-26 (Session ID: ec6c66fa85d1410906ffacd1441efa35).
+2019-05-04 19:01:58,578 - discord.gateway - INFO - Websocket closed with 1006 (), attempting a reconnect.
+2019-05-04 19:01:58,578 - discord.client - INFO - Got a request to RESUME the websocket.
+2019-05-04 19:01:58,687 - discord.client - ERROR - Attempting a reconnect in 0.07s
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 955, in _create_direct_connection
+    traces=traces), loop=self._loop)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 825, in _resolve_host
+    self._resolver.resolve(host, port, family=self._family)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\resolver.py", line 30, in resolve
+    host, port, type=socket.SOCK_STREAM, family=family)
+  File "d:\python3.6-64\Lib\concurrent\futures\thread.py", line 55, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "d:\python3.6-64\Lib\socket.py", line 743, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 431, in connect
+    await self._connect()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 401, in _connect
+    self.ws = await asyncio.wait_for(coro, timeout=180.0, loop=self.loop)
+  File "d:\python3.6-64\Lib\asyncio\tasks.py", line 358, in wait_for
+    return fut.result()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 219, in from_client
+    gateway = await client.http.get_gateway()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 786, in get_gateway
+    data = await self.request(Route('GET', '/gateway'))
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 158, in request
+    async with self.__session.request(method, url, **kwargs) as r:
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 1005, in __aenter__
+    self._resp = await self._coro
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 476, in _request
+    timeout=real_timeout
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 522, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 854, in _create_connection
+    req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 959, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host discordapp.com:443 ssl:None [getaddrinfo failed]
+2019-05-04 19:02:02,450 - discord.client - ERROR - Attempting a reconnect in 3.28s
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 955, in _create_direct_connection
+    traces=traces), loop=self._loop)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 825, in _resolve_host
+    self._resolver.resolve(host, port, family=self._family)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\resolver.py", line 30, in resolve
+    host, port, type=socket.SOCK_STREAM, family=family)
+  File "d:\python3.6-64\Lib\concurrent\futures\thread.py", line 55, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "d:\python3.6-64\Lib\socket.py", line 743, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 431, in connect
+    await self._connect()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 392, in _connect
+    self.ws = await asyncio.wait_for(coro, timeout=180.0, loop=self.loop)
+  File "d:\python3.6-64\Lib\asyncio\tasks.py", line 358, in wait_for
+    return fut.result()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 219, in from_client
+    gateway = await client.http.get_gateway()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 786, in get_gateway
+    data = await self.request(Route('GET', '/gateway'))
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 158, in request
+    async with self.__session.request(method, url, **kwargs) as r:
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 1005, in __aenter__
+    self._resp = await self._coro
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 476, in _request
+    timeout=real_timeout
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 522, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 854, in _create_connection
+    req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 959, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host discordapp.com:443 ssl:None [getaddrinfo failed]
+2019-05-04 19:02:04,985 - discord.gateway - WARNING - Shard ID None has stopped responding to the gateway. Closing and restarting.
+2019-05-04 19:02:06,007 - discord.client - ERROR - Attempting a reconnect in 0.94s
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 955, in _create_direct_connection
+    traces=traces), loop=self._loop)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 825, in _resolve_host
+    self._resolver.resolve(host, port, family=self._family)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\resolver.py", line 30, in resolve
+    host, port, type=socket.SOCK_STREAM, family=family)
+  File "d:\python3.6-64\Lib\concurrent\futures\thread.py", line 55, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "d:\python3.6-64\Lib\socket.py", line 743, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 431, in connect
+    await self._connect()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 392, in _connect
+    self.ws = await asyncio.wait_for(coro, timeout=180.0, loop=self.loop)
+  File "d:\python3.6-64\Lib\asyncio\tasks.py", line 358, in wait_for
+    return fut.result()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 219, in from_client
+    gateway = await client.http.get_gateway()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 786, in get_gateway
+    data = await self.request(Route('GET', '/gateway'))
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 158, in request
+    async with self.__session.request(method, url, **kwargs) as r:
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 1005, in __aenter__
+    self._resp = await self._coro
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 476, in _request
+    timeout=real_timeout
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 522, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 854, in _create_connection
+    req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 959, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host discordapp.com:443 ssl:None [getaddrinfo failed]
+2019-05-04 19:02:07,164 - discord.client - ERROR - Attempting a reconnect in 2.45s
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 955, in _create_direct_connection
+    traces=traces), loop=self._loop)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 825, in _resolve_host
+    self._resolver.resolve(host, port, family=self._family)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\resolver.py", line 30, in resolve
+    host, port, type=socket.SOCK_STREAM, family=family)
+  File "d:\python3.6-64\Lib\concurrent\futures\thread.py", line 55, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "d:\python3.6-64\Lib\socket.py", line 743, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 431, in connect
+    await self._connect()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 392, in _connect
+    self.ws = await asyncio.wait_for(coro, timeout=180.0, loop=self.loop)
+  File "d:\python3.6-64\Lib\asyncio\tasks.py", line 358, in wait_for
+    return fut.result()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 219, in from_client
+    gateway = await client.http.get_gateway()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 786, in get_gateway
+    data = await self.request(Route('GET', '/gateway'))
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 158, in request
+    async with self.__session.request(method, url, **kwargs) as r:
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 1005, in __aenter__
+    self._resp = await self._coro
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 476, in _request
+    timeout=real_timeout
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 522, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 854, in _create_connection
+    req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 959, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host discordapp.com:443 ssl:None [getaddrinfo failed]
+2019-05-04 19:02:11,118 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-04 19:02:11,233 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-04 20:18:59,460 - discord.gateway - INFO - Websocket closed with 1006 (), attempting a reconnect.
+2019-05-04 20:18:59,461 - discord.client - INFO - Got a request to RESUME the websocket.
+2019-05-04 20:19:02,374 - discord.client - ERROR - Attempting a reconnect in 0.06s
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 955, in _create_direct_connection
+    traces=traces), loop=self._loop)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 825, in _resolve_host
+    self._resolver.resolve(host, port, family=self._family)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\resolver.py", line 30, in resolve
+    host, port, type=socket.SOCK_STREAM, family=family)
+  File "d:\python3.6-64\Lib\concurrent\futures\thread.py", line 55, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "d:\python3.6-64\Lib\socket.py", line 743, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 431, in connect
+    await self._connect()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 401, in _connect
+    self.ws = await asyncio.wait_for(coro, timeout=180.0, loop=self.loop)
+  File "d:\python3.6-64\Lib\asyncio\tasks.py", line 358, in wait_for
+    return fut.result()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 219, in from_client
+    gateway = await client.http.get_gateway()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 786, in get_gateway
+    data = await self.request(Route('GET', '/gateway'))
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 158, in request
+    async with self.__session.request(method, url, **kwargs) as r:
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 1005, in __aenter__
+    self._resp = await self._coro
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 476, in _request
+    timeout=real_timeout
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 522, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 854, in _create_connection
+    req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 959, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host discordapp.com:443 ssl:None [getaddrinfo failed]
+2019-05-04 20:19:04,137 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-04 20:19:04,485 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-04 20:19:04,760 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-26fh, discord-sessions-prd-1-17 (Session ID: 3abf74ff9b99087413aca32650e280bc).
+2019-05-04 20:19:21,911 - discord.gateway - WARNING - Shard ID None has stopped responding to the gateway. Closing and restarting.
+2019-05-04 20:58:46,314 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-04 21:00:21,071 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-04 21:00:21,369 - db_handler - INFO - Init DB connection
+2019-05-04 21:00:21,433 - db_handler - INFO - Init DB connection
+2019-05-04 21:00:21,898 - db_handler - INFO - Init DB connection
+2019-05-04 21:00:21,913 - discord.client - INFO - logging in using static token
+2019-05-04 21:00:23,019 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-04 21:00:23,025 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-04 21:00:23,224 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-dg6v, discord-sessions-prd-1-5 (Session ID: fe9feb2c3685f401da2bd46dcc85e039).
+2019-05-04 21:00:25,230 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-04 21:01:27,796 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-04 21:01:27,799 - db_handler - INFO - Init DB connection
+2019-05-04 21:01:27,807 - db_handler - INFO - Init DB connection
+2019-05-04 21:01:27,926 - db_handler - INFO - Init DB connection
+2019-05-04 21:01:28,216 - discord.client - INFO - logging in using static token
+2019-05-04 21:01:29,212 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-04 21:01:29,217 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-04 21:01:29,937 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-4x4m, discord-sessions-prd-1-16 (Session ID: da66376dcea7f98c0cf6e2f589dac78d).
+2019-05-04 21:01:31,941 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-04 21:03:57,036 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-04 21:03:57,038 - db_handler - INFO - Init DB connection
+2019-05-04 21:03:57,047 - db_handler - INFO - Init DB connection
+2019-05-04 21:03:57,153 - db_handler - INFO - Init DB connection
+2019-05-04 21:03:57,160 - discord.client - INFO - logging in using static token
+2019-05-04 21:03:58,528 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-04 21:03:58,532 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-04 21:03:58,698 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-1lwq, discord-sessions-prd-1-21 (Session ID: 95fb42c758b0880c333cf95526f71164).
+2019-05-04 21:04:00,690 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-04 21:04:52,977 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-04 21:04:52,980 - db_handler - INFO - Init DB connection
+2019-05-04 21:04:52,988 - db_handler - INFO - Init DB connection
+2019-05-04 21:04:53,095 - db_handler - INFO - Init DB connection
+2019-05-04 21:04:53,102 - discord.client - INFO - logging in using static token
+2019-05-04 21:04:54,128 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-04 21:04:54,137 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-04 21:04:54,334 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-vt0h, discord-sessions-prd-1-17 (Session ID: df009d4c183e5bdeb524d90cc283dd91).
+2019-05-04 21:04:56,338 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-04 21:06:58,131 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-04 21:06:58,134 - db_handler - INFO - Init DB connection
+2019-05-04 21:06:58,141 - db_handler - INFO - Init DB connection
+2019-05-04 21:06:58,246 - db_handler - INFO - Init DB connection
+2019-05-04 21:06:58,253 - discord.client - INFO - logging in using static token
+2019-05-04 21:06:59,407 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-04 21:06:59,409 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-04 21:06:59,569 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-rwdh, discord-sessions-prd-1-2 (Session ID: 85ea83f18527c198e3dc179bbfa20143).
+2019-05-04 21:07:01,578 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-04 21:09:22,243 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-04 21:09:22,247 - db_handler - INFO - Init DB connection
+2019-05-04 21:09:22,275 - db_handler - INFO - Init DB connection
+2019-05-04 21:09:22,419 - db_handler - INFO - Init DB connection
+2019-05-04 21:09:22,427 - discord.client - INFO - logging in using static token
+2019-05-04 21:09:23,462 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-04 21:09:23,467 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-04 21:09:24,051 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-1wpr, discord-sessions-prd-1-2 (Session ID: 2358a89f2862a81e0652e8fe3094d624).
+2019-05-04 21:09:26,057 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-04 21:10:46,903 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-04 21:10:46,906 - db_handler - INFO - Init DB connection
+2019-05-04 21:10:46,915 - db_handler - INFO - Init DB connection
+2019-05-04 21:10:47,033 - db_handler - INFO - Init DB connection
+2019-05-04 21:10:47,040 - discord.client - INFO - logging in using static token
+2019-05-04 21:10:48,282 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-04 21:10:48,284 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-04 21:10:48,518 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-9xgj, discord-sessions-prd-1-24 (Session ID: e0013a0ec99ee0d4003cf436cd8564a1).
+2019-05-04 21:10:50,524 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-04 21:14:11,733 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-04 21:14:11,736 - db_handler - INFO - Init DB connection
+2019-05-04 21:14:11,744 - db_handler - INFO - Init DB connection
+2019-05-04 21:14:11,858 - db_handler - INFO - Init DB connection
+2019-05-04 21:14:11,866 - discord.client - INFO - logging in using static token
+2019-05-04 21:14:13,049 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-04 21:14:13,054 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-04 21:14:13,264 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-bvj9, discord-sessions-prd-1-9 (Session ID: e2d50ec065bba2fec467eda85194b21a).
+2019-05-04 21:14:15,269 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-04 21:14:36,524 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-04 21:14:36,527 - db_handler - INFO - Init DB connection
+2019-05-04 21:14:36,536 - db_handler - INFO - Init DB connection
+2019-05-04 21:14:36,670 - db_handler - INFO - Init DB connection
+2019-05-04 21:14:36,677 - discord.client - INFO - logging in using static token
+2019-05-04 21:14:37,759 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-04 21:14:37,761 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-04 21:14:37,977 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-10mv, discord-sessions-prd-1-12 (Session ID: 5ff2e713213b06a85d7e51be70b20f63).
+2019-05-04 21:14:39,972 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-04 21:16:44,534 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-04 21:16:44,537 - db_handler - INFO - Init DB connection
+2019-05-04 21:16:44,545 - db_handler - INFO - Init DB connection
+2019-05-04 21:16:44,645 - db_handler - INFO - Init DB connection
+2019-05-04 21:16:44,653 - discord.client - INFO - logging in using static token
+2019-05-04 21:16:45,913 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-04 21:16:46,028 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-04 21:16:46,497 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-gfs7, discord-sessions-prd-1-6 (Session ID: b02076f51992d77aa0f49d93bfec5eb8).
+2019-05-04 21:16:48,494 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-04 21:17:20,700 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-04 21:17:20,706 - db_handler - INFO - Init DB connection
+2019-05-04 21:17:20,722 - db_handler - INFO - Init DB connection
+2019-05-04 21:17:20,915 - db_handler - INFO - Init DB connection
+2019-05-04 21:17:20,936 - discord.client - INFO - logging in using static token
+2019-05-04 21:17:22,783 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-04 21:17:22,822 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-04 21:17:23,211 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-hq1t, discord-sessions-prd-1-8 (Session ID: 71319be4a71dd0a03f2fc588b834e23a).
+2019-05-04 21:17:25,210 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-04 21:19:27,022 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-04 21:19:27,025 - db_handler - INFO - Init DB connection
+2019-05-04 21:19:27,033 - db_handler - INFO - Init DB connection
+2019-05-04 21:19:27,147 - db_handler - INFO - Init DB connection
+2019-05-04 21:19:27,156 - discord.client - INFO - logging in using static token
+2019-05-04 21:19:28,237 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-04 21:19:28,244 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-04 21:19:28,442 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-qv96, discord-sessions-prd-1-2 (Session ID: 85464c283ecc6039cc728363106c1876).
+2019-05-04 21:19:30,449 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-04 21:19:58,619 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-04 21:19:58,622 - db_handler - INFO - Init DB connection
+2019-05-04 21:19:58,630 - db_handler - INFO - Init DB connection
+2019-05-04 21:19:58,738 - db_handler - INFO - Init DB connection
+2019-05-04 21:19:58,750 - discord.client - INFO - logging in using static token
+2019-05-04 21:19:59,938 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-04 21:19:59,946 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-04 21:20:00,164 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-nrxf, discord-sessions-prd-1-13 (Session ID: e9d23dae5eb3b16f1e0a34b318567b7a).
+2019-05-04 21:20:02,166 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-04 21:22:30,850 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-04 21:22:30,852 - db_handler - INFO - Init DB connection
+2019-05-04 21:22:30,860 - db_handler - INFO - Init DB connection
+2019-05-04 21:22:30,978 - db_handler - INFO - Init DB connection
+2019-05-04 21:22:30,992 - discord.client - INFO - logging in using static token
+2019-05-04 21:22:32,213 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-04 21:22:32,255 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-04 21:22:33,497 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-xp0j, discord-sessions-prd-1-20 (Session ID: 089c816644b63ac344be7bc131ab99c6).
+2019-05-04 21:22:35,488 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-04 21:23:19,947 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-04 21:23:19,949 - db_handler - INFO - Init DB connection
+2019-05-04 21:23:19,957 - db_handler - INFO - Init DB connection
+2019-05-04 21:23:20,063 - db_handler - INFO - Init DB connection
+2019-05-04 21:23:20,070 - discord.client - INFO - logging in using static token
+2019-05-04 21:23:21,055 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-04 21:23:21,064 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-04 21:23:21,229 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-dg6v, discord-sessions-prd-1-6 (Session ID: 7ff81b62f3aabc6300abafcae28f58a2).
+2019-05-04 21:23:23,234 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-04 21:25:17,459 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-04 21:25:17,462 - db_handler - INFO - Init DB connection
+2019-05-04 21:25:17,469 - db_handler - INFO - Init DB connection
+2019-05-04 21:25:17,593 - db_handler - INFO - Init DB connection
+2019-05-04 21:25:17,601 - discord.client - INFO - logging in using static token
+2019-05-04 21:25:18,596 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-04 21:25:18,600 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-04 21:25:18,834 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-v0r8, discord-sessions-prd-1-27 (Session ID: 3baf361b0861c5b5310d31a5a67f4584).
+2019-05-04 21:25:20,839 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-04 21:26:12,735 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-04 21:26:12,738 - db_handler - INFO - Init DB connection
+2019-05-04 21:26:12,747 - db_handler - INFO - Init DB connection
+2019-05-04 21:26:12,871 - db_handler - INFO - Init DB connection
+2019-05-04 21:26:12,883 - discord.client - INFO - logging in using static token
+2019-05-04 21:26:14,381 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-04 21:26:14,585 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-04 21:26:15,061 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-2kp3, discord-sessions-prd-1-2 (Session ID: e1baf382751de142520656e6725243fb).
+2019-05-04 21:26:17,075 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-04 21:28:21,160 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-04 21:28:21,163 - db_handler - INFO - Init DB connection
+2019-05-04 21:28:21,172 - db_handler - INFO - Init DB connection
+2019-05-04 21:28:21,287 - db_handler - INFO - Init DB connection
+2019-05-04 21:28:21,296 - discord.client - INFO - logging in using static token
+2019-05-04 21:28:22,358 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-04 21:28:22,362 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-04 21:28:22,853 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-9xgj, discord-sessions-prd-1-5 (Session ID: 99c6f8b4cb032f73f2adbecdfed957e4).
+2019-05-04 21:28:24,857 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-04 21:29:31,134 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-04 21:29:31,136 - db_handler - INFO - Init DB connection
+2019-05-04 21:29:31,144 - db_handler - INFO - Init DB connection
+2019-05-04 21:29:31,262 - db_handler - INFO - Init DB connection
+2019-05-04 21:29:31,269 - discord.client - INFO - logging in using static token
+2019-05-04 21:29:32,315 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-04 21:29:32,320 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-04 21:29:32,960 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-26sm, discord-sessions-prd-1-18 (Session ID: 72b97f488911648d3329a3cbe746fe45).
+2019-05-04 21:29:34,968 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-04 21:38:23,201 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-04 21:38:23,204 - db_handler - INFO - Init DB connection
+2019-05-04 21:38:23,211 - db_handler - INFO - Init DB connection
+2019-05-04 21:38:23,326 - db_handler - INFO - Init DB connection
+2019-05-04 21:38:23,334 - discord.client - INFO - logging in using static token
+2019-05-04 21:38:24,840 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-04 21:38:24,844 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-04 21:38:25,089 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-l420, discord-sessions-prd-1-9 (Session ID: 351797a04b5b86fa0b43258efaeb1b10).
+2019-05-04 21:38:27,092 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-04 21:39:46,245 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-04 21:39:46,248 - db_handler - INFO - Init DB connection
+2019-05-04 21:39:46,257 - db_handler - INFO - Init DB connection
+2019-05-04 21:39:46,377 - db_handler - INFO - Init DB connection
+2019-05-04 21:39:46,392 - discord.client - INFO - logging in using static token
+2019-05-04 21:39:47,495 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-04 21:39:47,503 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-04 21:39:47,781 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-z0zz, discord-sessions-prd-1-9 (Session ID: a817ed5ac9f3d4f741fd62b7896d54c6).
+2019-05-04 21:39:49,785 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-04 21:42:15,616 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-04 21:42:15,619 - db_handler - INFO - Init DB connection
+2019-05-04 21:42:15,632 - db_handler - INFO - Init DB connection
+2019-05-04 21:42:15,795 - db_handler - INFO - Init DB connection
+2019-05-04 21:42:15,814 - discord.client - INFO - logging in using static token
+2019-05-04 21:42:17,079 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-04 21:42:17,084 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-04 21:42:17,256 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-98g6, discord-sessions-prd-1-27 (Session ID: 7617e2a6ae84a51abaf976aca4776be5).
+2019-05-04 21:42:19,262 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-04 21:52:39,549 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-04 21:52:39,556 - db_handler - INFO - Init DB connection
+2019-05-04 21:52:39,573 - db_handler - INFO - Init DB connection
+2019-05-04 21:52:39,748 - db_handler - INFO - Init DB connection
+2019-05-04 21:52:39,774 - discord.client - INFO - logging in using static token
+2019-05-04 21:52:41,101 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-04 21:52:41,119 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-04 21:52:41,409 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-0q5p, discord-sessions-prd-1-26 (Session ID: 20b6cbb3c69ec06c8e73104ed7a2c8cc).
+2019-05-04 21:52:43,419 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-04 21:53:27,369 - discord.gateway - WARNING - Heartbeat blocked for more than 5 seconds.
+2019-05-04 21:53:32,376 - discord.gateway - WARNING - Heartbeat blocked for more than 10 seconds.
+2019-05-04 21:53:37,382 - discord.gateway - WARNING - Heartbeat blocked for more than 15 seconds.
+2019-05-04 21:53:43,183 - discord.gateway - INFO - Websocket closed with 1000 (), cannot reconnect.
+2019-05-04 21:53:43,187 - discord.client - ERROR - Attempting a reconnect in 1.01s
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 464, in poll_event
+    msg = await self.recv()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\websockets\protocol.py", line 350, in recv
+    yield from self.ensure_open()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\websockets\protocol.py", line 512, in ensure_open
+    self.close_code, self.close_reason) from self.transfer_data_exc
+websockets.exceptions.ConnectionClosed: WebSocket connection is closed: code = 1000 (OK), no reason
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 431, in connect
+    await self._connect()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 395, in _connect
+    await self.ws.poll_event()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 472, in poll_event
+    raise ConnectionClosed(exc, shard_id=self.shard_id) from exc
+discord.errors.ConnectionClosed: WebSocket connection is closed: code = 1000 (OK), no reason
+2019-05-04 21:55:14,932 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-04 21:55:14,934 - db_handler - INFO - Init DB connection
+2019-05-04 21:55:14,943 - db_handler - INFO - Init DB connection
+2019-05-04 21:55:15,046 - db_handler - INFO - Init DB connection
+2019-05-04 21:55:15,058 - discord.client - INFO - logging in using static token
+2019-05-04 21:55:16,092 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-04 21:55:16,100 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-04 21:55:16,265 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-lzc4, discord-sessions-prd-1-23 (Session ID: bf460a811ddf3228d2050d11984fa06d).
+2019-05-04 21:55:18,272 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-04 21:56:46,025 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-04 21:56:46,028 - db_handler - INFO - Init DB connection
+2019-05-04 21:56:46,038 - db_handler - INFO - Init DB connection
+2019-05-04 21:56:46,145 - db_handler - INFO - Init DB connection
+2019-05-04 21:56:46,157 - discord.client - INFO - logging in using static token
+2019-05-04 21:56:47,255 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-04 21:56:47,260 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-04 21:56:47,513 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-bm08, discord-sessions-prd-1-22 (Session ID: acdfbbf1ab241f86b0f21e5639a68d6b).
+2019-05-04 21:56:49,521 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-04 21:58:03,489 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-04 21:58:03,492 - db_handler - INFO - Init DB connection
+2019-05-04 21:58:03,500 - db_handler - INFO - Init DB connection
+2019-05-04 21:58:03,680 - db_handler - INFO - Init DB connection
+2019-05-04 21:58:03,713 - discord.client - INFO - logging in using static token
+2019-05-04 21:58:04,753 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-04 21:58:04,757 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-04 21:58:04,937 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-xt1j, discord-sessions-prd-1-14 (Session ID: 93ffdd1cbb8e50c6a4a9d1522494312a).
+2019-05-04 21:58:06,941 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-04 22:03:12,024 - db_handler - INFO - {'ally_code': 376764962} found for 143651954919342080
+2019-05-04 22:03:13,622 - swgoh_handler - INFO - Response 200 OK
+2019-05-04 22:03:13,643 - db_handler - INFO - User update DONE with new 2019-05-04 progress data
+2019-05-04 22:03:26,766 - db_handler - INFO - {'ally_code': 567793738} found for 396358001646108691
+2019-05-04 22:03:28,191 - swgoh_handler - INFO - Response 200 OK
+2019-05-04 22:03:28,216 - db_handler - INFO - User update DONE with new 2019-05-04 progress data
+2019-05-04 22:03:37,508 - db_handler - INFO - {'ally_code': 471941296} found for 269074011185610762
+2019-05-04 22:03:38,942 - swgoh_handler - INFO - Response 200 OK
+2019-05-04 22:03:38,989 - db_handler - INFO - User update DONE with new 2019-05-04 progress data
+2019-05-04 22:03:54,060 - db_handler - INFO - {'ally_code': 999134554} found for 353891399550238721
+2019-05-04 22:03:55,689 - swgoh_handler - INFO - Response 200 OK
+2019-05-04 22:03:55,726 - db_handler - INFO - User update DONE with new 2019-05-04 progress data

@@ -679,3 +679,263 @@ Traceback (most recent call last):
   File "d:\python3.6-64\Lib\socket.py", line 743, in getaddrinfo
     for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
 socket.gaierror: [Errno 11001] getaddrinfo failed
+2019-05-02 20:58:12,986 - discord.client - ERROR - Attempting a reconnect in 0.46s
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 955, in _create_direct_connection
+    traces=traces), loop=self._loop)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 825, in _resolve_host
+    self._resolver.resolve(host, port, family=self._family)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\resolver.py", line 30, in resolve
+    host, port, type=socket.SOCK_STREAM, family=family)
+  File "d:\python3.6-64\Lib\concurrent\futures\thread.py", line 55, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "d:\python3.6-64\Lib\socket.py", line 743, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 431, in connect
+    await self._connect()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 401, in _connect
+    self.ws = await asyncio.wait_for(coro, timeout=180.0, loop=self.loop)
+  File "d:\python3.6-64\Lib\asyncio\tasks.py", line 358, in wait_for
+    return fut.result()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 219, in from_client
+    gateway = await client.http.get_gateway()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 786, in get_gateway
+    data = await self.request(Route('GET', '/gateway'))
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 158, in request
+    async with self.__session.request(method, url, **kwargs) as r:
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 1005, in __aenter__
+    self._resp = await self._coro
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 476, in _request
+    timeout=real_timeout
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 522, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 854, in _create_connection
+    req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 959, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host discordapp.com:443 ssl:None [getaddrinfo failed]
+2019-05-04 19:01:58,687 - discord.client - ERROR - Attempting a reconnect in 0.07s
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 955, in _create_direct_connection
+    traces=traces), loop=self._loop)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 825, in _resolve_host
+    self._resolver.resolve(host, port, family=self._family)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\resolver.py", line 30, in resolve
+    host, port, type=socket.SOCK_STREAM, family=family)
+  File "d:\python3.6-64\Lib\concurrent\futures\thread.py", line 55, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "d:\python3.6-64\Lib\socket.py", line 743, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 431, in connect
+    await self._connect()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 401, in _connect
+    self.ws = await asyncio.wait_for(coro, timeout=180.0, loop=self.loop)
+  File "d:\python3.6-64\Lib\asyncio\tasks.py", line 358, in wait_for
+    return fut.result()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 219, in from_client
+    gateway = await client.http.get_gateway()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 786, in get_gateway
+    data = await self.request(Route('GET', '/gateway'))
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 158, in request
+    async with self.__session.request(method, url, **kwargs) as r:
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 1005, in __aenter__
+    self._resp = await self._coro
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 476, in _request
+    timeout=real_timeout
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 522, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 854, in _create_connection
+    req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 959, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host discordapp.com:443 ssl:None [getaddrinfo failed]
+2019-05-04 19:02:02,450 - discord.client - ERROR - Attempting a reconnect in 3.28s
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 955, in _create_direct_connection
+    traces=traces), loop=self._loop)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 825, in _resolve_host
+    self._resolver.resolve(host, port, family=self._family)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\resolver.py", line 30, in resolve
+    host, port, type=socket.SOCK_STREAM, family=family)
+  File "d:\python3.6-64\Lib\concurrent\futures\thread.py", line 55, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "d:\python3.6-64\Lib\socket.py", line 743, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 431, in connect
+    await self._connect()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 392, in _connect
+    self.ws = await asyncio.wait_for(coro, timeout=180.0, loop=self.loop)
+  File "d:\python3.6-64\Lib\asyncio\tasks.py", line 358, in wait_for
+    return fut.result()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 219, in from_client
+    gateway = await client.http.get_gateway()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 786, in get_gateway
+    data = await self.request(Route('GET', '/gateway'))
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 158, in request
+    async with self.__session.request(method, url, **kwargs) as r:
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 1005, in __aenter__
+    self._resp = await self._coro
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 476, in _request
+    timeout=real_timeout
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 522, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 854, in _create_connection
+    req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 959, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host discordapp.com:443 ssl:None [getaddrinfo failed]
+2019-05-04 19:02:06,007 - discord.client - ERROR - Attempting a reconnect in 0.94s
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 955, in _create_direct_connection
+    traces=traces), loop=self._loop)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 825, in _resolve_host
+    self._resolver.resolve(host, port, family=self._family)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\resolver.py", line 30, in resolve
+    host, port, type=socket.SOCK_STREAM, family=family)
+  File "d:\python3.6-64\Lib\concurrent\futures\thread.py", line 55, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "d:\python3.6-64\Lib\socket.py", line 743, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 431, in connect
+    await self._connect()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 392, in _connect
+    self.ws = await asyncio.wait_for(coro, timeout=180.0, loop=self.loop)
+  File "d:\python3.6-64\Lib\asyncio\tasks.py", line 358, in wait_for
+    return fut.result()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 219, in from_client
+    gateway = await client.http.get_gateway()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 786, in get_gateway
+    data = await self.request(Route('GET', '/gateway'))
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 158, in request
+    async with self.__session.request(method, url, **kwargs) as r:
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 1005, in __aenter__
+    self._resp = await self._coro
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 476, in _request
+    timeout=real_timeout
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 522, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 854, in _create_connection
+    req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 959, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host discordapp.com:443 ssl:None [getaddrinfo failed]
+2019-05-04 19:02:07,164 - discord.client - ERROR - Attempting a reconnect in 2.45s
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 955, in _create_direct_connection
+    traces=traces), loop=self._loop)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 825, in _resolve_host
+    self._resolver.resolve(host, port, family=self._family)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\resolver.py", line 30, in resolve
+    host, port, type=socket.SOCK_STREAM, family=family)
+  File "d:\python3.6-64\Lib\concurrent\futures\thread.py", line 55, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "d:\python3.6-64\Lib\socket.py", line 743, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 431, in connect
+    await self._connect()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 392, in _connect
+    self.ws = await asyncio.wait_for(coro, timeout=180.0, loop=self.loop)
+  File "d:\python3.6-64\Lib\asyncio\tasks.py", line 358, in wait_for
+    return fut.result()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 219, in from_client
+    gateway = await client.http.get_gateway()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 786, in get_gateway
+    data = await self.request(Route('GET', '/gateway'))
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 158, in request
+    async with self.__session.request(method, url, **kwargs) as r:
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 1005, in __aenter__
+    self._resp = await self._coro
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 476, in _request
+    timeout=real_timeout
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 522, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 854, in _create_connection
+    req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 959, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host discordapp.com:443 ssl:None [getaddrinfo failed]
+2019-05-04 20:19:02,374 - discord.client - ERROR - Attempting a reconnect in 0.06s
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 955, in _create_direct_connection
+    traces=traces), loop=self._loop)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 825, in _resolve_host
+    self._resolver.resolve(host, port, family=self._family)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\resolver.py", line 30, in resolve
+    host, port, type=socket.SOCK_STREAM, family=family)
+  File "d:\python3.6-64\Lib\concurrent\futures\thread.py", line 55, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "d:\python3.6-64\Lib\socket.py", line 743, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 431, in connect
+    await self._connect()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 401, in _connect
+    self.ws = await asyncio.wait_for(coro, timeout=180.0, loop=self.loop)
+  File "d:\python3.6-64\Lib\asyncio\tasks.py", line 358, in wait_for
+    return fut.result()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 219, in from_client
+    gateway = await client.http.get_gateway()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 786, in get_gateway
+    data = await self.request(Route('GET', '/gateway'))
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 158, in request
+    async with self.__session.request(method, url, **kwargs) as r:
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 1005, in __aenter__
+    self._resp = await self._coro
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 476, in _request
+    timeout=real_timeout
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 522, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 854, in _create_connection
+    req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 959, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host discordapp.com:443 ssl:None [getaddrinfo failed]
+2019-05-04 21:53:43,187 - discord.client - ERROR - Attempting a reconnect in 1.01s
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 464, in poll_event
+    msg = await self.recv()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\websockets\protocol.py", line 350, in recv
+    yield from self.ensure_open()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\websockets\protocol.py", line 512, in ensure_open
+    self.close_code, self.close_reason) from self.transfer_data_exc
+websockets.exceptions.ConnectionClosed: WebSocket connection is closed: code = 1000 (OK), no reason
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 431, in connect
+    await self._connect()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 395, in _connect
+    await self.ws.poll_event()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 472, in poll_event
+    raise ConnectionClosed(exc, shard_id=self.shard_id) from exc
+discord.errors.ConnectionClosed: WebSocket connection is closed: code = 1000 (OK), no reason

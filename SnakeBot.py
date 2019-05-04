@@ -6,6 +6,7 @@ import logging.config
 import discord
 from discord.ext import commands
 from discord import Game
+import asyncio
 
 import db_handler as mongo
 # Define logger ---------------------------------------------------------
@@ -34,23 +35,29 @@ setup_logging()
 
 #Setup base Discord Bot ------------------------------------------------------
 
-
-BOT_PREFIX = ("?", "!")
-TOKEN = "NTU4MjI0MDYyMTY2MzM1NTA5.D3TwfA.O8FZKYREf8DCy8BniYQeEfuei4A"
-SERVER_ID = "558221252024598539"
-
+class MyClient(commands.Bot):
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
 
 
+            self.BOT_PREFIX = ("?", "!")
+            self.SERVER_ID = "558221252024598539"
 
+            
 
-bot = commands.Bot(command_prefix = 'snk ')
+            
 
+        #OnReady Message
+        async def on_ready(self):
+            print('We have logged in as {0.user}'.format(self))
+            await self.change_presence(activity=Game(name="Under Development"))
+            logger.info('We have logged in as {0.user}'.format(self))
 
-@bot.event
-async def on_ready():
-    print('We have logged in as {0.user}'.format(bot))
-    await bot.change_presence(activity=Game(name="Under Development"))
         
+bot = MyClient(command_prefix = 'snk ')
+
+
+
 @bot.command(aliases= ['l'])
 async def load(ctx, extension):
     try:
@@ -77,7 +84,7 @@ async def unload(ctx, extension):
 
 # -----------------------------------------
 
-extensions = ['cmdReg', 'cmdEmbed', 'cmdCheckUser', 'cmdGetLinks'] 
+extensions = ['cmdReg', 'cmdEmbed', 'cmdCheckUser', 'cmdGetLinks', 'bg'] 
 
 if __name__ == '__main__':
     for extension in extensions:
@@ -86,6 +93,13 @@ if __name__ == '__main__':
             print ('{} is loaded.'.format(extension))
         except Exception as error:
             print ('{} cannot be loaded. [{}]'.format(extension, error))
+
+#BG Tasks ---------------------------------------------
+
+
+
+
+TOKEN = "NTU4MjI0MDYyMTY2MzM1NTA5.D3TwfA.O8FZKYREf8DCy8BniYQeEfuei4A"
 
 
 
