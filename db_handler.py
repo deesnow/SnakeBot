@@ -191,6 +191,26 @@ class Db_handler(object):
         except Exception as error:
             self.logger.exception('User update is FAILED')
             return "Failed"
+
+    def listsaves(self, discord_id):
+        self.col_discord = self.mydb['discordUsers_Test']
+        self.discord_id = discord_id
+        self.query = {'discord_id': self.discord_id, 'roster': {"$exists" : True}}
+        self.saves = {}
+
+        try:
+            self.roster_saves = self.col_discord.find_one(self.query, {'roster':1})['roster']
+            for self.save in self.roster_saves:
+                try:
+                    self.date = self.roster_saves[self.save]['date']
+                except:
+                    self.date = 'Not_Saved'
+                self.saves[self.save] = self.date
+            return self.saves            
+        except Exception as error:
+            self.logger.exception('List saved roster is FAILED')
+            return None
+
         
 
 

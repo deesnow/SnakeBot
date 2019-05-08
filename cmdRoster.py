@@ -10,12 +10,11 @@ class SaveRoster(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
         
-
+    # SAVE mentioned user date to local DB
     @commands.command(aliases= ['sr', 'save'],pass_context = True)
-    @commands.has_any_role('Master')
+    @commands.has_any_role('Master') # User need this role to run command (can have multiple)
     async def saveroster(self, ctx, user, save_name):
         self.ctx = ctx
-        cmd_channel = self.ctx.message.channel
         self.save_name = save_name
         await self.ctx.message.add_reaction("🐍")
         
@@ -55,7 +54,43 @@ class SaveRoster(commands.Cog):
             await self.ctx.send('⛔ - You don\'t have the right permission!!!')
     
 
+    # SAVE mentioned user date to local DB
+    @commands.command(aliases= ['list', 'ls'],pass_context = True)
+    @commands.has_any_role('Master') # User need this role to run command (can have multiple)
+    async def listsaves(self, ctx, user):
+        self.ctx = ctx
+        self.user = user
+        await self.ctx.message.add_reaction("🐍")
+        if user != "me":
+            self.user_id = self.ctx.message.mentions[0].id
+            
+        else:
+            self.user_id = self.ctx.author.id
 
+        try:
+            self.roster_saves = db.listsaves(self.user_id)
+        except Exception as error:
+            print(error)
+        
+        self.embed = discord.Embed(
+            title = 'Roster Saves',
+            description = 'Saved status for {}'.format(self.user),
+            color = discord.Color.dark_blue()
+            )
+
+        self.embed.set_footer(text = 'Are these droids you are looking for?')
+        self.embed.add_field(name='--------------------', value='--------------------' , inline=False)
+        if self.roster_saves != None:
+            for self.item, self.item_date in self.roster_saves.items():
+                self.embed.add_field(name=self.item , value=self.item_date , inline=False)
+            
+            await self.ctx.send(embed=self.embed)
+
+
+
+
+        else:
+            await self.ctx.send('`💥 - It seems you don\'t have any saves`')
 
 
 
