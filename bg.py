@@ -10,8 +10,7 @@ class BgTask(commands.Cog):
         channel = self.bot.get_channel(573490564646043649)
         await channel.send('Task1 started by event_loop')
         self.running = self.bot.is_ready()
-        self.counter = 1
-        await channel.send('Task1 - {} cycle'.format(self.counter))
+        self.counter = 0
         while True:
             self.counter += 1
             await channel.send('Task1 - {} cycle'.format(self.counter))
@@ -21,13 +20,14 @@ class BgTask(commands.Cog):
     @commands.Cog.listener()
     async def on_ready(self):
         print('BG task called')
-        self.heartbeat_task = self.bot.loop.create_task(self.task1())
+        self.bg_task = self.bot.loop.create_task(self.task1())
 
 
     @commands.command(pass_context=True)
-    async def stop(self, ctx):
-        self.heartbeat_task.cancel()
-        await self.bot.say('Heartbeat stopped by user {}'.format(ctx.message.author.name))
+    async def stopbg(self, ctx):
+        channel = self.bot.get_channel(573490564646043649)
+        self.bg_task.cancel()
+        await channel.send('Task1 cycles - STOPPED')
 
 
 def setup(bot):

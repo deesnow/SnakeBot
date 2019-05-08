@@ -171,6 +171,28 @@ class Db_handler(object):
             self.logger.info('User {} was not in MongoDB')
             return "Already"
 
+    def save_roster(self, discord_id, save_name, data):
+        self.discord_id = discord_id
+        self.save_name = save_name.replace('.','_')
+        self.data = data
+        self.roster_data = self.data['units']
+        self.col_discord = self.mydb['discordUsers_Test']
+        self.query2 = {'discord_id': self.discord_id}
+        self.datetime = parse(self.data['data']['last_updated'])
+        self.date = str(self.datetime.date())
+        self.newkey = "roster." + self.save_name
+        self.new_data = {'date': self.date, 'data': self.roster_data}
+        self.new_value = {'$set': {self.newkey: self.new_data}}
+
+        try:
+            self.action2 = self.col_discord.update_one(self.query2, self.new_value)
+            self.logger.info('User update DONE with new {} roster data'.format(self.date))
+            return 'Done'
+        except Exception as error:
+            self.logger.exception('User update is FAILED')
+            return "Failed"
+        
+
 
 
     
