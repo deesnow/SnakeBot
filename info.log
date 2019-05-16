@@ -3446,3 +3446,529 @@ discord.errors.ConnectionClosed: WebSocket connection is closed: code = 1000 (OK
 2019-05-08 14:21:01,580 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
 2019-05-08 14:21:01,723 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-9lw4, discord-sessions-prd-1-6 (Session ID: 958570d23af06a20e373d0edfe156625).
 2019-05-08 14:21:03,727 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-08 15:09:27,977 - __main__ - ERROR - <allykod> cannot be loaded. [Extension '<allykod>' could not be loaded.]
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\ext\commands\bot.py", line 618, in load_extension
+    lib = importlib.import_module(name)
+  File "F:\_DEV\Envs\SnakeBot\lib\importlib\__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 978, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 961, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 948, in _find_and_load_unlocked
+ModuleNotFoundError: No module named '<allykod>'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "f:\_DEV\Discord\SnakeBot\SnakeBot.py", line 64, in load
+    bot.load_extension(extension)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\ext\commands\bot.py", line 620, in load_extension
+    raise errors.ExtensionNotFound(name, e) from e
+discord.ext.commands.errors.ExtensionNotFound: Extension '<allykod>' could not be loaded.
+2019-05-08 17:08:36,754 - discord.gateway - INFO - Websocket closed with 1006 (), attempting a reconnect.
+2019-05-08 17:08:36,758 - discord.client - INFO - Got a request to RESUME the websocket.
+2019-05-08 17:08:37,033 - discord.client - ERROR - Attempting a reconnect in 1.48s
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 955, in _create_direct_connection
+    traces=traces), loop=self._loop)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 825, in _resolve_host
+    self._resolver.resolve(host, port, family=self._family)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\resolver.py", line 30, in resolve
+    host, port, type=socket.SOCK_STREAM, family=family)
+  File "d:\python3.6-64\Lib\concurrent\futures\thread.py", line 55, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "d:\python3.6-64\Lib\socket.py", line 743, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 431, in connect
+    await self._connect()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 401, in _connect
+    self.ws = await asyncio.wait_for(coro, timeout=180.0, loop=self.loop)
+  File "d:\python3.6-64\Lib\asyncio\tasks.py", line 358, in wait_for
+    return fut.result()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 219, in from_client
+    gateway = await client.http.get_gateway()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 786, in get_gateway
+    data = await self.request(Route('GET', '/gateway'))
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 158, in request
+    async with self.__session.request(method, url, **kwargs) as r:
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 1005, in __aenter__
+    self._resp = await self._coro
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 476, in _request
+    timeout=real_timeout
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 522, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 854, in _create_connection
+    req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 959, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host discordapp.com:443 ssl:None [getaddrinfo failed]
+2019-05-08 17:08:38,765 - discord.client - ERROR - Attempting a reconnect in 0.26s
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 955, in _create_direct_connection
+    traces=traces), loop=self._loop)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 825, in _resolve_host
+    self._resolver.resolve(host, port, family=self._family)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\resolver.py", line 30, in resolve
+    host, port, type=socket.SOCK_STREAM, family=family)
+  File "d:\python3.6-64\Lib\concurrent\futures\thread.py", line 55, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "d:\python3.6-64\Lib\socket.py", line 743, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 431, in connect
+    await self._connect()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 392, in _connect
+    self.ws = await asyncio.wait_for(coro, timeout=180.0, loop=self.loop)
+  File "d:\python3.6-64\Lib\asyncio\tasks.py", line 358, in wait_for
+    return fut.result()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 219, in from_client
+    gateway = await client.http.get_gateway()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 786, in get_gateway
+    data = await self.request(Route('GET', '/gateway'))
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 158, in request
+    async with self.__session.request(method, url, **kwargs) as r:
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 1005, in __aenter__
+    self._resp = await self._coro
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 476, in _request
+    timeout=real_timeout
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 522, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 854, in _create_connection
+    req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 959, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host discordapp.com:443 ssl:None [getaddrinfo failed]
+2019-05-08 17:08:39,117 - discord.client - ERROR - Attempting a reconnect in 6.21s
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 955, in _create_direct_connection
+    traces=traces), loop=self._loop)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 825, in _resolve_host
+    self._resolver.resolve(host, port, family=self._family)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\resolver.py", line 30, in resolve
+    host, port, type=socket.SOCK_STREAM, family=family)
+  File "d:\python3.6-64\Lib\concurrent\futures\thread.py", line 55, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "d:\python3.6-64\Lib\socket.py", line 743, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 431, in connect
+    await self._connect()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 392, in _connect
+    self.ws = await asyncio.wait_for(coro, timeout=180.0, loop=self.loop)
+  File "d:\python3.6-64\Lib\asyncio\tasks.py", line 358, in wait_for
+    return fut.result()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 219, in from_client
+    gateway = await client.http.get_gateway()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 786, in get_gateway
+    data = await self.request(Route('GET', '/gateway'))
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 158, in request
+    async with self.__session.request(method, url, **kwargs) as r:
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 1005, in __aenter__
+    self._resp = await self._coro
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 476, in _request
+    timeout=real_timeout
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 522, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 854, in _create_connection
+    req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 959, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host discordapp.com:443 ssl:None [getaddrinfo failed]
+2019-05-08 17:08:45,669 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-08 17:08:45,672 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-08 17:08:45,858 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-0rg4, discord-sessions-prd-1-13 (Session ID: fb4031abac1a4ed6deb64041b104df80).
+2019-05-08 17:08:47,861 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-08 20:04:21,533 - discord.gateway - INFO - Websocket closed with 1006 (), attempting a reconnect.
+2019-05-08 20:04:21,533 - discord.client - INFO - Got a request to RESUME the websocket.
+2019-05-08 20:04:22,084 - discord.client - ERROR - Attempting a reconnect in 0.77s
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 955, in _create_direct_connection
+    traces=traces), loop=self._loop)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 825, in _resolve_host
+    self._resolver.resolve(host, port, family=self._family)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\resolver.py", line 30, in resolve
+    host, port, type=socket.SOCK_STREAM, family=family)
+  File "d:\python3.6-64\Lib\concurrent\futures\thread.py", line 55, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "d:\python3.6-64\Lib\socket.py", line 743, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 431, in connect
+    await self._connect()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 401, in _connect
+    self.ws = await asyncio.wait_for(coro, timeout=180.0, loop=self.loop)
+  File "d:\python3.6-64\Lib\asyncio\tasks.py", line 358, in wait_for
+    return fut.result()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 219, in from_client
+    gateway = await client.http.get_gateway()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 786, in get_gateway
+    data = await self.request(Route('GET', '/gateway'))
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 158, in request
+    async with self.__session.request(method, url, **kwargs) as r:
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 1005, in __aenter__
+    self._resp = await self._coro
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 476, in _request
+    timeout=real_timeout
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 522, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 854, in _create_connection
+    req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 959, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host discordapp.com:443 ssl:None [getaddrinfo failed]
+2019-05-08 20:04:24,020 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-08 20:04:24,253 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-08 20:04:24,408 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-0bxk, discord-sessions-prd-1-6 (Session ID: 8a41073fea9b383506008c5f440fa102).
+2019-05-08 20:04:26,414 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-08 20:04:39,945 - discord.gateway - WARNING - Shard ID None has stopped responding to the gateway. Closing and restarting.
+2019-05-08 20:04:41,524 - discord.gateway - WARNING - Shard ID None has stopped responding to the gateway. Closing and restarting.
+2019-05-13 21:47:34,052 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-13 21:47:34,069 - db_handler - INFO - Init DB connection
+2019-05-13 21:47:34,105 - db_handler - INFO - Init DB connection
+2019-05-13 21:47:34,604 - db_handler - INFO - Init DB connection
+2019-05-13 21:47:34,658 - db_handler - INFO - Init DB connection
+2019-05-13 21:47:34,674 - discord.client - INFO - logging in using static token
+2019-05-13 21:47:37,070 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-13 21:47:37,073 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-13 21:47:37,238 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-g0sn, discord-sessions-prd-1-7 (Session ID: 3a3354e99949bf545b7608d509201b1c).
+2019-05-13 21:47:39,242 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-13 21:52:00,015 - db_handler - INFO - User {} is already in MongoDB
+2019-05-13 21:52:33,105 - db_handler - INFO - {'ally_code': 376764962} found for 143651954919342080
+2019-05-13 21:52:34,727 - swgoh_handler - INFO - Response 200 OK
+2019-05-13 21:52:34,807 - db_handler - INFO - User update DONE with new 2019-05-13 roster data
+2019-05-13 21:54:43,003 - db_handler - ERROR - List saved roster is FAILED
+Traceback (most recent call last):
+  File "f:\_DEV\Discord\SnakeBot\db_handler.py", line 202, in listsaves
+    self.roster_saves = self.col_discord.find_one(self.query, {'roster':1})['roster']
+TypeError: 'NoneType' object is not subscriptable
+2019-05-13 21:55:06,666 - db_handler - INFO - {'ally_code': 376764962} found for 143651954919342080
+2019-05-13 21:55:07,400 - swgoh_handler - INFO - Response 200 OK
+2019-05-13 21:55:07,466 - db_handler - INFO - User update DONE with new 2019-05-13 roster data
+2019-05-13 21:55:27,573 - db_handler - ERROR - List saved roster is FAILED
+Traceback (most recent call last):
+  File "f:\_DEV\Discord\SnakeBot\db_handler.py", line 202, in listsaves
+    self.roster_saves = self.col_discord.find_one(self.query, {'roster':1})['roster']
+TypeError: 'NoneType' object is not subscriptable
+2019-05-14 00:57:38,321 - discord.gateway - INFO - Websocket closed with 1006 (), attempting a reconnect.
+2019-05-14 00:57:38,322 - discord.client - INFO - Got a request to RESUME the websocket.
+2019-05-14 00:57:38,388 - discord.client - ERROR - Attempting a reconnect in 1.48s
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 955, in _create_direct_connection
+    traces=traces), loop=self._loop)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 825, in _resolve_host
+    self._resolver.resolve(host, port, family=self._family)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\resolver.py", line 30, in resolve
+    host, port, type=socket.SOCK_STREAM, family=family)
+  File "d:\python3.6-64\Lib\concurrent\futures\thread.py", line 55, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "d:\python3.6-64\Lib\socket.py", line 743, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 431, in connect
+    await self._connect()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 401, in _connect
+    self.ws = await asyncio.wait_for(coro, timeout=180.0, loop=self.loop)
+  File "d:\python3.6-64\Lib\asyncio\tasks.py", line 358, in wait_for
+    return fut.result()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 219, in from_client
+    gateway = await client.http.get_gateway()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 786, in get_gateway
+    data = await self.request(Route('GET', '/gateway'))
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 158, in request
+    async with self.__session.request(method, url, **kwargs) as r:
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 1005, in __aenter__
+    self._resp = await self._coro
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 476, in _request
+    timeout=real_timeout
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 522, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 854, in _create_connection
+    req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 959, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host discordapp.com:443 ssl:None [getaddrinfo failed]
+2019-05-14 00:57:40,724 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-14 00:57:40,823 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-14 00:57:40,978 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-hz2l, discord-sessions-prd-1-1 (Session ID: fb5713d7275dfc6bf42c09b78c724c2f).
+2019-05-14 00:57:42,982 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-14 00:57:50,916 - discord.gateway - WARNING - Shard ID None has stopped responding to the gateway. Closing and restarting.
+2019-05-14 07:53:09,846 - discord.gateway - INFO - Websocket closed with 1006 (), attempting a reconnect.
+2019-05-14 07:53:09,847 - discord.client - INFO - Got a request to RESUME the websocket.
+2019-05-14 07:53:13,609 - discord.client - ERROR - Attempting a reconnect in 0.92s
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 955, in _create_direct_connection
+    traces=traces), loop=self._loop)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 825, in _resolve_host
+    self._resolver.resolve(host, port, family=self._family)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\resolver.py", line 30, in resolve
+    host, port, type=socket.SOCK_STREAM, family=family)
+  File "d:\python3.6-64\Lib\concurrent\futures\thread.py", line 55, in run
+    result = self.fn(*self.args, **self.kwargs)
+  File "d:\python3.6-64\Lib\socket.py", line 743, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 431, in connect
+    await self._connect()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 401, in _connect
+    self.ws = await asyncio.wait_for(coro, timeout=180.0, loop=self.loop)
+  File "d:\python3.6-64\Lib\asyncio\tasks.py", line 358, in wait_for
+    return fut.result()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 219, in from_client
+    gateway = await client.http.get_gateway()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 786, in get_gateway
+    data = await self.request(Route('GET', '/gateway'))
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\http.py", line 158, in request
+    async with self.__session.request(method, url, **kwargs) as r:
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 1005, in __aenter__
+    self._resp = await self._coro
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\client.py", line 476, in _request
+    timeout=real_timeout
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 522, in connect
+    proto = await self._create_connection(req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 854, in _create_connection
+    req, traces, timeout)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\aiohttp\connector.py", line 959, in _create_direct_connection
+    raise ClientConnectorError(req.connection_key, exc) from exc
+aiohttp.client_exceptions.ClientConnectorError: Cannot connect to host discordapp.com:443 ssl:None [getaddrinfo failed]
+2019-05-14 07:53:16,583 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-14 07:53:16,794 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-14 07:53:17,026 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-w1rc, discord-sessions-prd-1-2 (Session ID: e21e6ac63096c6f80687a4aa8f8ffa11).
+2019-05-14 07:53:19,069 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-14 07:53:36,066 - discord.gateway - WARNING - Shard ID None has stopped responding to the gateway. Closing and restarting.
+2019-05-15 08:48:29,839 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-15 08:48:29,898 - db_handler - INFO - Init DB connection
+2019-05-15 08:48:29,947 - db_handler - INFO - Init DB connection
+2019-05-15 08:48:30,453 - db_handler - INFO - Init DB connection
+2019-05-15 08:48:30,491 - db_handler - INFO - Init DB connection
+2019-05-15 08:48:30,495 - discord.client - INFO - logging in using static token
+2019-05-15 08:48:31,730 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-15 08:48:31,734 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-15 08:48:31,897 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-wnbm, discord-sessions-prd-1-7 (Session ID: 7fd8c5062fad429e7df3f9a45a92430a).
+2019-05-15 08:48:33,888 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-15 08:49:00,915 - db_handler - INFO - {'ally_code': 376764962} found for 143651954919342080
+2019-05-15 08:49:02,433 - swgoh_handler - INFO - Response 200 OK
+2019-05-15 08:49:02,482 - db_handler - INFO - User update DONE with new 2019-05-14 roster data
+2019-05-15 13:45:14,946 - discord.gateway - INFO - Websocket closed with 1006 (), attempting a reconnect.
+2019-05-15 13:45:15,242 - discord.client - INFO - Got a request to RESUME the websocket.
+2019-05-15 13:45:15,696 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-15 13:45:15,698 - discord.gateway - INFO - Shard ID None has sent the RESUME payload.
+2019-05-15 13:45:15,820 - discord.gateway - INFO - Shard ID None has successfully RESUMED session 7fd8c5062fad429e7df3f9a45a92430a under trace gateway-prd-main-r4gk, discord-sessions-prd-1-7.
+2019-05-15 13:46:14,517 - discord.gateway - WARNING - Shard ID None has stopped responding to the gateway. Closing and restarting.
+2019-05-15 16:36:10,670 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-15 16:36:10,710 - db_handler - INFO - Init DB connection
+2019-05-15 16:36:10,719 - db_handler - INFO - Init DB connection
+2019-05-15 16:36:11,294 - db_handler - INFO - Init DB connection
+2019-05-15 16:36:11,348 - db_handler - INFO - Init DB connection
+2019-05-15 16:36:11,360 - discord.client - INFO - logging in using static token
+2019-05-15 16:36:12,431 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-15 16:36:12,433 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-15 16:36:12,586 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-f41h, discord-sessions-prd-1-28 (Session ID: 4c3399ec33ebefb865f7e893abc6e868).
+2019-05-15 16:36:14,589 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-15 16:38:37,827 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-15 16:38:37,830 - db_handler - INFO - Init DB connection
+2019-05-15 16:38:37,838 - db_handler - INFO - Init DB connection
+2019-05-15 16:38:37,950 - db_handler - INFO - Init DB connection
+2019-05-15 16:38:37,960 - db_handler - INFO - Init DB connection
+2019-05-15 16:38:37,964 - db_handler - INFO - Init DB connection
+2019-05-15 16:38:37,967 - discord.client - INFO - logging in using static token
+2019-05-15 16:38:38,823 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-15 16:38:38,826 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-15 16:38:38,980 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-vp6r, discord-sessions-prd-1-15 (Session ID: 803a133917d9c2a4e280f61eea6dbcaf).
+2019-05-15 16:38:40,983 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-15 16:39:57,575 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-15 16:39:57,577 - db_handler - INFO - Init DB connection
+2019-05-15 16:39:57,584 - db_handler - INFO - Init DB connection
+2019-05-15 16:39:57,688 - db_handler - INFO - Init DB connection
+2019-05-15 16:39:57,698 - db_handler - INFO - Init DB connection
+2019-05-15 16:39:57,703 - db_handler - INFO - Init DB connection
+2019-05-15 16:39:57,706 - discord.client - INFO - logging in using static token
+2019-05-15 16:39:58,555 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-15 16:39:58,558 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-15 16:39:58,709 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-26hf, discord-sessions-prd-1-10 (Session ID: 7c66947c3086493166ec491a23d68045).
+2019-05-15 16:40:00,711 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-15 16:40:17,652 - db_handler - ERROR - Insert data to DB failed for link_add
+Traceback (most recent call last):
+  File "f:\_DEV\Discord\SnakeBot\db_handler.py", line 227, in link_add
+    self.link_add = self.col_links.insert_one(self.link_data)
+AttributeError: 'Db_handler' object has no attribute 'link_data'
+2019-05-15 16:41:19,440 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-15 16:41:19,445 - db_handler - INFO - Init DB connection
+2019-05-15 16:41:19,497 - db_handler - INFO - Init DB connection
+2019-05-15 16:41:19,727 - db_handler - INFO - Init DB connection
+2019-05-15 16:41:19,733 - db_handler - INFO - Init DB connection
+2019-05-15 16:41:19,738 - db_handler - INFO - Init DB connection
+2019-05-15 16:41:19,742 - discord.client - INFO - logging in using static token
+2019-05-15 16:41:20,750 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-15 16:41:20,752 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-15 16:41:20,905 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-nm18, discord-sessions-prd-1-12 (Session ID: 42b3c80b258ad3c9440fa0a25235af88).
+2019-05-15 16:41:22,906 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-15 16:41:34,595 - db_handler - INFO - malak is added to the Mongo
+2019-05-16 10:31:52,031 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-16 10:31:52,067 - db_handler - INFO - Init DB connection
+2019-05-16 10:31:52,096 - db_handler - INFO - Init DB connection
+2019-05-16 10:31:52,507 - db_handler - INFO - Init DB connection
+2019-05-16 10:31:52,561 - db_handler - INFO - Init DB connection
+2019-05-16 10:31:52,573 - db_handler - INFO - Init DB connection
+2019-05-16 10:31:52,586 - discord.client - INFO - logging in using static token
+2019-05-16 10:31:53,624 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-16 10:31:53,627 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-16 10:31:53,802 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-nnbg, discord-sessions-prd-1-6 (Session ID: 7054af7b924e6397897545210b94f4ed).
+2019-05-16 10:31:55,807 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-16 10:51:45,060 - db_handler - INFO - test1 is added to the Mongo
+2019-05-16 13:05:16,360 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-16 13:05:16,411 - db_handler - INFO - Init DB connection
+2019-05-16 13:05:16,482 - db_handler - INFO - Init DB connection
+2019-05-16 13:05:16,925 - db_handler - INFO - Init DB connection
+2019-05-16 13:05:16,954 - db_handler - INFO - Init DB connection
+2019-05-16 13:05:16,979 - db_handler - INFO - Init DB connection
+2019-05-16 13:05:16,995 - discord.client - INFO - logging in using static token
+2019-05-16 13:05:18,456 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-16 13:05:18,472 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-16 13:05:18,625 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-vk5t, discord-sessions-prd-1-7 (Session ID: 3cdbc33787ec9bba60bc490d2748e1dd).
+2019-05-16 13:05:20,684 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-16 13:05:52,630 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-16 13:05:52,636 - db_handler - INFO - Init DB connection
+2019-05-16 13:05:52,662 - db_handler - INFO - Init DB connection
+2019-05-16 13:05:52,885 - db_handler - INFO - Init DB connection
+2019-05-16 13:05:52,898 - db_handler - INFO - Init DB connection
+2019-05-16 13:05:52,927 - db_handler - INFO - Init DB connection
+2019-05-16 13:05:52,958 - discord.client - INFO - logging in using static token
+2019-05-16 13:05:54,039 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-16 13:05:54,049 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-16 13:05:54,314 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-zbvt, discord-sessions-prd-1-16 (Session ID: a45dfed9942df7527a8316c61cd15b18).
+2019-05-16 13:05:56,329 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-16 13:07:38,464 - __main__ - ERROR - cmdGetlinks cannot be unloaded. [Extension 'cmdGetlinks' has not been loaded.]
+Traceback (most recent call last):
+  File "f:\_DEV\Discord\SnakeBot\SnakeBot.py", line 75, in unload
+    bot.unload_extension(extension)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\ext\commands\bot.py", line 650, in unload_extension
+    raise errors.ExtensionNotLoaded(name)
+discord.ext.commands.errors.ExtensionNotLoaded: Extension 'cmdGetlinks' has not been loaded.
+2019-05-16 13:07:50,320 - __main__ - ERROR - GetLinks cannot be unloaded. [Extension 'GetLinks' has not been loaded.]
+Traceback (most recent call last):
+  File "f:\_DEV\Discord\SnakeBot\SnakeBot.py", line 75, in unload
+    bot.unload_extension(extension)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\ext\commands\bot.py", line 650, in unload_extension
+    raise errors.ExtensionNotLoaded(name)
+discord.ext.commands.errors.ExtensionNotLoaded: Extension 'GetLinks' has not been loaded.
+2019-05-16 13:08:02,407 - __main__ - ERROR - cmdgetLinks cannot be unloaded. [Extension 'cmdgetLinks' has not been loaded.]
+Traceback (most recent call last):
+  File "f:\_DEV\Discord\SnakeBot\SnakeBot.py", line 75, in unload
+    bot.unload_extension(extension)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\ext\commands\bot.py", line 650, in unload_extension
+    raise errors.ExtensionNotLoaded(name)
+discord.ext.commands.errors.ExtensionNotLoaded: Extension 'cmdgetLinks' has not been loaded.
+2019-05-16 13:08:59,991 - db_handler - INFO - Init DB connection
+2019-05-16 13:09:08,760 - db_handler - INFO - Links are listed
+2019-05-16 13:13:03,193 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-16 13:13:03,198 - db_handler - INFO - Init DB connection
+2019-05-16 13:13:03,216 - db_handler - INFO - Init DB connection
+2019-05-16 13:13:03,447 - db_handler - INFO - Init DB connection
+2019-05-16 13:13:03,485 - db_handler - INFO - Init DB connection
+2019-05-16 13:13:03,504 - db_handler - INFO - Init DB connection
+2019-05-16 13:13:03,523 - discord.client - INFO - logging in using static token
+2019-05-16 13:13:04,565 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-16 13:13:04,573 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-16 13:13:05,631 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-5zp1, discord-sessions-prd-1-12 (Session ID: 84a50cd08ffed3616e98f99289690597).
+2019-05-16 13:13:07,642 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-16 13:13:16,377 - db_handler - INFO - Links are listed
+2019-05-16 13:13:50,825 - discord.gateway - WARNING - Heartbeat blocked for more than 5 seconds.
+2019-05-16 13:14:37,723 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-16 13:14:37,737 - db_handler - INFO - Init DB connection
+2019-05-16 13:14:37,759 - db_handler - INFO - Init DB connection
+2019-05-16 13:14:38,040 - db_handler - INFO - Init DB connection
+2019-05-16 13:14:38,068 - db_handler - INFO - Init DB connection
+2019-05-16 13:14:38,107 - db_handler - INFO - Init DB connection
+2019-05-16 13:14:38,126 - discord.client - INFO - logging in using static token
+2019-05-16 13:14:39,279 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-16 13:14:39,289 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-16 13:14:39,436 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-sjq5, discord-sessions-prd-1-5 (Session ID: 5ff0b5ed94f63742b257b296d308d93d).
+2019-05-16 13:14:41,444 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-16 13:14:44,856 - db_handler - INFO - Links are listed
+2019-05-16 13:15:25,545 - discord.gateway - WARNING - Heartbeat blocked for more than 5 seconds.
+2019-05-16 13:15:30,601 - discord.gateway - WARNING - Heartbeat blocked for more than 10 seconds.
+2019-05-16 13:38:01,544 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-16 13:38:01,562 - db_handler - INFO - Init DB connection
+2019-05-16 13:38:01,635 - db_handler - INFO - Init DB connection
+2019-05-16 13:38:02,123 - db_handler - INFO - Init DB connection
+2019-05-16 13:38:02,160 - db_handler - INFO - Init DB connection
+2019-05-16 13:38:02,209 - db_handler - INFO - Init DB connection
+2019-05-16 13:38:02,250 - discord.client - INFO - logging in using static token
+2019-05-16 13:38:04,059 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-16 13:38:04,075 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-16 13:38:04,217 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-t1cv, discord-sessions-prd-1-17 (Session ID: df4fc60a0df8fa0e602c61643a9cf6aa).
+2019-05-16 13:38:06,233 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-16 13:39:19,764 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-16 13:39:19,782 - db_handler - INFO - Init DB connection
+2019-05-16 13:39:19,812 - db_handler - INFO - Init DB connection
+2019-05-16 13:39:20,105 - db_handler - INFO - Init DB connection
+2019-05-16 13:39:20,148 - db_handler - INFO - Init DB connection
+2019-05-16 13:39:20,169 - db_handler - INFO - Init DB connection
+2019-05-16 13:39:20,186 - discord.client - INFO - logging in using static token
+2019-05-16 13:39:21,842 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-16 13:39:21,854 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-16 13:39:22,018 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-pzgp, discord-sessions-prd-1-1 (Session ID: 45680760f34fda907f6d591d3538ce74).
+2019-05-16 13:39:24,017 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-16 13:40:08,104 - discord.gateway - WARNING - Heartbeat blocked for more than 5 seconds.
+2019-05-16 13:40:13,115 - discord.gateway - WARNING - Heartbeat blocked for more than 10 seconds.
+2019-05-16 13:40:18,121 - discord.gateway - WARNING - Heartbeat blocked for more than 15 seconds.
+2019-05-16 13:40:23,125 - discord.gateway - WARNING - Heartbeat blocked for more than 20 seconds.
+2019-05-16 13:40:25,674 - db_handler - INFO - Link if find
+2019-05-16 13:40:28,132 - discord.gateway - WARNING - Heartbeat blocked for more than 25 seconds.
+2019-05-16 13:40:33,142 - discord.gateway - WARNING - Heartbeat blocked for more than 30 seconds.
+2019-05-16 13:40:38,160 - discord.gateway - WARNING - Heartbeat blocked for more than 35 seconds.
+2019-05-16 13:40:43,164 - discord.gateway - WARNING - Heartbeat blocked for more than 40 seconds.
+2019-05-16 13:40:48,173 - discord.gateway - WARNING - Heartbeat blocked for more than 45 seconds.
+2019-05-16 13:40:53,179 - discord.gateway - WARNING - Heartbeat blocked for more than 50 seconds.
+2019-05-16 13:40:58,181 - discord.gateway - WARNING - Heartbeat blocked for more than 55 seconds.
+2019-05-16 13:40:59,373 - discord.gateway - INFO - Websocket closed with 1000 (), cannot reconnect.
+2019-05-16 13:40:59,380 - discord.client - ERROR - Attempting a reconnect in 0.03s
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 464, in poll_event
+    msg = await self.recv()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\websockets\protocol.py", line 350, in recv
+    yield from self.ensure_open()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\websockets\protocol.py", line 512, in ensure_open
+    self.close_code, self.close_reason) from self.transfer_data_exc
+websockets.exceptions.ConnectionClosed: WebSocket connection is closed: code = 1000 (OK), no reason
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 431, in connect
+    await self._connect()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 395, in _connect
+    await self.ws.poll_event()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 472, in poll_event
+    raise ConnectionClosed(exc, shard_id=self.shard_id) from exc
+discord.errors.ConnectionClosed: WebSocket connection is closed: code = 1000 (OK), no reason
+2019-05-16 13:40:59,809 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-16 13:40:59,821 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-16 13:40:59,975 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-s0w2, discord-sessions-prd-1-24 (Session ID: 2c116e95dfbf9b226e43b6b617b6682b).
+2019-05-16 13:41:01,985 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-16 13:41:40,623 - discord.gateway - WARNING - Shard ID None has stopped responding to the gateway. Closing and restarting.

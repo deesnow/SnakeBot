@@ -176,7 +176,7 @@ class Db_handler(object):
         self.save_name = save_name.replace('.','_')
         self.data = data
         self.roster_data = self.data['units']
-        self.col_discord = self.mydb['discordUsers_Test']
+        self.col_discord = self.mydb['discordUsers']
         self.query2 = {'discord_id': self.discord_id}
         self.datetime = parse(self.data['data']['last_updated'])
         self.date = str(self.datetime.date())
@@ -193,7 +193,7 @@ class Db_handler(object):
             return "Failed"
 
     def listsaves(self, discord_id):
-        self.col_discord = self.mydb['discordUsers_Test']
+        self.col_discord = self.mydb['discordUsers']
         self.discord_id = discord_id
         self.query = {'discord_id': self.discord_id, 'roster': {"$exists" : True}}
         self.saves = {}
@@ -210,6 +210,55 @@ class Db_handler(object):
         except Exception as error:
             self.logger.exception('List saved roster is FAILED')
             return None
+
+
+
+    def link_add(self, shortname, desc, url):
+        self.col_links = self.mydb['links']
+        self.shortname = shortname
+        self.desc = desc.replace('"', '')
+        self.url = url
+        self.linkdata = {'shortname': self.shortname,
+                        'description': self.desc,
+                        'url': self.url
+                        }
+
+        try:
+            self.link_add = self.col_links.insert_one(self.linkdata)
+            self.logger.info('{} is added to the Mongo'.format(self.shortname))
+            return 'done'
+        except Exception as error:
+            self.logger.exception('Insert data to DB failed for link_add')
+            return 'failed'
+
+    def link_list(self):
+        self.col_links = self.mydb['links']
+        self.query = {}
+
+        try:
+            self.link_list = self.col_links.find(self.query, {'_id':0, 'shortname':1, 'description':1, 'url':1})
+            self.logger.info('Links are listed')
+            return self.link_list
+        except Exception as error:
+            self.logger.exception('List Link data failed')
+            return 'failed'
+
+    def link_get(self, shortname):
+        self.col_links = self.mydb['links']
+        self.shortname = shortname
+        self.query = {'shortname': self.shortname}
+
+        try:
+            self.link_list = self.col_links.find(self.query, {'_id':0, 'shortname':1, 'description':1, 'url':1})
+            self.logger.info('Link if find')
+            return self.link_list
+        except Exception as error:
+            self.logger.exception('Get Link is failed')
+            return 'failed'
+
+
+
+
 
         
 

@@ -1,1 +1,4 @@
 DiscordMinimal.py
+errors.log
+info.log
+__pycache__/db_handler.cpython-36.pyc
