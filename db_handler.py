@@ -211,6 +211,48 @@ class Db_handler(object):
             self.logger.exception('List saved roster is FAILED')
             return None
 
+    def getdiff(self, discord_id, save1, save2):
+        self.col_discord = self.mydb['discordUsers']
+        self.discord_id = discord_id
+        self.save1 = save1
+        self.save2 = save2
+        self.match1 = {'$match': {'discord_id': self.discord_id, 'roster': {"$exists" : True}}}
+        self.extend = {'$unwind': '$roster.'+ self.save1 + '.data' }
+        self.extend2 = {'$unwind': '$roster.'+ self.save2 + '.data' }
+
+        self.shape1 = {'$project' : {'_id':0, 'base_id' :
+                    { '$cond': {'if': {'$eq': ['$roster.' +self.save1 + '.data.data.base_id',
+                                                '$roster.' +self.save2 + '.data.data.base_id']},
+                                'then': '$roster.' +self.save1 + '.data.data.base_id',
+                                'else' : '' 
+                                }
+                    },
+                'gear_diff': {'$subtract': ['$roster.' +self.save2 + '.data.data.gear_level',
+                                            '$roster.' +self.save1 + '.data.data.gear_level']},
+                'rarity_diff': {'$subtract': ['$roster.' +self.save2 + '.data.data.rarity',
+                                              '$roster.' +self.save1 + '.data.data.rarity']},
+                'name': '$roster.' +self.save1 + '.data.data.name',
+                'rarity': '$roster.' +self.save1 + '.data.data.rarity',
+                'gear': '$roster.' +self.save1 + '.data.data.gear_level'
+                                    }
+                    }
+        
+        self.match2 = {'$match': {'base_id': {'$ne': ''}}}
+        self.match3 = {'$match' : {'$or': [{'gear_diff': {'$gt':0}} ,{'rarity_diff':{'$gt': 0}}]}}
+        self.pipeline = [self.match1,
+                        self.extend,
+                        self.extend2,
+                        self.shape1,
+                        self.match2,
+                        self.match3
+                        ]
+        self.logger.debug('This was the mongo pipeline: {}'.format(self.pipeline))
+        #HIBAKEZELES !!!
+        self.diff_list = list(self.col_discord.aggregate(self.pipeline))
+
+        return self.diff_list
+
+
 
 
     def link_add(self, shortname, desc, url):

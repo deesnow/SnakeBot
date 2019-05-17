@@ -1,1 +1,0 @@
-logger.info('We have logged in as {0.user}'.format(self))

@@ -3972,3 +3972,98 @@ discord.errors.ConnectionClosed: WebSocket connection is closed: code = 1000 (OK
 2019-05-16 13:40:59,975 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-s0w2, discord-sessions-prd-1-24 (Session ID: 2c116e95dfbf9b226e43b6b617b6682b).
 2019-05-16 13:41:01,985 - __main__ - INFO - We have logged in as Snake#5099
 2019-05-16 13:41:40,623 - discord.gateway - WARNING - Shard ID None has stopped responding to the gateway. Closing and restarting.
+2019-05-16 22:54:17,467 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-16 22:54:17,484 - db_handler - INFO - Init DB connection
+2019-05-16 22:54:17,493 - db_handler - INFO - Init DB connection
+2019-05-16 22:54:17,605 - db_handler - INFO - Init DB connection
+2019-05-16 22:54:17,621 - db_handler - INFO - Init DB connection
+2019-05-16 22:54:17,668 - db_handler - INFO - Init DB connection
+2019-05-16 22:54:17,671 - discord.client - INFO - logging in using static token
+2019-05-16 22:54:18,989 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-16 22:54:18,991 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-16 22:54:19,187 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-p932, discord-sessions-prd-1-29 (Session ID: 9d2d2270ff1154d76000281166ceceed).
+2019-05-16 22:54:21,189 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-16 22:55:31,370 - db_handler - INFO - Links are listed
+2019-05-16 22:56:07,811 - db_handler - INFO - {'ally_code': 376764962} found for 143651954919342080
+2019-05-16 22:56:09,476 - swgoh_handler - INFO - Response 200 OK
+2019-05-16 22:56:09,542 - db_handler - INFO - User update DONE with new 2019-05-16 roster data
+2019-05-16 22:59:04,101 - db_handler - INFO - Init DB connection
+2019-05-16 23:06:00,945 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-16 23:06:00,947 - db_handler - INFO - Init DB connection
+2019-05-16 23:06:00,954 - db_handler - INFO - Init DB connection
+2019-05-16 23:06:01,045 - db_handler - INFO - Init DB connection
+2019-05-16 23:06:01,050 - db_handler - INFO - Init DB connection
+2019-05-16 23:06:01,060 - db_handler - INFO - Init DB connection
+2019-05-16 23:06:01,062 - discord.client - INFO - logging in using static token
+2019-05-16 23:06:01,947 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-16 23:06:01,949 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-16 23:06:02,142 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-2mvl, discord-sessions-prd-1-25 (Session ID: 70611da729da8d11b134708a50ff67e0).
+2019-05-16 23:06:04,144 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-16 23:07:57,740 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-16 23:07:57,742 - db_handler - INFO - Init DB connection
+2019-05-16 23:07:57,749 - db_handler - INFO - Init DB connection
+2019-05-16 23:07:57,844 - db_handler - INFO - Init DB connection
+2019-05-16 23:07:57,849 - db_handler - INFO - Init DB connection
+2019-05-16 23:07:57,859 - db_handler - INFO - Init DB connection
+2019-05-16 23:07:57,862 - discord.client - INFO - logging in using static token
+2019-05-16 23:07:58,871 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-16 23:07:58,873 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-16 23:07:59,045 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-hz2l, discord-sessions-prd-1-30 (Session ID: fa41947ba6b81afe8c39efdc7389c384).
+2019-05-16 23:08:01,033 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-16 23:09:52,498 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-16 23:09:52,500 - db_handler - INFO - Init DB connection
+2019-05-16 23:09:52,507 - db_handler - INFO - Init DB connection
+2019-05-16 23:09:52,605 - db_handler - INFO - Init DB connection
+2019-05-16 23:09:52,610 - db_handler - INFO - Init DB connection
+2019-05-16 23:09:52,620 - db_handler - INFO - Init DB connection
+2019-05-16 23:09:52,622 - discord.client - INFO - logging in using static token
+2019-05-16 23:09:53,509 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-16 23:09:53,511 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-16 23:09:53,718 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-6dh9, discord-sessions-prd-1-28 (Session ID: fbfa6255e4fb66f9bee89e9e17386783).
+2019-05-16 23:09:55,723 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-16 23:13:27,740 - db_handler - INFO - Init DB connection
+2019-05-16 23:16:00,022 - db_handler - INFO - Init DB connection
+2019-05-16 23:19:42,954 - db_handler - INFO - Init DB connection
+2019-05-16 23:24:03,615 - db_handler - INFO - Init DB connection
+2019-05-16 23:27:04,462 - db_handler - INFO - {'ally_code': 471941296} found for 269074011185610762
+2019-05-16 23:27:05,915 - swgoh_handler - INFO - Response 200 OK
+2019-05-16 23:27:05,969 - db_handler - INFO - User update DONE with new 2019-05-16 roster data
+2019-05-16 23:27:23,575 - db_handler - INFO - {'ally_code': 567793738} found for 396358001646108691
+2019-05-16 23:27:24,813 - swgoh_handler - INFO - Response 200 OK
+2019-05-16 23:27:24,844 - db_handler - INFO - User update DONE with new 2019-05-16 roster data
+2019-05-16 23:27:45,361 - db_handler - INFO - {'ally_code': 999134554} found for 353891399550238721
+2019-05-16 23:27:46,508 - swgoh_handler - INFO - Response 200 OK
+2019-05-16 23:27:46,538 - db_handler - INFO - User update DONE with new 2019-05-16 roster data
+2019-05-16 23:53:30,429 - discord.gateway - WARNING - Shard ID None has stopped responding to the gateway. Closing and restarting.
+2019-05-16 23:53:31,954 - discord.gateway - INFO - Websocket closed with 1006 (), attempting a reconnect.
+2019-05-16 23:53:31,954 - discord.client - INFO - Got a request to RESUME the websocket.
+2019-05-16 23:53:32,902 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-16 23:53:33,226 - discord.gateway - INFO - Shard ID None has sent the RESUME payload.
+2019-05-16 23:53:33,552 - discord.gateway - INFO - Shard ID None session has been invalidated.
+2019-05-16 23:53:33,553 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-16 23:53:33,856 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-zml2, discord-sessions-prd-1-30 (Session ID: b361c19c259e5bf592796c93480d24cb).
+2019-05-16 23:53:35,856 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-16 23:55:38,783 - discord.gateway - WARNING - Shard ID None has stopped responding to the gateway. Closing and restarting.
+2019-05-16 23:55:38,805 - discord.gateway - INFO - Websocket closed with 1006 (), attempting a reconnect.
+2019-05-16 23:55:38,805 - discord.client - INFO - Got a request to RESUME the websocket.
+2019-05-16 23:55:39,253 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-16 23:55:39,254 - discord.gateway - INFO - Shard ID None has sent the RESUME payload.
+2019-05-16 23:55:39,389 - discord.gateway - INFO - Shard ID None session has been invalidated.
+2019-05-16 23:55:39,390 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-16 23:55:39,546 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-gl2t, discord-sessions-prd-1-18 (Session ID: 210966ac883e12ac7a45e6396c045df5).
+2019-05-16 23:55:41,547 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-17 07:56:17,530 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-17 07:56:17,577 - db_handler - INFO - Init DB connection
+2019-05-17 07:56:17,594 - db_handler - INFO - Init DB connection
+2019-05-17 07:56:17,749 - db_handler - INFO - Init DB connection
+2019-05-17 07:56:17,768 - db_handler - INFO - Init DB connection
+2019-05-17 07:56:17,786 - db_handler - INFO - Init DB connection
+2019-05-17 07:56:17,795 - discord.client - INFO - logging in using static token
+2019-05-17 07:56:19,137 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-17 07:56:19,169 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-17 07:56:19,352 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-btnw, discord-sessions-prd-1-14 (Session ID: faee72854d43dc4fea021402dcddbb9a).
+2019-05-17 07:56:21,356 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-17 07:58:14,998 - db_handler - INFO - Init DB connection
+2019-05-17 08:02:22,964 - db_handler - INFO - Init DB connection
+2019-05-17 08:03:49,975 - db_handler - INFO - Init DB connection
+2019-05-17 08:05:54,695 - db_handler - INFO - Init DB connection
