@@ -4067,3 +4067,52 @@ discord.errors.ConnectionClosed: WebSocket connection is closed: code = 1000 (OK
 2019-05-17 08:02:22,964 - db_handler - INFO - Init DB connection
 2019-05-17 08:03:49,975 - db_handler - INFO - Init DB connection
 2019-05-17 08:05:54,695 - db_handler - INFO - Init DB connection
+2019-05-17 12:02:14,628 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-17 12:02:14,667 - db_handler - INFO - Init DB connection
+2019-05-17 12:02:14,690 - db_handler - INFO - Init DB connection
+2019-05-17 12:02:15,072 - db_handler - INFO - Init DB connection
+2019-05-17 12:02:15,078 - db_handler - INFO - Init DB connection
+2019-05-17 12:02:15,094 - db_handler - INFO - Init DB connection
+2019-05-17 12:02:15,109 - discord.client - INFO - logging in using static token
+2019-05-17 12:02:16,137 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-17 12:02:16,140 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-17 12:02:16,314 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-6dh9, discord-sessions-prd-1-4 (Session ID: c26a0e8e99f8ade22cf04aed4b9486fd).
+2019-05-17 12:02:18,315 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-17 12:03:02,397 - discord.gateway - WARNING - Heartbeat blocked for more than 5 seconds.
+2019-05-17 12:03:07,400 - discord.gateway - WARNING - Heartbeat blocked for more than 10 seconds.
+2019-05-17 12:04:11,314 - db_handler - INFO - Init DB connection
+2019-05-17 12:05:31,825 - db_handler - INFO - Init DB connection
+2019-05-17 12:08:11,717 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-17 12:08:11,719 - db_handler - INFO - Init DB connection
+2019-05-17 12:08:11,726 - db_handler - INFO - Init DB connection
+2019-05-17 12:08:11,821 - db_handler - INFO - Init DB connection
+2019-05-17 12:08:11,825 - db_handler - INFO - Init DB connection
+2019-05-17 12:08:11,836 - db_handler - INFO - Init DB connection
+2019-05-17 12:08:11,839 - discord.client - INFO - logging in using static token
+2019-05-17 12:08:12,760 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-17 12:08:12,762 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-17 12:08:12,948 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-mnvz, discord-sessions-prd-1-11 (Session ID: f1c8f3217e5e0d5b61910ab1833ffc6e).
+2019-05-17 12:08:14,950 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-17 12:11:22,078 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-17 12:11:22,081 - db_handler - INFO - Init DB connection
+2019-05-17 12:11:22,089 - db_handler - INFO - Init DB connection
+2019-05-17 12:11:22,190 - db_handler - INFO - Init DB connection
+2019-05-17 12:11:22,196 - db_handler - INFO - Init DB connection
+2019-05-17 12:11:22,208 - db_handler - INFO - Init DB connection
+2019-05-17 12:11:22,211 - discord.client - INFO - logging in using static token
+2019-05-17 12:11:23,180 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-17 12:11:23,182 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-17 12:11:23,350 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-ch7h, discord-sessions-prd-1-7 (Session ID: 5cfe3f9c61616beb213e9f5b3f3d8f4c).
+2019-05-17 12:11:25,354 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-17 12:37:34,397 - db_handler - INFO - Init DB connection
+2019-05-17 12:39:31,672 - db_handler - INFO - Init DB connection
+2019-05-17 13:19:08,936 - db_handler - INFO - Init DB connection
+2019-05-17 13:20:59,347 - db_handler - INFO - Init DB connection
+2019-05-17 13:21:36,472 - __main__ - ERROR - cmdRoster cannot be loaded. [Extension 'cmdRoster' is already loaded.]
+Traceback (most recent call last):
+  File "f:\_DEV\Discord\SnakeBot\SnakeBot.py", line 64, in load
+    bot.load_extension(extension)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\ext\commands\bot.py", line 615, in load_extension
+    raise errors.ExtensionAlreadyLoaded(name)
+discord.ext.commands.errors.ExtensionAlreadyLoaded: Extension 'cmdRoster' is already loaded.
+2019-05-17 13:21:43,710 - db_handler - INFO - Init DB connection

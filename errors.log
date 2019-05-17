@@ -1942,3 +1942,10 @@ Traceback (most recent call last):
   File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 472, in poll_event
     raise ConnectionClosed(exc, shard_id=self.shard_id) from exc
 discord.errors.ConnectionClosed: WebSocket connection is closed: code = 1000 (OK), no reason
+2019-05-17 13:21:36,472 - __main__ - ERROR - cmdRoster cannot be loaded. [Extension 'cmdRoster' is already loaded.]
+Traceback (most recent call last):
+  File "f:\_DEV\Discord\SnakeBot\SnakeBot.py", line 64, in load
+    bot.load_extension(extension)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\ext\commands\bot.py", line 615, in load_extension
+    raise errors.ExtensionAlreadyLoaded(name)
+discord.ext.commands.errors.ExtensionAlreadyLoaded: Extension 'cmdRoster' is already loaded.
