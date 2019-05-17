@@ -4116,3 +4116,5 @@ Traceback (most recent call last):
     raise errors.ExtensionAlreadyLoaded(name)
 discord.ext.commands.errors.ExtensionAlreadyLoaded: Extension 'cmdRoster' is already loaded.
 2019-05-17 13:21:43,710 - db_handler - INFO - Init DB connection
+2019-05-17 15:05:11,510 - db_handler - INFO - Init DB connection
+2019-05-17 15:05:52,203 - db_handler - INFO - Init DB connection

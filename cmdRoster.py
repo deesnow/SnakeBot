@@ -126,7 +126,7 @@ class SaveRoster(commands.Cog):
         if self.different != []:
             for self.char in self.different:
                 self.embed.add_field(name= self.char['name'] ,
-                                     value='★ Rarity: r{} ➢ r{}  ---- ■ Gear: g{} ➢ g{}'.format(
+                                     value='★ Rarity: r{} ➢ r{}  ---- ■ Gear: g{} ➢ g{} \n ----------------------------------------------'.format(
                                      self.char['rarity'],self.char['rarity']+ self.char['rarity_diff'],
                                      self.char['gear'],self.char['gear'] + self.char['gear_diff']
                                      ) , inline=False)
