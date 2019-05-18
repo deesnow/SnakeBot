@@ -9,7 +9,12 @@ class Db_handler(object):
     def __init__(self, logger=None):
         self.logger = logging.getLogger(__name__)
         self.logger.info('Init DB connection')
-        self.dbclient = pymongo.MongoClient('mongodb://localhost:27017')
+        #self.dbclient = pymongo.MongoClient('mongodb://localhost:27017')
+        self.dbclient = pymongo.MongoClient('mongodb://192.168.0.10:32770',
+                                            username='mongo',
+                                            password='mongopwd01',
+                                            authSource='admin',
+                                            authMechanism='SCRAM-SHA-1')
         self.mydb = self.dbclient['mydatabase']
         self.col_chars = self.mydb['characters']
         self.col_ships = self.mydb['ships']
@@ -91,6 +96,14 @@ class Db_handler(object):
             self.logger.info('User {} is already in MongoDB')
             return "Already"
 
+    def getalluser(self):
+        self.col_discord = self.mydb['discordUsers']
+        try:
+            self.alluser = self.col_discord.find({},{'ally_code':1, 'discord_id':1})
+            return self.alluser
+        except Exception as error:
+            self.logger.exception('User add is FAILED')
+            return "Failed"
 
 
     def user_update(self, discord_id, data):
