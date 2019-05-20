@@ -11,11 +11,6 @@ class GetLinks(commands.Cog):
         self.bot = bot
         
 
-    @commands.command(aliases= ['malac', 'malak'])
-    async def getlink_malak(self, ctx):
-        await ctx.message.add_reaction("🐍")
-        await ctx.send('Ez az a link amire vágytál: https://docs.google.com/document/d/1wNiQWwOrcKEJ0H_uIFhHw6K_kxCVyK-G3Us8sh7mNdI/edit?usp=sharing')
-
     @commands.command(aliases= ['al', 'addl'])
     async def add_link(self, ctx, name, desc, url):
         self.ctx = ctx

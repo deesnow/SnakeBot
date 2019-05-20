@@ -1949,3 +1949,23 @@ Traceback (most recent call last):
   File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\ext\commands\bot.py", line 615, in load_extension
     raise errors.ExtensionAlreadyLoaded(name)
 discord.ext.commands.errors.ExtensionAlreadyLoaded: Extension 'cmdRoster' is already loaded.
+2019-05-20 09:56:21,296 - discord.client - ERROR - Attempting a reconnect in 0.80s
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 464, in poll_event
+    msg = await self.recv()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\websockets\protocol.py", line 350, in recv
+    yield from self.ensure_open()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\websockets\protocol.py", line 501, in ensure_open
+    self.close_code, self.close_reason) from self.transfer_data_exc
+websockets.exceptions.ConnectionClosed: WebSocket connection is closed: code = 1000 (OK), no reason
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 431, in connect
+    await self._connect()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 395, in _connect
+    await self.ws.poll_event()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 472, in poll_event
+    raise ConnectionClosed(exc, shard_id=self.shard_id) from exc
+discord.errors.ConnectionClosed: WebSocket connection is closed: code = 1000 (OK), no reason

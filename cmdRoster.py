@@ -56,7 +56,7 @@ class SaveRoster(commands.Cog):
 
     # SAVE mentioned user date to local DB
     @commands.command(aliases= ['list', 'ls'],pass_context = True)
-    @commands.has_any_role('Master') # User need this role to run command (can have multiple)
+    #@commands.has_any_role('Master') # User need this role to run command (can have multiple)
     async def listsaves(self, ctx, user):
         self.ctx = ctx
         self.user = user
@@ -94,7 +94,7 @@ class SaveRoster(commands.Cog):
 
     # GEt gear and rarity difference of saves
     @commands.command(aliases= ['diff', 'dif'],pass_context = True)
-    @commands.has_any_role('Master') # User need this role to run command (can have multiple)
+    #@commands.has_any_role('Master') # User need this role to run command (can have multiple)
     async def get_diff(self, ctx, user, save1, save2):
         self.ctx = ctx
         self.user = user

@@ -84,7 +84,7 @@ async def unload(ctx, extension):
 
 # -----------------------------------------
 
-extensions = ['cmdReg', 'cmdEmbed', 'cmdCheckUser', 'cmdGetLinks',  'cmdRoster'] 
+extensions = ['cmdReg', 'cmdCheckUser', 'cmdGetLinks',  'cmdRoster', 'bg'] 
 
 if __name__ == '__main__':
     for extension in extensions:

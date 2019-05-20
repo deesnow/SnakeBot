@@ -4150,3 +4150,144 @@ discord.ext.commands.errors.ExtensionAlreadyLoaded: Extension 'cmdRoster' is alr
 2019-05-18 21:35:44,438 - db_handler - INFO - User update DONE with new 2019-05-17 progress data
 2019-05-18 21:35:45,780 - swgoh_handler - INFO - Response 200 OK
 2019-05-18 21:35:45,849 - db_handler - INFO - User update DONE with new 2019-05-18 progress data
+2019-05-20 09:55:00,408 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-20 09:55:00,475 - db_handler - INFO - Init DB connection
+2019-05-20 09:55:00,482 - db_handler - INFO - Init DB connection
+2019-05-20 09:55:00,956 - db_handler - INFO - Init DB connection
+2019-05-20 09:55:00,978 - db_handler - INFO - Init DB connection
+2019-05-20 09:55:00,997 - db_handler - INFO - Init DB connection
+2019-05-20 09:55:01,010 - db_handler - INFO - Init DB connection
+2019-05-20 09:55:01,014 - discord.client - INFO - logging in using static token
+2019-05-20 09:55:02,102 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-20 09:55:02,105 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-20 09:55:02,279 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-cpgv, discord-sessions-prd-1-15 (Session ID: 19cfa17715e9b6b893578f746eced2dd).
+2019-05-20 09:55:04,271 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-20 09:55:24,066 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:55:24,314 - db_handler - INFO - User update DONE with new 2019-05-19 progress data
+2019-05-20 09:55:26,705 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:55:27,177 - db_handler - INFO - User update DONE with new 2019-05-19 progress data
+2019-05-20 09:55:28,730 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:55:28,970 - db_handler - INFO - User update DONE with new 2019-05-19 progress data
+2019-05-20 09:55:30,596 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:55:31,560 - db_handler - INFO - User update DONE with new 2019-05-19 progress data
+2019-05-20 09:55:32,863 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:55:32,969 - db_handler - INFO - User update DONE for 373924390280232971 discordID
+2019-05-20 09:55:34,290 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:55:34,396 - db_handler - INFO - User update DONE for 390591003850964993 discordID
+2019-05-20 09:55:35,752 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:55:35,795 - db_handler - INFO - User update DONE for 345344485607342090 discordID
+2019-05-20 09:55:36,462 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:55:36,499 - db_handler - INFO - User update DONE for 404638446129250305 discordID
+2019-05-20 09:55:37,743 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:55:37,787 - db_handler - INFO - User update DONE for 412317202751029258 discordID
+2019-05-20 09:55:38,606 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:55:38,634 - db_handler - INFO - User update DONE for 493358786866577428 discordID
+2019-05-20 09:55:39,321 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:55:39,350 - db_handler - INFO - User update DONE for 516609263444164608 discordID
+2019-05-20 09:55:40,385 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:55:40,421 - db_handler - INFO - User update DONE for 375230379071766529 discordID
+2019-05-20 09:55:41,464 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:55:41,498 - db_handler - INFO - User update DONE for 405384456380350484 discordID
+2019-05-20 09:55:42,912 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:55:42,951 - db_handler - INFO - User update DONE for 354194284590792706 discordID
+2019-05-20 09:55:44,123 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:55:44,159 - db_handler - INFO - User update DONE for 439852104652292116 discordID
+2019-05-20 09:55:45,141 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:55:45,182 - db_handler - INFO - User update DONE for 514368898699886632 discordID
+2019-05-20 09:55:46,073 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:55:46,136 - db_handler - INFO - User update DONE for 410816294770966528 discordID
+2019-05-20 09:55:47,353 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:55:47,525 - db_handler - INFO - User update DONE for 528325163452858383 discordID
+2019-05-20 09:55:48,356 - discord.gateway - WARNING - Heartbeat blocked for more than 5 seconds.
+2019-05-20 09:55:48,759 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:55:48,807 - db_handler - INFO - User update DONE for 392071333371969537 discordID
+2019-05-20 09:55:49,923 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:55:49,976 - db_handler - INFO - User update DONE for 425738522843152397 discordID
+2019-05-20 09:55:51,191 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:55:51,227 - db_handler - INFO - User update DONE for 423972986643677184 discordID
+2019-05-20 09:55:52,539 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:55:52,576 - db_handler - INFO - User update DONE for 468428851093962763 discordID
+2019-05-20 09:55:53,356 - discord.gateway - WARNING - Heartbeat blocked for more than 10 seconds.
+2019-05-20 09:55:53,516 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:55:53,554 - db_handler - INFO - User update DONE for 144188225584365569 discordID
+2019-05-20 09:55:54,481 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:55:54,509 - db_handler - INFO - User update DONE for 227835831455449089 discordID
+2019-05-20 09:55:55,593 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:55:55,636 - db_handler - INFO - User update DONE for 370979068008726536 discordID
+2019-05-20 09:55:56,725 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:55:56,772 - db_handler - INFO - User update DONE for 158714560939819018 discordID
+2019-05-20 09:55:57,838 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:55:57,876 - db_handler - INFO - User update DONE for 523192267020697613 discordID
+2019-05-20 09:55:58,357 - discord.gateway - WARNING - Heartbeat blocked for more than 15 seconds.
+2019-05-20 09:55:59,208 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:55:59,258 - db_handler - INFO - User update DONE for 355796934591512576 discordID
+2019-05-20 09:56:00,467 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:56:00,501 - db_handler - INFO - User update DONE for 415111062871080961 discordID
+2019-05-20 09:56:01,535 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:56:01,572 - db_handler - INFO - User update DONE for 355083585516077056 discordID
+2019-05-20 09:56:02,864 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:56:02,902 - db_handler - INFO - User update DONE for 421260325577424897 discordID
+2019-05-20 09:56:03,357 - discord.gateway - WARNING - Heartbeat blocked for more than 20 seconds.
+2019-05-20 09:56:04,087 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:56:04,137 - db_handler - INFO - User update DONE for 440955212291637249 discordID
+2019-05-20 09:56:05,456 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:56:05,502 - db_handler - INFO - User update DONE for 385675350362816512 discordID
+2019-05-20 09:56:06,463 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:56:06,504 - db_handler - INFO - User update DONE for 494110370810691584 discordID
+2019-05-20 09:56:07,773 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:56:07,819 - db_handler - INFO - User update DONE for 247829977037275137 discordID
+2019-05-20 09:56:08,358 - discord.gateway - WARNING - Heartbeat blocked for more than 25 seconds.
+2019-05-20 09:56:09,026 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:56:09,083 - db_handler - INFO - User update DONE for 366508932937809921 discordID
+2019-05-20 09:56:10,275 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:56:10,312 - db_handler - INFO - User update DONE for 354173539273670656 discordID
+2019-05-20 09:56:11,239 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:56:11,278 - db_handler - INFO - User update DONE for 415237998335098890 discordID
+2019-05-20 09:56:12,384 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:56:12,431 - db_handler - INFO - User update DONE for 364847519869698058 discordID
+2019-05-20 09:56:13,310 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:56:13,344 - db_handler - INFO - User update DONE for 253514293167915008 discordID
+2019-05-20 09:56:13,358 - discord.gateway - WARNING - Heartbeat blocked for more than 30 seconds.
+2019-05-20 09:56:14,759 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:56:14,811 - db_handler - INFO - User update DONE for 303133442298609666 discordID
+2019-05-20 09:56:15,782 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:56:15,818 - db_handler - INFO - User update DONE for 476812037385748480 discordID
+2019-05-20 09:56:16,724 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:56:16,759 - db_handler - INFO - User update DONE for 462354776244355073 discordID
+2019-05-20 09:56:17,367 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:56:17,406 - db_handler - INFO - User update DONE for 363096074501619712 discordID
+2019-05-20 09:56:18,359 - discord.gateway - WARNING - Heartbeat blocked for more than 35 seconds.
+2019-05-20 09:56:18,863 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:56:18,910 - db_handler - INFO - User update DONE for 314475990573383681 discordID
+2019-05-20 09:56:19,353 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:56:19,396 - db_handler - INFO - User update DONE for 363746887662174218 discordID
+2019-05-20 09:56:20,595 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:56:20,631 - db_handler - INFO - User update DONE for 404542042555940894 discordID
+2019-05-20 09:56:21,243 - swgoh_handler - INFO - Response 200 OK
+2019-05-20 09:56:21,279 - db_handler - INFO - User update DONE for 443759412306509843 discordID
+2019-05-20 09:56:21,296 - discord.gateway - INFO - Websocket closed with 1000 (), cannot reconnect.
+2019-05-20 09:56:21,296 - discord.client - ERROR - Attempting a reconnect in 0.80s
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 464, in poll_event
+    msg = await self.recv()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\websockets\protocol.py", line 350, in recv
+    yield from self.ensure_open()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\websockets\protocol.py", line 501, in ensure_open
+    self.close_code, self.close_reason) from self.transfer_data_exc
+websockets.exceptions.ConnectionClosed: WebSocket connection is closed: code = 1000 (OK), no reason
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 431, in connect
+    await self._connect()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 395, in _connect
+    await self.ws.poll_event()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 472, in poll_event
+    raise ConnectionClosed(exc, shard_id=self.shard_id) from exc
+discord.errors.ConnectionClosed: WebSocket connection is closed: code = 1000 (OK), no reason
+2019-05-20 09:56:22,446 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-20 09:56:22,448 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-20 09:56:22,598 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-7d6c, discord-sessions-prd-1-28 (Session ID: 0141a0b43e9722d43b47d7b9dd3e4fa9).
+2019-05-20 09:56:24,601 - __main__ - INFO - We have logged in as Snake#5099
+2019-05-20 09:57:02,544 - discord.gateway - WARNING - Shard ID None has stopped responding to the gateway. Closing and restarting.
