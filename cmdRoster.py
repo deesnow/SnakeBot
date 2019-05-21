@@ -28,23 +28,32 @@ class SaveRoster(commands.Cog):
 
         try:
             self.allycode = db.get_allycode(self.user_id)
-        except Exception as error:
-            print(error)
-        
-        try:
-            self.newdata = sw.swgoh_getuser(self.allycode)
-            #await self.ctx.send('Userdata from swgoh.gg --> \n {}'.format(self.newdata['galactic_power']))
-        except Exception as error:
-            print(error)
+            await ctx.message.add_reaction("⏳")
 
-        try:
-            self.write_user = db.save_roster(self.user_id, self.save_name , self.newdata)
+            try:
+                self.newdata = sw.swgoh_getuser(self.allycode)
+                await ctx.message.add_reaction("☀")
+                #await self.ctx.send('Userdata from swgoh.gg --> \n {}'.format(self.newdata['galactic_power']))
+                try:
+                    self.write_user = db.save_roster(self.user_id, self.save_name , self.newdata)
+                except Exception as error:
+                    print(error)
+                if self.write_user == "Done":
+                    await ctx.message.add_reaction("✅")
+                    await self.ctx.send('User roster data is saved as {}'.format(self.save_name))
+                else:
+                    await ctx.message.add_reaction("💥")
+                    await self.ctx.send('Upate roster date is FAILED, check logs for more datails.')
+            except Exception as error:
+                print(error)
+                await self.ctx.send('Swgoh.gg did not find you, or not respond. Is correct ally_code registered?')
         except Exception as error:
             print(error)
-        if self.write_user == "Done":
-            await self.ctx.send('User roster data is saved as {}'.format(self.save_name))
-        else:
-            await self.ctx.send('Upate roster date is FAILED, check logs for more datails.')
+            await self.ctx.send('User ally code not found! Is the user registered? Try - snk reg <discord_user> <ally-code>')
+        
+        
+
+        
 
     @saveroster.error
     async def saveroster_error(self, ctx, error):
@@ -85,9 +94,6 @@ class SaveRoster(commands.Cog):
                 self.embed.add_field(name=self.item , value=self.item_date , inline=False)
             
             await self.ctx.send(embed=self.embed)
-
-
-
 
         else:
             await self.ctx.send('`💥 - It seems you don\'t have any saves`')
