@@ -159,3 +159,227 @@ discord.errors.ConnectionClosed: WebSocket connection is closed: code = 1000 (OK
 2019-05-22 16:23:48,403 - __main__ - INFO - We have logged in as Snake RC2#1921
 2019-05-22 16:27:01,917 - db_handler - INFO - User newl#0773 added to the MongoDB
 2019-05-22 16:27:12,044 - db_handler - INFO - User newl#0773 added to the MongoDB
+2019-05-22 19:52:12,886 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-22 19:52:12,889 - db_handler - INFO - Init DB connection
+2019-05-22 19:52:13,030 - db_handler - INFO - Init DB connection
+2019-05-22 19:52:13,035 - db_handler - INFO - Init DB connection
+2019-05-22 19:52:13,040 - db_handler - INFO - Init DB connection
+2019-05-22 19:52:13,050 - db_handler - INFO - Init DB connection
+2019-05-22 19:52:13,053 - discord.client - INFO - logging in using static token
+2019-05-22 19:52:14,546 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-22 19:52:14,551 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-22 19:52:14,787 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-lsm2, discord-sessions-prd-1-26 (Session ID: 1e248b2b629d8d7abbc99571ddf59cac).
+2019-05-22 19:52:16,816 - __main__ - INFO - We have logged in as Snake RC2#1921
+2019-05-22 19:53:42,053 - discord.gateway - WARNING - Heartbeat blocked for more than 5 seconds.
+2019-05-22 19:53:47,054 - discord.gateway - WARNING - Heartbeat blocked for more than 10 seconds.
+2019-05-22 19:53:52,055 - discord.gateway - WARNING - Heartbeat blocked for more than 15 seconds.
+2019-05-22 19:53:55,854 - discord.gateway - INFO - Websocket closed with 1000 (), cannot reconnect.
+2019-05-22 19:53:55,855 - discord.client - ERROR - Attempting a reconnect in 0.74s
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 464, in poll_event
+    msg = await self.recv()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\websockets\protocol.py", line 350, in recv
+    yield from self.ensure_open()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\websockets\protocol.py", line 512, in ensure_open
+    self.close_code, self.close_reason) from self.transfer_data_exc
+websockets.exceptions.ConnectionClosed: WebSocket connection is closed: code = 1000 (OK), no reason
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 431, in connect
+    await self._connect()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 395, in _connect
+    await self.ws.poll_event()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 472, in poll_event
+    raise ConnectionClosed(exc, shard_id=self.shard_id) from exc
+discord.errors.ConnectionClosed: WebSocket connection is closed: code = 1000 (OK), no reason
+2019-05-22 19:53:57,184 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-22 19:53:57,186 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-22 19:53:58,224 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-26hf, discord-sessions-prd-1-22 (Session ID: 03e374e4270b6fd228d75f8c02d8eca4).
+2019-05-22 19:54:00,227 - __main__ - INFO - We have logged in as Snake RC2#1921
+2019-05-22 19:54:37,105 - discord.gateway - WARNING - Shard ID None has stopped responding to the gateway. Closing and restarting.
+2019-05-22 19:55:20,342 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished coro=<BgTask.user_progress() done, defined at f:\_DEV\Discord\SnakeBot\bg.py:14> exception=ServerSelectionTimeoutError('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it',)>
+Traceback (most recent call last):
+  File "f:\_DEV\Discord\SnakeBot\bg.py", line 23, in user_progress
+    for self.user in self.alluser:
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\pymongo\cursor.py", line 1225, in next
+    if len(self.__data) or self._refresh():
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\pymongo\cursor.py", line 1117, in _refresh
+    self.__session = self.__collection.database.client._ensure_session()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\pymongo\mongo_client.py", line 1598, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\pymongo\mongo_client.py", line 1551, in __start_session
+    server_session = self._get_server_session()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\pymongo\mongo_client.py", line 1584, in _get_server_session
+    return self._topology.get_server_session()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\pymongo\topology.py", line 429, in get_server_session
+    None)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\pymongo\topology.py", line 200, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it
+2019-05-22 20:00:08,345 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-22 20:00:08,353 - db_handler - INFO - Init DB connection
+2019-05-22 20:00:08,579 - db_handler - INFO - Init DB connection
+2019-05-22 20:00:08,590 - db_handler - INFO - Init DB connection
+2019-05-22 20:00:08,604 - db_handler - INFO - Init DB connection
+2019-05-22 20:00:08,625 - db_handler - INFO - Init DB connection
+2019-05-22 20:00:08,638 - discord.client - INFO - logging in using static token
+2019-05-22 20:00:09,962 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-22 20:00:09,985 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-22 20:00:10,837 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-4v5l, discord-sessions-prd-1-8 (Session ID: e04b4033ded24c7f283b98c68b7ad33f).
+2019-05-22 20:00:12,856 - __main__ - INFO - We have logged in as Snake RC2#1921
+2019-05-22 20:00:56,234 - discord.gateway - WARNING - Heartbeat blocked for more than 5 seconds.
+2019-05-22 20:01:01,254 - discord.gateway - WARNING - Heartbeat blocked for more than 10 seconds.
+2019-05-22 20:01:06,261 - discord.gateway - WARNING - Heartbeat blocked for more than 15 seconds.
+2019-05-22 20:01:11,264 - discord.gateway - WARNING - Heartbeat blocked for more than 20 seconds.
+2019-05-22 20:01:16,271 - discord.gateway - WARNING - Heartbeat blocked for more than 25 seconds.
+2019-05-22 20:01:21,278 - discord.gateway - WARNING - Heartbeat blocked for more than 30 seconds.
+2019-05-22 20:01:26,282 - discord.gateway - WARNING - Heartbeat blocked for more than 35 seconds.
+2019-05-22 20:01:31,288 - discord.gateway - WARNING - Heartbeat blocked for more than 40 seconds.
+2019-05-22 20:01:36,291 - discord.gateway - WARNING - Heartbeat blocked for more than 45 seconds.
+2019-05-22 20:01:41,293 - discord.gateway - WARNING - Heartbeat blocked for more than 50 seconds.
+2019-05-22 20:01:46,296 - discord.gateway - WARNING - Heartbeat blocked for more than 55 seconds.
+2019-05-22 20:01:51,298 - discord.gateway - WARNING - Heartbeat blocked for more than 60 seconds.
+2019-05-22 20:01:56,302 - discord.gateway - WARNING - Heartbeat blocked for more than 65 seconds.
+2019-05-22 20:02:01,305 - discord.gateway - WARNING - Heartbeat blocked for more than 70 seconds.
+2019-05-22 20:02:06,310 - discord.gateway - WARNING - Heartbeat blocked for more than 75 seconds.
+2019-05-22 20:02:11,312 - discord.gateway - WARNING - Heartbeat blocked for more than 80 seconds.
+2019-05-22 20:02:16,320 - discord.gateway - WARNING - Heartbeat blocked for more than 85 seconds.
+2019-05-22 20:02:21,326 - discord.gateway - WARNING - Heartbeat blocked for more than 90 seconds.
+2019-05-22 20:02:26,329 - discord.gateway - WARNING - Heartbeat blocked for more than 95 seconds.
+2019-05-22 20:02:31,336 - discord.gateway - WARNING - Heartbeat blocked for more than 100 seconds.
+2019-05-22 20:02:36,338 - discord.gateway - WARNING - Heartbeat blocked for more than 105 seconds.
+2019-05-22 20:02:41,342 - discord.gateway - WARNING - Heartbeat blocked for more than 110 seconds.
+2019-05-22 20:02:46,349 - discord.gateway - WARNING - Heartbeat blocked for more than 115 seconds.
+2019-05-22 20:02:51,356 - discord.gateway - WARNING - Heartbeat blocked for more than 120 seconds.
+2019-05-22 20:02:56,360 - discord.gateway - WARNING - Heartbeat blocked for more than 125 seconds.
+2019-05-22 20:03:01,363 - discord.gateway - WARNING - Heartbeat blocked for more than 130 seconds.
+2019-05-22 20:03:06,372 - discord.gateway - WARNING - Heartbeat blocked for more than 135 seconds.
+2019-05-22 20:03:11,377 - discord.gateway - WARNING - Heartbeat blocked for more than 140 seconds.
+2019-05-22 20:03:16,385 - discord.gateway - WARNING - Heartbeat blocked for more than 145 seconds.
+2019-05-22 20:03:21,393 - discord.gateway - WARNING - Heartbeat blocked for more than 150 seconds.
+2019-05-22 20:03:26,398 - discord.gateway - WARNING - Heartbeat blocked for more than 155 seconds.
+2019-05-22 20:03:31,401 - discord.gateway - WARNING - Heartbeat blocked for more than 160 seconds.
+2019-05-22 20:03:36,404 - discord.gateway - WARNING - Heartbeat blocked for more than 165 seconds.
+2019-05-22 20:03:41,408 - discord.gateway - WARNING - Heartbeat blocked for more than 170 seconds.
+2019-05-22 20:03:46,413 - discord.gateway - WARNING - Heartbeat blocked for more than 175 seconds.
+2019-05-22 20:03:46,658 - discord.gateway - INFO - Websocket closed with 1000 (), cannot reconnect.
+2019-05-22 20:03:46,662 - discord.client - ERROR - Attempting a reconnect in 0.31s
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 464, in poll_event
+    msg = await self.recv()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\websockets\protocol.py", line 350, in recv
+    yield from self.ensure_open()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\websockets\protocol.py", line 501, in ensure_open
+    self.close_code, self.close_reason) from self.transfer_data_exc
+websockets.exceptions.ConnectionClosed: WebSocket connection is closed: code = 1000 (OK), no reason
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 431, in connect
+    await self._connect()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 395, in _connect
+    await self.ws.poll_event()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 472, in poll_event
+    raise ConnectionClosed(exc, shard_id=self.shard_id) from exc
+discord.errors.ConnectionClosed: WebSocket connection is closed: code = 1000 (OK), no reason
+2019-05-22 20:03:47,476 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-22 20:03:47,483 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-22 20:03:47,677 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-vp6r, discord-sessions-prd-1-12 (Session ID: 40f0b257ed2972d40a6b4a0d3ac3e65f).
+2019-05-22 20:03:49,687 - __main__ - INFO - We have logged in as Snake RC2#1921
+2019-05-22 20:04:14,823 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished coro=<BgTask.user_progress() done, defined at f:\_DEV\Discord\SnakeBot\bg.py:14> exception=ServerSelectionTimeoutError('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it',)>
+Traceback (most recent call last):
+  File "f:\_DEV\Discord\SnakeBot\bg.py", line 23, in user_progress
+    for self.user in self.alluser:
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\pymongo\cursor.py", line 1225, in next
+    if len(self.__data) or self._refresh():
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\pymongo\cursor.py", line 1117, in _refresh
+    self.__session = self.__collection.database.client._ensure_session()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\pymongo\mongo_client.py", line 1598, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\pymongo\mongo_client.py", line 1551, in __start_session
+    server_session = self._get_server_session()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\pymongo\mongo_client.py", line 1584, in _get_server_session
+    return self._topology.get_server_session()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\pymongo\topology.py", line 429, in get_server_session
+    None)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\pymongo\topology.py", line 200, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it
+2019-05-22 20:04:27,907 - discord.gateway - WARNING - Shard ID None has stopped responding to the gateway. Closing and restarting.
+2019-05-22 20:04:33,732 - discord.gateway - WARNING - Heartbeat blocked for more than 5 seconds.
+2019-05-22 20:04:38,739 - discord.gateway - WARNING - Heartbeat blocked for more than 10 seconds.
+2019-05-22 20:04:43,747 - discord.gateway - WARNING - Heartbeat blocked for more than 15 seconds.
+2019-05-22 20:04:48,753 - discord.gateway - WARNING - Heartbeat blocked for more than 20 seconds.
+2019-05-22 20:04:53,762 - discord.gateway - WARNING - Heartbeat blocked for more than 25 seconds.
+2019-05-22 20:04:58,765 - discord.gateway - WARNING - Heartbeat blocked for more than 30 seconds.
+2019-05-22 20:05:03,773 - discord.gateway - WARNING - Heartbeat blocked for more than 35 seconds.
+2019-05-22 20:05:08,777 - discord.gateway - WARNING - Heartbeat blocked for more than 40 seconds.
+2019-05-22 20:05:13,784 - discord.gateway - WARNING - Heartbeat blocked for more than 45 seconds.
+2019-05-22 20:05:18,787 - discord.gateway - WARNING - Heartbeat blocked for more than 50 seconds.
+2019-05-22 20:05:23,794 - discord.gateway - WARNING - Heartbeat blocked for more than 55 seconds.
+2019-05-22 20:05:28,798 - discord.gateway - WARNING - Heartbeat blocked for more than 60 seconds.
+2019-05-22 20:05:33,806 - discord.gateway - WARNING - Heartbeat blocked for more than 65 seconds.
+2019-05-22 20:05:38,818 - discord.gateway - WARNING - Heartbeat blocked for more than 70 seconds.
+2019-05-22 20:05:43,822 - discord.gateway - WARNING - Heartbeat blocked for more than 75 seconds.
+2019-05-22 20:05:48,827 - discord.gateway - WARNING - Heartbeat blocked for more than 80 seconds.
+2019-05-22 20:05:53,830 - discord.gateway - WARNING - Heartbeat blocked for more than 85 seconds.
+2019-05-22 20:05:58,839 - discord.gateway - WARNING - Heartbeat blocked for more than 90 seconds.
+2019-05-22 20:06:03,843 - discord.gateway - WARNING - Heartbeat blocked for more than 95 seconds.
+2019-05-22 20:13:26,338 - discord.client - WARNING - PyNaCl is not installed, voice will NOT be supported
+2019-05-22 20:13:26,347 - db_handler - INFO - Init DB connection
+2019-05-22 20:13:26,543 - db_handler - INFO - Init DB connection
+2019-05-22 20:13:26,557 - db_handler - INFO - Init DB connection
+2019-05-22 20:13:26,575 - db_handler - INFO - Init DB connection
+2019-05-22 20:13:26,602 - db_handler - INFO - Init DB connection
+2019-05-22 20:13:26,616 - discord.client - INFO - logging in using static token
+2019-05-22 20:13:27,833 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-22 20:13:27,854 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-22 20:13:29,715 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-kvc9, discord-sessions-prd-1-25 (Session ID: e89a6071004582694bceab68192b0d23).
+2019-05-22 20:13:30,179 - discord.gateway - WARNING - Unknown event PRESENCES_REPLACE.
+2019-05-22 20:13:31,731 - __main__ - INFO - We have logged in as Snake RC2#1921
+2019-05-22 20:14:14,103 - discord.gateway - WARNING - Heartbeat blocked for more than 5 seconds.
+2019-05-22 20:14:19,108 - discord.gateway - WARNING - Heartbeat blocked for more than 10 seconds.
+2019-05-22 20:14:24,113 - discord.gateway - WARNING - Heartbeat blocked for more than 15 seconds.
+2019-05-22 20:14:29,116 - discord.gateway - WARNING - Heartbeat blocked for more than 20 seconds.
+2019-05-22 20:14:34,124 - discord.gateway - WARNING - Heartbeat blocked for more than 25 seconds.
+2019-05-22 20:14:39,133 - discord.gateway - WARNING - Heartbeat blocked for more than 30 seconds.
+2019-05-22 20:14:40,272 - swgoh_handler - INFO - Response 200 OK
+2019-05-22 20:14:40,359 - db_handler - INFO - User update DONE with new 2019-05-22 progress data
+2019-05-22 20:14:41,678 - swgoh_handler - INFO - Response 200 OK
+2019-05-22 20:14:41,755 - db_handler - INFO - User update DONE with new 2019-05-22 progress data
+2019-05-22 20:14:43,117 - swgoh_handler - INFO - Response 200 OK
+2019-05-22 20:14:43,197 - db_handler - INFO - User update DONE with new 2019-05-21 progress data
+2019-05-22 20:14:44,136 - discord.gateway - WARNING - Heartbeat blocked for more than 35 seconds.
+2019-05-22 20:14:44,388 - swgoh_handler - INFO - Response 200 OK
+2019-05-22 20:14:44,471 - db_handler - INFO - User update DONE for 353891399550238721 discordID
+2019-05-22 20:14:44,488 - discord.gateway - INFO - Websocket closed with 1000 (), cannot reconnect.
+2019-05-22 20:14:44,491 - discord.client - ERROR - Attempting a reconnect in 1.30s
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 464, in poll_event
+    msg = await self.recv()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\websockets\protocol.py", line 350, in recv
+    yield from self.ensure_open()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\websockets\protocol.py", line 512, in ensure_open
+    self.close_code, self.close_reason) from self.transfer_data_exc
+websockets.exceptions.ConnectionClosed: WebSocket connection is closed: code = 1000 (OK), no reason
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 431, in connect
+    await self._connect()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 395, in _connect
+    await self.ws.poll_event()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 472, in poll_event
+    raise ConnectionClosed(exc, shard_id=self.shard_id) from exc
+discord.errors.ConnectionClosed: WebSocket connection is closed: code = 1000 (OK), no reason
+2019-05-22 20:14:46,237 - discord.gateway - INFO - Created websocket connected to wss://gateway.discord.gg?encoding=json&v=6&compress=zlib-stream
+2019-05-22 20:14:46,251 - discord.gateway - INFO - Shard ID None has sent the IDENTIFY payload.
+2019-05-22 20:14:46,485 - discord.gateway - INFO - Shard ID None has connected to Gateway: gateway-prd-main-g0wd, discord-sessions-prd-1-20 (Session ID: 8db1f6c47b9590dd14ab06472daeba91).
+2019-05-22 20:14:48,485 - __main__ - INFO - We have logged in as Snake RC2#1921
+2019-05-22 20:15:25,737 - discord.gateway - WARNING - Shard ID None has stopped responding to the gateway. Closing and restarting.

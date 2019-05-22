@@ -18,3 +18,103 @@ Traceback (most recent call last):
   File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 472, in poll_event
     raise ConnectionClosed(exc, shard_id=self.shard_id) from exc
 discord.errors.ConnectionClosed: WebSocket connection is closed: code = 1000 (OK), no reason
+2019-05-22 19:53:55,855 - discord.client - ERROR - Attempting a reconnect in 0.74s
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 464, in poll_event
+    msg = await self.recv()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\websockets\protocol.py", line 350, in recv
+    yield from self.ensure_open()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\websockets\protocol.py", line 512, in ensure_open
+    self.close_code, self.close_reason) from self.transfer_data_exc
+websockets.exceptions.ConnectionClosed: WebSocket connection is closed: code = 1000 (OK), no reason
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 431, in connect
+    await self._connect()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 395, in _connect
+    await self.ws.poll_event()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 472, in poll_event
+    raise ConnectionClosed(exc, shard_id=self.shard_id) from exc
+discord.errors.ConnectionClosed: WebSocket connection is closed: code = 1000 (OK), no reason
+2019-05-22 19:55:20,342 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished coro=<BgTask.user_progress() done, defined at f:\_DEV\Discord\SnakeBot\bg.py:14> exception=ServerSelectionTimeoutError('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it',)>
+Traceback (most recent call last):
+  File "f:\_DEV\Discord\SnakeBot\bg.py", line 23, in user_progress
+    for self.user in self.alluser:
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\pymongo\cursor.py", line 1225, in next
+    if len(self.__data) or self._refresh():
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\pymongo\cursor.py", line 1117, in _refresh
+    self.__session = self.__collection.database.client._ensure_session()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\pymongo\mongo_client.py", line 1598, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\pymongo\mongo_client.py", line 1551, in __start_session
+    server_session = self._get_server_session()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\pymongo\mongo_client.py", line 1584, in _get_server_session
+    return self._topology.get_server_session()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\pymongo\topology.py", line 429, in get_server_session
+    None)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\pymongo\topology.py", line 200, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it
+2019-05-22 20:03:46,662 - discord.client - ERROR - Attempting a reconnect in 0.31s
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 464, in poll_event
+    msg = await self.recv()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\websockets\protocol.py", line 350, in recv
+    yield from self.ensure_open()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\websockets\protocol.py", line 501, in ensure_open
+    self.close_code, self.close_reason) from self.transfer_data_exc
+websockets.exceptions.ConnectionClosed: WebSocket connection is closed: code = 1000 (OK), no reason
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 431, in connect
+    await self._connect()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 395, in _connect
+    await self.ws.poll_event()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 472, in poll_event
+    raise ConnectionClosed(exc, shard_id=self.shard_id) from exc
+discord.errors.ConnectionClosed: WebSocket connection is closed: code = 1000 (OK), no reason
+2019-05-22 20:04:14,823 - asyncio - ERROR - Task exception was never retrieved
+future: <Task finished coro=<BgTask.user_progress() done, defined at f:\_DEV\Discord\SnakeBot\bg.py:14> exception=ServerSelectionTimeoutError('localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it',)>
+Traceback (most recent call last):
+  File "f:\_DEV\Discord\SnakeBot\bg.py", line 23, in user_progress
+    for self.user in self.alluser:
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\pymongo\cursor.py", line 1225, in next
+    if len(self.__data) or self._refresh():
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\pymongo\cursor.py", line 1117, in _refresh
+    self.__session = self.__collection.database.client._ensure_session()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\pymongo\mongo_client.py", line 1598, in _ensure_session
+    return self.__start_session(True, causal_consistency=False)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\pymongo\mongo_client.py", line 1551, in __start_session
+    server_session = self._get_server_session()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\pymongo\mongo_client.py", line 1584, in _get_server_session
+    return self._topology.get_server_session()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\pymongo\topology.py", line 429, in get_server_session
+    None)
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\pymongo\topology.py", line 200, in _select_servers_loop
+    self._error_message(selector))
+pymongo.errors.ServerSelectionTimeoutError: localhost:27017: [WinError 10061] No connection could be made because the target machine actively refused it
+2019-05-22 20:14:44,491 - discord.client - ERROR - Attempting a reconnect in 1.30s
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 464, in poll_event
+    msg = await self.recv()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\websockets\protocol.py", line 350, in recv
+    yield from self.ensure_open()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\websockets\protocol.py", line 512, in ensure_open
+    self.close_code, self.close_reason) from self.transfer_data_exc
+websockets.exceptions.ConnectionClosed: WebSocket connection is closed: code = 1000 (OK), no reason
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 431, in connect
+    await self._connect()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\client.py", line 395, in _connect
+    await self.ws.poll_event()
+  File "F:\_DEV\Envs\SnakeBot\lib\site-packages\discord\gateway.py", line 472, in poll_event
+    raise ConnectionClosed(exc, shard_id=self.shard_id) from exc
+discord.errors.ConnectionClosed: WebSocket connection is closed: code = 1000 (OK), no reason
