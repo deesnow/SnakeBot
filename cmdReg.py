@@ -39,7 +39,7 @@ class Reg(commands.Cog):
                 if action == "Done":
                     await ctx.send('{} user with {} allycode is REGISTERED'.format(reg_user, ally_code))
                 elif action == "Already":
-                    await ctx.send('{} user with {} allycode is already REGISTERED'.format(reg_user, ally_code))
+                    await ctx.send('{} user with {} allycode is UPDATED'.format(reg_user, ally_code))
                 else:
                     await ctx.send('Something went wrong, check Bot logs') 
             except Exception as error:

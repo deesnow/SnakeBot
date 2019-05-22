@@ -9,12 +9,12 @@ class Db_handler(object):
     def __init__(self, logger=None):
         self.logger = logging.getLogger(__name__)
         self.logger.info('Init DB connection')
-        #self.dbclient = pymongo.MongoClient('mongodb://localhost:27017')
-        self.dbclient = pymongo.MongoClient('mongodb://192.168.0.10:32770',
-                                            username='mongo',
-                                            password='mongopwd01',
-                                            authSource='admin',
-                                            authMechanism='SCRAM-SHA-1')
+        self.dbclient = pymongo.MongoClient('mongodb://localhost:27017')
+        # self.dbclient = pymongo.MongoClient('mongodb://192.168.0.10:32770',
+        #                                     username='mongo',
+        #                                     password='mongopwd01',
+        #                                     authSource='admin',
+        #                                     authMechanism='SCRAM-SHA-1')
         self.mydb = self.dbclient['mydatabase']
         self.col_chars = self.mydb['characters']
         self.col_ships = self.mydb['ships']
@@ -90,10 +90,16 @@ class Db_handler(object):
                 self.logger.info("User {} added to the MongoDB".format(self.user_data['user_id']))
                 return "Done"
             except Exception as error:
-                self.logger.exception('User add is FAILED')
+                self.logger.error('User add is FAILED')
                 return "Failed"
         else:
-            self.logger.info('User {} is already in MongoDB')
+            
+            try:
+                self.inserted_data = self.col_discord.find_one_and_update({'discord_id': self.user_data['discord_id']}, {'$set': {'ally_code': self.user_data['ally_code']}} )
+                self.logger.info("User {} added to the MongoDB".format(self.user_data['user_id']))
+            except Exception as error:
+                self.logger.error('User {} update is FAILED'.formant(self.user_data['discord_id']))
+            
             return "Already"
 
     def getalluser(self):
