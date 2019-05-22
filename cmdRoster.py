@@ -2,6 +2,7 @@ import discord
 from discord.ext import commands
 import db_handler as mongo
 import swgoh_handler
+import logging
 
 db = mongo.Db_handler()
 sw = swgoh_handler.Swgoh()
@@ -9,6 +10,8 @@ sw = swgoh_handler.Swgoh()
 class SaveRoster(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        self.logger = logging.getLogger(__name__)
+        self.logger.info('Init cmdRoster COG')
         
     # SAVE mentioned user date to local DB
     @commands.command(aliases= ['sr', 'save'],pass_context = True)
@@ -131,11 +134,23 @@ class SaveRoster(commands.Cog):
         #self.embed.add_field(name='--------------------', value='--' , inline=True)
         if self.different != []:
             for self.char in self.different:
-                self.embed.add_field(name= self.char['name'] ,
-                                     value='★ Rarity: r{} ➢ r{}  ---- ■ Gear: g{} ➢ g{} \n ----------------------------------------------'.format(
-                                     self.char['rarity'],self.char['rarity']+ self.char['rarity_diff'],
+                if self.char['rarity'] == self.char['rarity']+ self.char['rarity_diff']:
+                    self.embed.add_field(name= self.char['name'] ,
+                                     value='★ Rarity: r{} ------  ---- ■ Gear: g{} ➢ g{} \n ----------------------------------------------'.format(
+                                     self.char['rarity'],
                                      self.char['gear'],self.char['gear'] + self.char['gear_diff']
                                      ) , inline=False)
+                elif self.char['gear'] == self.char['gear'] + self.char['gear_diff']:
+                       self.embed.add_field(name= self.char['name'] ,
+                                     value='★ Rarity: r{} ➢ r{}  ---- ■ Gear: g{} ------ \n ----------------------------------------------'.format(
+                                     self.char['rarity'],self.char['rarity']+ self.char['rarity_diff'],
+                                     self.char['gear']) , inline=False)
+                else:
+                    self.embed.add_field(name= self.char['name'] ,
+                                        value='★ Rarity: r{} ➢ r{}  ---- ■ Gear: g{} ➢ g{} \n ----------------------------------------------'.format(
+                                        self.char['rarity'],self.char['rarity']+ self.char['rarity_diff'],
+                                        self.char['gear'],self.char['gear'] + self.char['gear_diff']
+                                        ) , inline=False)
                 #self.stars = self.char['rarity']*'⭐'+self.char['rarity_diff']*'🌟'
                 #self.embed.add_field(name='Additional stars 🌟', value=self.stars , inline=True)
                 #self.gear_lvl = '📈 +' + str(self.char['gear_diff']) + ' gear lvl'

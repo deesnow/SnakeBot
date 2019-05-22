@@ -2,6 +2,7 @@ from discord.ext import commands
 import asyncio
 import db_handler as mongo
 import swgoh_handler
+import logging
 
 db = mongo.Db_handler()
 sw = swgoh_handler.Swgoh()
@@ -9,6 +10,8 @@ sw = swgoh_handler.Swgoh()
 class BgTask(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        self.logger = logging.getLogger(__name__)
+        self.logger.info('Init bg COG')
 
   
     async def user_progress(self):
@@ -31,11 +34,14 @@ class BgTask(commands.Cog):
                         self.write_user = db.user_update(self.discord_id, self.newdata)
                         self.counter += 1
                     except Exception as error:
+                        self.logger.error('Mongo DB update - FAILED from bg task')
                         print(error)
                 except Exception as error:
+                    self.logger.error('swgoh_getuser drop exeption for user {}'.format(self.discord_id))
                     print(error)
 
             await channel.send('Daily backgroud roster save DONE for {} users'.format(self.counter))
+            self.logger.info('Daily backgroud roster save DONE for {} users'.format(self.counter))
             await asyncio.sleep(86400)
 
                 
@@ -62,7 +68,7 @@ class BgTask(commands.Cog):
         channel = self.bot.get_channel(451385630543577088)
         #channel = self.bot.get_channel(573490564646043649)
         self.bg_task.cancel()
-        await channel.send('Task1 cycles - STOPPED')
+        await channel.send('Daily roster saves - STOPPED')
 
 
 def setup(bot):

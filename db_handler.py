@@ -8,7 +8,6 @@ import logging
 class Db_handler(object):
     def __init__(self, logger=None):
         self.logger = logging.getLogger(__name__)
-        self.logger.info('Init DB connection')
         self.dbclient = pymongo.MongoClient('mongodb://localhost:27017')
         # self.dbclient = pymongo.MongoClient('mongodb://192.168.0.10:32770',
         #                                     username='mongo',

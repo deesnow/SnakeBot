@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
 import db_handler as mongo
+import logging
 
 db = mongo.Db_handler()
 
@@ -9,6 +10,8 @@ db = mongo.Db_handler()
 class Reg(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
+        self.logger = logging.getLogger(__name__)
+        self.logger.info('Init cmdReg COG')
 
     @commands.command()
     async def ping(self, ctx):
