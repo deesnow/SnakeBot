@@ -15,8 +15,8 @@ class BgTask(commands.Cog):
 
   
     async def user_progress(self):
-        channel = self.bot.get_channel(451385630543577088)
-        #channel = self.bot.get_channel(573490564646043649)
+        #channel = self.bot.get_channel(451385630543577088)
+        channel = self.bot.get_channel(573490564646043649)
         await channel.send('SnakeBot start daily background roster check for registered users')
         #Get list of {ally:code , user_id}
         while True:

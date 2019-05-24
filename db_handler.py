@@ -107,7 +107,7 @@ class Db_handler(object):
             self.alluser = self.col_discord.find({},{'ally_code':1, 'discord_id':1})
             return self.alluser
         except Exception as error:
-            self.logger.exception('User add is FAILED')
+            self.logger.error('User add is FAILED')
             return "Failed"
 
 
@@ -123,7 +123,7 @@ class Db_handler(object):
         try:
             self.action1 = self.col_discord.find_one(self.query)
         except Exception as error:
-            self.logger.exception('User update is FAILED')
+            self.logger.error('User update is FAILED')
             return "Failed"
 
         if self.action1 == None:  
@@ -135,7 +135,7 @@ class Db_handler(object):
                 self.logger.info('User update DONE for {} discordID'.format(self.discord_id))
                 return 'Done'
             except Exception as error:
-                self.logger.exception('User update is FAILED')
+                self.logger.error('User update is FAILED')
                 return "Failed"
 
         else:
@@ -148,7 +148,7 @@ class Db_handler(object):
                     self.logger.info('User update DONE with new {} progress data'.format(self.date))
                     return 'Done'
                 except Exception as error:
-                    self.logger.exception('User update is FAILED')
+                    self.logger.error('User update is FAILED')
                     return "Failed"
             else:
                 return 'Already'
@@ -165,7 +165,7 @@ class Db_handler(object):
             self.logger.info('{} found for {}'.format(self.allycode, self.user_id))
             return self.allycode['ally_code']
         except Exception as error:
-            self.logger.exception('Get allycode is FAILED. {}'.format(error))
+            self.logger.error('Get allycode is FAILED. {}'.format(error))
             return "Failed"
 
 
@@ -207,8 +207,22 @@ class Db_handler(object):
             self.logger.info('User update DONE with new {} roster data'.format(self.date))
             return 'Done'
         except Exception as error:
-            self.logger.exception('User update is FAILED')
+            self.logger.error('User update is FAILED')
             return "Failed"
+
+    def delete_now(self, discord_id):
+        self.discord_id = discord_id
+        self.col_discord = self.mydb['discordUsers']
+        self.rm_data = {'$unset': {'roster.xxnowxx':''}}
+        self.query = {'discord_id': self.discord_id}
+
+        try:
+            self.rm = self.col_discord.find_one_and_update(self.query, self.rm_data)
+            self.logger.info('Temp roster save deleted for {}'.format(self.discord_id))
+            return 'Done'
+        except Exception as error:
+            self.logger.error('User update is FAILED')
+
 
     def listsaves(self, discord_id):
         self.col_discord = self.mydb['discordUsers']
@@ -226,7 +240,7 @@ class Db_handler(object):
                 self.saves[self.save] = self.date
             return self.saves            
         except Exception as error:
-            self.logger.exception('List saved roster is FAILED')
+            self.logger.error('List saved roster is FAILED')
             return None
 
     def getdiff(self, discord_id, save1, save2):
@@ -288,7 +302,7 @@ class Db_handler(object):
             self.logger.info('{} is added to the Mongo'.format(self.shortname))
             return 'done'
         except Exception as error:
-            self.logger.exception('Insert data to DB failed for link_add')
+            self.logger.error('Insert data to DB failed for link_add')
             return 'failed'
 
     def link_list(self):
@@ -300,7 +314,7 @@ class Db_handler(object):
             self.logger.info('Links are listed')
             return self.link_list
         except Exception as error:
-            self.logger.exception('List Link data failed')
+            self.logger.error('List Link data failed')
             return 'failed'
 
     def link_get(self, shortname):
@@ -313,7 +327,7 @@ class Db_handler(object):
             self.logger.info('Link if find')
             return self.link_list
         except Exception as error:
-            self.logger.exception('Get Link is failed')
+            self.logger.error('Get Link is failed')
             return 'failed'
 
 
