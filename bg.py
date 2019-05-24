@@ -15,8 +15,8 @@ class BgTask(commands.Cog):
 
   
     async def user_progress(self):
-        #channel = self.bot.get_channel(451385630543577088)
-        channel = self.bot.get_channel(573490564646043649)
+        channel = self.bot.get_channel(451385630543577088)
+        #channel = self.bot.get_channel(573490564646043649)
         await channel.send('SnakeBot start daily background roster check for registered users')
         #Get list of {ally:code , user_id}
         while True:
@@ -65,8 +65,8 @@ class BgTask(commands.Cog):
     @commands.command(pass_context=True)
     @commands.has_any_role('Master') # User need this role to run command (can have multiple)
     async def stopbg(self, ctx):
-        channel = self.bot.get_channel(451385630543577088)
-        #channel = self.bot.get_channel(573490564646043649)
+        #channel = self.bot.get_channel(451385630543577088)
+        channel = self.bot.get_channel(573490564646043649)
         self.bg_task.cancel()
         await channel.send('Daily roster saves - STOPPED')
 

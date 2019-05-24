@@ -50,7 +50,7 @@ class MyClient(commands.Bot):
         #OnReady Message
         async def on_ready(self):
             print('We have logged in as {0.user}'.format(self))
-            await self.change_presence(activity=Game(name="Under Development"))
+            await self.change_presence(activity=Game(name="RC2 - Under Development"))
             logger.info('We have logged in as {0.user}'.format(self))
 
         
@@ -99,8 +99,8 @@ if __name__ == '__main__':
 
 
 
-#TOKEN = "NTU4MjI0MDYyMTY2MzM1NTA5.D3TwfA.O8FZKYREf8DCy8BniYQeEfuei4A"
-TOKEN = "NTc4OTk1OTA5Njk0ODQ5MDI3.XOP_Ew.QkJq77KgFVd_gLSght5JPJr8ft8"
+TOKEN = "NTU4MjI0MDYyMTY2MzM1NTA5.D3TwfA.O8FZKYREf8DCy8BniYQeEfuei4A"
+#TOKEN = "NTc4OTk1OTA5Njk0ODQ5MDI3.XOP_Ew.QkJq77KgFVd_gLSght5JPJr8ft8"
 
 
 

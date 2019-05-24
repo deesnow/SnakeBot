@@ -8,12 +8,12 @@ import logging
 class Db_handler(object):
     def __init__(self, logger=None):
         self.logger = logging.getLogger(__name__)
-        self.dbclient = pymongo.MongoClient('mongodb://localhost:27017')
-        # self.dbclient = pymongo.MongoClient('mongodb://192.168.0.10:32770',
-        #                                     username='mongo',
-        #                                     password='mongopwd01',
-        #                                     authSource='admin',
-        #                                     authMechanism='SCRAM-SHA-1')
+        # self.dbclient = pymongo.MongoClient('mongodb://localhost:27017')
+        self.dbclient = pymongo.MongoClient('mongodb://192.168.0.10:32770',
+                                            username='mongo',
+                                            password='mongopwd01',
+                                            authSource='admin',
+                                            authMechanism='SCRAM-SHA-1')
         self.mydb = self.dbclient['mydatabase']
         self.col_chars = self.mydb['characters']
         self.col_ships = self.mydb['ships']
