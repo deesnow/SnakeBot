@@ -9,3 +9,11 @@ docker-compose.debug.yml
 info.log
 __pycache__/db_handler.cpython-36.pyc
 logs/debug.log
+__pycache__/bg.cpython-36.pyc
+__pycache__/bg.cpython-36.pyc
+__pycache__/cmdRoster.cpython-36.pyc
+__pycache__/db_handler.cpython-36.pyc
+__pycache__/db_handler.cpython-36.pyc
+__pycache__/bg.cpython-36.pyc
+__pycache__/cmdReg.cpython-36.pyc
+__pycache__/cmdRoster.cpython-36.pyc

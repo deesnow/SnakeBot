@@ -46,13 +46,13 @@ class SaveRoster(commands.Cog):
             for self.char in self.different:
                 if self.char['rarity'] == self.char['rarity']+ self.char['rarity_diff']:
                     self.embed.add_field(name= self.char['name'] ,
-                                     value='★ Rarity: r{} ------  ---- ■ Gear: g{} ➢ g{} \n ----------------------------------------------'.format(
+                                     value='★ Rarity: r{} ------  ---- **■ Gear: g{} ➢ g{}** \n ----------------------------------------------'.format(
                                      self.char['rarity'],
                                      self.char['gear'],self.char['gear'] + self.char['gear_diff']
                                      ) , inline=False)
                 elif self.char['gear'] == self.char['gear'] + self.char['gear_diff']:
                        self.embed.add_field(name= self.char['name'] ,
-                                     value='★ Rarity: r{} ➢ r{}  ---- ■ Gear: g{} ------ \n ----------------------------------------------'.format(
+                                     value='**★ Rarity: r{} ➢ r{}**  ---- ■ Gear: g{} ------ \n ----------------------------------------------'.format(
                                      self.char['rarity'],self.char['rarity']+ self.char['rarity_diff'],
                                      self.char['gear']) , inline=False)
                 else:
