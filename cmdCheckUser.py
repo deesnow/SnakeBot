@@ -3,7 +3,7 @@ from discord.ext import commands
 import db_handler as mongo
 import swgoh_handler
 
-db = mongo.Db_handler()
+db = mongo.Dbhandler()
 sw = swgoh_handler.Swgoh()
 
 class CkeckUser(commands.Cog):

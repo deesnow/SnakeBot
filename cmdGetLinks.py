@@ -1,7 +1,7 @@
 import discord
 from discord.ext import commands
 import db_handler as mongo
-db = mongo.Db_handler()
+db = mongo.Dbhandler()
 
 
 # Discord Bot cog

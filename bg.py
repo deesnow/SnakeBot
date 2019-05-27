@@ -4,7 +4,7 @@ import db_handler as mongo
 import swgoh_handler
 import logging
 
-db = mongo.Db_handler()
+db = mongo.Dbhandler()
 sw = swgoh_handler.Swgoh()
 
 class BgTask(commands.Cog):

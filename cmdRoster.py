@@ -5,7 +5,7 @@ import swgoh_handler
 import logging
 import asyncio
 
-db = mongo.Db_handler()
+db = mongo.Dbhandler()
 sw = swgoh_handler.Swgoh()
 
 class SaveRoster(commands.Cog):

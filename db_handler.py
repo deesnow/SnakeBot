@@ -5,7 +5,7 @@ from dateutil.parser import parse
 import logging
 
 
-class Db_handler(object):
+class Dbhandler(object):
     def __init__(self, logger=None):
         self.logger = logging.getLogger(__name__)
         # self.dbclient = pymongo.MongoClient('mongodb://localhost:27017')
@@ -28,18 +28,18 @@ class Db_handler(object):
                 with open(json_file, 'r' ) as self.file:
                     self.data = json.loads(self.file.read())
                     #print(type(self.data))
-            except Exception as e:
+            except Exception as error:
                 self.logger.error('Failed to Open File')
             try:
                 self.ins_ =  self.mycol.insert_many(self.data)
                 self.logger.info('MongoDB {} created'.format(self.mycol))
                 return self.mycol.count_documents({})
-            except Exception as e:
+            except Exception as error:
                 self.logger.error('MongoDB create FAILED')
 
             else:
                 print('Collection is not empty!!!')
-        except Exception as e:
+        except Exception as error:
             self.logger.error('Cannot connect to Mongo')
 
            
@@ -52,7 +52,7 @@ class Db_handler(object):
         try:
             self.mycol.update_one(self.fileter, self.data)
             self.logger.info('MongoDb updated with {0}'.format(self.mycol))            
-        except Exception as e:
+        except Exception as error:
             self.logger.error('Cannot update {0}'.format(self.mycol))
 
         
@@ -68,12 +68,12 @@ class Db_handler(object):
             with open(json_file, 'r' ) as self.file:
                 self.data = json.loads(self.file.read())
                 #print(type(self.data))
-        except Exception as e:
+        except Exception as error:
             self.logger.error('Cannot open {0}'.format(self.file))
         try:
             self.ins_ =  self.mycol.insert_many(self.data)
             self.logger.info('Mongo BD update - DONE')
-        except Exception as e:
+        except Exception as error:
             self.logger.error('Mongo DB update - FAILED')
         
 
@@ -172,7 +172,6 @@ class Db_handler(object):
 
     def user_purge(self, discord_user):
         self.discord_user = str(discord_user)
-        self.ally_code = ally_code
         self.col_discord = self.mydb['discordUsers']
         self.user_data = {"user_id": self.discord_user}
         self.x = self.col_discord.find_one({"user_id": self.discord_user})
@@ -182,7 +181,7 @@ class Db_handler(object):
                 self.delete_data = self.col_discord.delete_one(self.user_data)
                 self.logger.info("User {} data purged from the MongoDB".format(self.discord_user))
                 return "Done"
-            except Exception as e:
+            except Exception as error:
                 self.logger.error('User delete is FAILED')
                 return "Failed"
         else:
@@ -207,7 +206,7 @@ class Db_handler(object):
             self.logger.info('User update DONE with new {} roster data'.format(self.date))
             return 'Done'
         except Exception as error:
-            self.logger.error('User update is FAILED')
+            self.logger.error('User update is FAILED \n', error)
             return "Failed"
 
     def delete_now(self, discord_id):
@@ -221,7 +220,7 @@ class Db_handler(object):
             self.logger.info('Temp roster save deleted for {}'.format(self.discord_id))
             return 'Done'
         except Exception as error:
-            self.logger.error('User update is FAILED')
+            self.logger.error('User update is FAILED \n', error)
 
         def delete_save(self, discord_id, save):
             self.discord_id = discord_id
@@ -255,7 +254,7 @@ class Db_handler(object):
                 self.saves[self.save] = self.date
             return self.saves            
         except Exception as error:
-            self.logger.error('List saved roster is FAILED')
+            self.logger.error('List saved roster is FAILED\n', error)
             return None
 
     def getdiff(self, discord_id, save1, save2):
@@ -317,7 +316,7 @@ class Db_handler(object):
             self.logger.info('{} is added to the Mongo'.format(self.shortname))
             return 'done'
         except Exception as error:
-            self.logger.error('Insert data to DB failed for link_add')
+            self.logger.error('Insert data to DB failed for link_add\n', error)
             return 'failed'
 
     def link_list(self):
@@ -329,7 +328,7 @@ class Db_handler(object):
             self.logger.info('Links are listed')
             return self.linklist
         except Exception as error:
-            self.logger.error('List Link data failed')
+            self.logger.error('List Link data failed\n', error)
             return 'failed'
 
     def link_get(self, shortname):
@@ -342,7 +341,7 @@ class Db_handler(object):
             self.logger.info('Link if find')
             return self.link_list
         except Exception as error:
-            self.logger.error('Get Link is failed')
+            self.logger.error('Get Link is failed\n', error)
             return 'failed'
 
 
