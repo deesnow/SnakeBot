@@ -97,7 +97,7 @@ class Db_handler(object):
                 self.inserted_data = self.col_discord.find_one_and_update({'discord_id': self.user_data['discord_id']}, {'$set': {'ally_code': self.user_data['ally_code']}} )
                 self.logger.info("User {} added to the MongoDB".format(self.user_data['user_id']))
             except Exception as error:
-                self.logger.error('User {} update is FAILED'.formant(self.user_data['discord_id']))
+                self.logger.error('User {} update is FAILED'.format(self.user_data['discord_id']))
             
             return "Already"
 
@@ -223,6 +223,21 @@ class Db_handler(object):
         except Exception as error:
             self.logger.error('User update is FAILED')
 
+        def delete_save(self, discord_id, save):
+            self.discord_id = discord_id
+            self.save = save
+            self.docs = 'roster.' + self.save
+        self.col_discord = self.mydb['discordUsers']
+        self.rm_data = {'$unset': {self.docs:''}}
+        self.query = {'discord_id': self.discord_id}
+
+        try:
+            self.rm = self.col_discord.find_one_and_update(self.query, self.rm_data)
+            self.logger.info('{}} roster save deleted for {}'.format(self.save,self.discord_id))
+            return 'Done'
+        except Exception as error:
+            self.logger.error('User update is FAILED,' , error)
+
 
     def listsaves(self, discord_id):
         self.col_discord = self.mydb['discordUsers']
@@ -310,9 +325,9 @@ class Db_handler(object):
         self.query = {}
 
         try:
-            self.link_list = self.col_links.find(self.query, {'_id':0, 'shortname':1, 'description':1, 'url':1})
+            self.linklist = self.col_links.find(self.query, {'_id':0, 'shortname':1, 'description':1, 'url':1})
             self.logger.info('Links are listed')
-            return self.link_list
+            return self.linklist
         except Exception as error:
             self.logger.error('List Link data failed')
             return 'failed'

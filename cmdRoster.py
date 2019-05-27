@@ -201,6 +201,31 @@ class SaveRoster(commands.Cog):
             print("Permission error!!!")
             await self.ctx.send('⛔ - You don\'t have the right permission!!!')
     
+    #---------------------------------------------------------------------------------------
+    
+    #Delete SAVE
+    @commands.command(aliases= ['ds'],pass_context = True)    
+    @commands.has_any_role('Master') # User need this role to run command (can have multiple)
+    async def delete_save(self, ctx, user, save):
+        self.ctx = ctx
+        self.save_name = save
+        await self.ctx.message.add_reaction("🐍")
+        
+        
+
+        if user != "me":
+            self.user_id = self.ctx.message.mentions[0].id
+            
+        else:
+            self.user_id = self.ctx.author.id
+
+        try:
+            self.ds = db.delete_save(self.user_id, self.save_name)
+        except Exception as error:
+            self.logger.error('Delete roster save: {} for user: {} is Failed \n'.format(self.save_name, self.user_id), error)
+
+
+    #---------------------------------------------------------------------------------------
 
     # SAVE mentioned user date to local DB
     @commands.command(aliases= ['list', 'ls'],pass_context = True)
