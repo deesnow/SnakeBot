@@ -166,10 +166,10 @@ class Dbhandler(object):
 
         try:
             self.allycode = self.col_discord.find_one({'discord_id': self.user_id},{'_id':0, 'ally_code': 1})
-            self.logger.info('{} found for {}'.format(self.allycode, self.user_id))
+            self.logger.info('%s found for %s', self.allycode, self.user_id)
             return self.allycode['ally_code']
         except Exception:
-            self.logger.error('Get allycode is FAILED. {}'.format(error), exc_info=True)
+            self.logger.error('Get allycode is FAILED for %s.', self.user_id, exc_info=True)
             return "Failed"
 
 
@@ -316,7 +316,7 @@ class Dbhandler(object):
                         }
 
         try:
-            self.link_add = self.col_links.insert_one(self.linkdata)
+            self.linkadd = self.col_links.insert_one(self.linkdata)
             self.logger.info('%s is added to the Mongo', self.shortname)
             return 'done'
         except Exception:
@@ -341,7 +341,7 @@ class Dbhandler(object):
         self.query = {'shortname': self.shortname}
 
         try:
-            self.link_list = self.col_links.find(self.query, {'_id':0, 'shortname':1, 'description':1, 'url':1})
+            self.linkget = self.col_links.find(self.query, {'_id':0, 'shortname':1, 'description':1, 'url':1})
             self.logger.info('Link is found')
             return self.link_list
         except Exception:
