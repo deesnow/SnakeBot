@@ -5,6 +5,7 @@
 		}
 	],
 	"settings": {
-		"python.pythonPath": "F:\\_DEV\\Envs\\SnakeBot\\Scripts"
+		"python.pythonPath": "F:\\_DEV\\Envs\\SnakeBot\\Scripts",
+		"python.linting.pylintPath": "F:\\_DEV\\Envs\\SnakeBot\\Lib\\site-packages\\pylint"
 	}
 }

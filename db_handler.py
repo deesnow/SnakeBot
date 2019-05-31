@@ -6,6 +6,11 @@ import logging
 
 
 class Dbhandler(object):
+    '''Db handler function for the Snakebot. Contains all mongo db related method.'''
+    # pylint: disable=too-many-instance-attributes
+    # Eight is reasonable in this case.
+
+
     def __init__(self, logger=None):
         self.logger = logging.getLogger(__name__)
         # self.dbclient = pymongo.MongoClient('mongodb://localhost:27017')
@@ -19,7 +24,7 @@ class Dbhandler(object):
         self.col_ships = self.mydb['ships']
         
     def create_docs(self, collection,  json_file):
-        #Create specified MongoDB and fill up with initial data
+        ''' Create specified MongoDB and fill up with initial data '''
         self.mycol = self.mydb[collection]
         try:
             if self.mycol.count_documents({})== 0:
@@ -28,54 +33,53 @@ class Dbhandler(object):
                 with open(json_file, 'r' ) as self.file:
                     self.data = json.loads(self.file.read())
                     #print(type(self.data))
-            except Exception as error:
-                self.logger.error('Failed to Open File')
+            except Exception:
+                self.logger.error('Failed to Open File', exc_info=True)
             try:
                 self.ins_ =  self.mycol.insert_many(self.data)
-                self.logger.info('MongoDB {} created'.format(self.mycol))
+                self.logger.info('MongoDB %s created', self.mycol)
                 return self.mycol.count_documents({})
-            except Exception as error:
-                self.logger.error('MongoDB create FAILED')
+            except Exception:
+                self.logger.error('MongoDB create FAILED', exc_info=True)
 
             else:
                 print('Collection is not empty!!!')
-        except Exception as error:
-            self.logger.error('Cannot connect to Mongo')
+        except Exception:
+            self.logger.error('Cannot connect to Mongo', exc_info=True)
 
            
 
     def update_docs(self, collection, filter, data):
-        #Update filtered docs in collection
+        ''' Update filtered docs in collection '''
         self.mycol = self.mydb[collection]
         self.fileter = filter
         self.data = {"$set": data}
         try:
             self.mycol.update_one(self.fileter, self.data)
-            self.logger.info('MongoDb updated with {0}'.format(self.mycol))            
-        except Exception as error:
-            self.logger.error('Cannot update {0}'.format(self.mycol))
+            self.logger.info('MongoDb updated with %s', self.mycol)            
+        except Exception:
+            self.logger.error('Cannot update %s', self.mycol, exc_info=True)
 
         
     
-    def mass_update(self, collection, json_file):
-        #drop all data from collection and recreate from json file
-        self.mycol = self.mydb[collection]
+    # def mass_update(self, collection, json_file):
+    #     #drop all data from collection and recreate from json file
+    #     self.mycol = self.mydb[collection]
         
-        if self.mycol.count_documents({}) > 0:
-            self.mycol.delete_many({})
+    #     if self.mycol.count_documents({}) > 0:
+    #         self.mycol.delete_many({})
 
-        try:
-            with open(json_file, 'r' ) as self.file:
-                self.data = json.loads(self.file.read())
-                #print(type(self.data))
-        except Exception as error:
-            self.logger.error('Cannot open {0}'.format(self.file))
-        try:
-            self.ins_ =  self.mycol.insert_many(self.data)
-            self.logger.info('Mongo BD update - DONE')
-        except Exception as error:
-            self.logger.error('Mongo DB update - FAILED')
-        
+    #     try:
+    #         with open(json_file, 'r' ) as self.file:
+    #             self.data = json.loads(self.file.read())
+    #             #print(type(self.data))
+    #     except Exception:
+    #         self.logger.error('Cannot open %s'.format(self.file), exc_info=True)
+    #     try:
+    #         self.ins_ =  self.mycol.insert_many(self.data)
+    #         self.logger.info('Mongo BD update - DONE')
+    #     except Exception:
+    #         self.logger.error('Mongo DB update - FAILED', exc_info=True)
 
 
     def user_add(self, data):
@@ -88,16 +92,16 @@ class Dbhandler(object):
                 self.inserted_data = self.col_discord.insert_one(self.user_data)
                 self.logger.info("User {} added to the MongoDB".format(self.user_data['user_id']))
                 return "Done"
-            except Exception as error:
-                self.logger.error('User add is FAILED')
+            except Exception:
+                self.logger.error('User add is FAILED', exc_info=True)
                 return "Failed"
         else:
             
             try:
                 self.inserted_data = self.col_discord.find_one_and_update({'discord_id': self.user_data['discord_id']}, {'$set': {'ally_code': self.user_data['ally_code']}} )
                 self.logger.info("User {} added to the MongoDB".format(self.user_data['user_id']))
-            except Exception as error:
-                self.logger.error('User {} update is FAILED'.format(self.user_data['discord_id']))
+            except Exception:
+                self.logger.error('User {} update is FAILED'.format(self.user_data['discord_id']), exc_info=True)
             
             return "Already"
 
@@ -106,8 +110,8 @@ class Dbhandler(object):
         try:
             self.alluser = self.col_discord.find({},{'ally_code':1, 'discord_id':1})
             return self.alluser
-        except Exception as error:
-            self.logger.error('User add is FAILED')
+        except Exception:
+            self.logger.error('User add is FAILED', exc_info=True)
             return "Failed"
 
 
@@ -122,8 +126,8 @@ class Dbhandler(object):
 
         try:
             self.action1 = self.col_discord.find_one(self.query)
-        except Exception as error:
-            self.logger.error('User update is FAILED')
+        except Exception:
+            self.logger.error('User update is FAILED', exc_info=True)
             return "Failed"
 
         if self.action1 == None:  
@@ -134,8 +138,8 @@ class Dbhandler(object):
                 self.action2 = self.col_discord.update_one(self.query2, self.new_value)
                 self.logger.info('User update DONE for {} discordID'.format(self.discord_id))
                 return 'Done'
-            except Exception as error:
-                self.logger.error('User update is FAILED')
+            except Exception:
+                self.logger.error('User update is FAILED', exc_info=True)
                 return "Failed"
 
         else:
@@ -147,8 +151,8 @@ class Dbhandler(object):
                     self.action2 = self.col_discord.update_one(self.query2, self.new_value)
                     self.logger.info('User update DONE with new {} progress data'.format(self.date))
                     return 'Done'
-                except Exception as error:
-                    self.logger.error('User update is FAILED')
+                except Exception:
+                    self.logger.error('User update is FAILED', exc_info=True)
                     return "Failed"
             else:
                 return 'Already'
@@ -164,8 +168,8 @@ class Dbhandler(object):
             self.allycode = self.col_discord.find_one({'discord_id': self.user_id},{'_id':0, 'ally_code': 1})
             self.logger.info('{} found for {}'.format(self.allycode, self.user_id))
             return self.allycode['ally_code']
-        except Exception as error:
-            self.logger.error('Get allycode is FAILED. {}'.format(error))
+        except Exception:
+            self.logger.error('Get allycode is FAILED. {}'.format(error), exc_info=True)
             return "Failed"
 
 
@@ -181,8 +185,8 @@ class Dbhandler(object):
                 self.delete_data = self.col_discord.delete_one(self.user_data)
                 self.logger.info("User {} data purged from the MongoDB".format(self.discord_user))
                 return "Done"
-            except Exception as error:
-                self.logger.error('User delete is FAILED')
+            except Exception:
+                self.logger.error('User delete is FAILED', exc_info=True)
                 return "Failed"
         else:
             self.logger.info('User {} was not in MongoDB')
@@ -205,8 +209,8 @@ class Dbhandler(object):
             self.action2 = self.col_discord.update_one(self.query2, self.new_value)
             self.logger.info('User update DONE with new {} roster data'.format(self.date))
             return 'Done'
-        except Exception as error:
-            self.logger.error('User update is FAILED \n', error)
+        except Exception:
+            self.logger.error('User update is FAILED', exc_info=True)
             return "Failed"
 
     def delete_now(self, discord_id):
@@ -217,10 +221,10 @@ class Dbhandler(object):
 
         try:
             self.rm = self.col_discord.find_one_and_update(self.query, self.rm_data)
-            self.logger.info('Temp roster save deleted for {}'.format(self.discord_id))
+            self.logger.info('Temp roster save deleted for %s', self.discord_id)
             return 'Done'
-        except Exception as error:
-            self.logger.error('User update is FAILED \n', error)
+        except Exception:
+            self.logger.error('User update is FAILED', exc_info=True)
 
         def delete_save(self, discord_id, save):
             self.discord_id = discord_id
@@ -232,10 +236,10 @@ class Dbhandler(object):
 
         try:
             self.rm = self.col_discord.find_one_and_update(self.query, self.rm_data)
-            self.logger.info('{}} roster save deleted for {}'.format(self.save,self.discord_id))
+            self.logger.info('%s roster save deleted for %s', self.save, self.discord_id)
             return 'Done'
-        except Exception as error:
-            self.logger.error('User update is FAILED,' , error)
+        except Exception:
+            self.logger.error('User update is FAILED,' , exc_info=True)
 
 
     def listsaves(self, discord_id):
@@ -253,8 +257,8 @@ class Dbhandler(object):
                     self.date = 'Not_Saved'
                 self.saves[self.save] = self.date
             return self.saves            
-        except Exception as error:
-            self.logger.error('List saved roster is FAILED\n', error)
+        except Exception:
+            self.logger.error('List saved roster is FAILED', exc_info=True)
             return None
 
     def getdiff(self, discord_id, save1, save2):
@@ -313,10 +317,10 @@ class Dbhandler(object):
 
         try:
             self.link_add = self.col_links.insert_one(self.linkdata)
-            self.logger.info('{} is added to the Mongo'.format(self.shortname))
+            self.logger.info('%s is added to the Mongo', self.shortname)
             return 'done'
-        except Exception as error:
-            self.logger.error('Insert data to DB failed for link_add\n', error)
+        except Exception:
+            self.logger.error('Insert data to DB failed for link_add', exc_info=True)
             return 'failed'
 
     def link_list(self):
@@ -327,8 +331,8 @@ class Dbhandler(object):
             self.linklist = self.col_links.find(self.query, {'_id':0, 'shortname':1, 'description':1, 'url':1})
             self.logger.info('Links are listed')
             return self.linklist
-        except Exception as error:
-            self.logger.error('List Link data failed\n', error)
+        except Exception:
+            self.logger.error('List Link data failed', exc_info=True)
             return 'failed'
 
     def link_get(self, shortname):
@@ -338,21 +342,9 @@ class Dbhandler(object):
 
         try:
             self.link_list = self.col_links.find(self.query, {'_id':0, 'shortname':1, 'description':1, 'url':1})
-            self.logger.info('Link if find')
+            self.logger.info('Link is found')
             return self.link_list
-        except Exception as error:
-            self.logger.error('Get Link is failed\n', error)
+        except Exception:
+            self.logger.error('Get Link is failed', exc_info=True)
             return 'failed'
-
-
-
-
-
-        
-
-
-
-    
-
-
-
+            
