@@ -57,7 +57,7 @@ class SaveRoster(commands.Cog):
                                      self.char['gear']) , inline=False)
                 else:
                     self.embed.add_field(name= self.char['name'] ,
-                                        value='★ Rarity: r{} ➢ r{}  ---- ■ Gear: g{} ➢ g{} \n ----------------------------------------------'.format(
+                                        value='**★ Rarity: r{} ➢ r{}**  ---- **■ Gear: g{} ➢ g{}** \n ----------------------------------------------'.format(
                                         self.char['rarity'],self.char['rarity']+ self.char['rarity_diff'],
                                         self.char['gear'],self.char['gear'] + self.char['gear_diff']
                                         ) , inline=False)
@@ -206,7 +206,7 @@ class SaveRoster(commands.Cog):
     #Delete SAVE
     @commands.command(aliases= ['ds'],pass_context = True)    
     @commands.has_any_role('Master') # User need this role to run command (can have multiple)
-    async def delete_save(self, ctx, user, save):
+    async def del_save(self, ctx, user, save):
         self.ctx = ctx
         self.save_name = save
         await self.ctx.message.add_reaction("🐍")
@@ -217,12 +217,25 @@ class SaveRoster(commands.Cog):
             self.user_id = self.ctx.message.mentions[0].id
             
         else:
-            self.user_id = self.ctx.author.id
+            self.discord_id = self.ctx.author.id
 
         try:
-            self.ds = db.delete_save(self.user_id, self.save_name)
+            self.ds = db.delete_save(self.discord_id, self.save_name)
+            self.logger.info('Delete roster %s save for user %s is Done', self.save_name, self.discord_id, exc_info=True)
+            if self.ds == "Done":
+                await self.ctx.send('{} save for {} user is deleted ✅'.format(self.save_name, self.discord_id))
+            else:
+                await self.ctx.send('{} save delete is FAILED 💥'.format( self.save_name))
+
         except Exception as error:
-            self.logger.error('Delete roster save: {} for user: {} is Failed \n'.format(self.save_name, self.user_id), error)
+            self.logger.error('Delete roster {} save for user {} is Failed '.format( self.save_name, self.discord_id, exc_info=True))
+
+    @del_save.error
+    async def now_error(self, ctx, error):
+        self.ctx = ctx
+        if isinstance(error, commands.CheckFailure):
+            print("Permission error!!!")
+            await self.ctx.send('⛔ - You don\'t have the right permission!!!')
 
 
     #---------------------------------------------------------------------------------------
