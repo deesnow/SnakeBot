@@ -9,6 +9,10 @@ from discord import Game
 import asyncio
 
 import db_handler as mongo
+#Global variables
+VERSION = 1.02
+
+
 # Define logger ---------------------------------------------------------
 def setup_logging(
     default_path='logging.json',
@@ -59,6 +63,7 @@ bot = MyClient(command_prefix = 'snk ')
 
 
 @bot.command(aliases= ['l'])
+@commands.has_any_role('Master') # User need this role to run command (can have multiple)
 async def load(ctx, extension):
     try:
         bot.load_extension(extension)
@@ -69,7 +74,15 @@ async def load(ctx, extension):
         await ctx.send('{} cannot be loaded. [{}]'.format(extension, error))
         logger.exception ('{} cannot be loaded. [{}]'.format(extension, error))
 
+@load.error
+async def saveroster_error(self, ctx, error):
+    self.ctx = ctx
+    if isinstance(error, commands.CheckFailure):
+        print("Permission error!!!")
+        await self.ctx.send('⛔ - You don\'t have the right permission!!!')
+
 @bot.command(aliases= ['u'])
+@commands.has_any_role('Master') # User need this role to run command (can have multiple)
 async def unload(ctx, extension):
     try:
         bot.unload_extension(extension)
@@ -79,6 +92,13 @@ async def unload(ctx, extension):
         await ctx.message.add_reaction("💥")
         await ctx.send('{} cannot be unloaded. [{}]'.format(extension, error))
         logger.exception ('{} cannot be unloaded. [{}]'.format(extension, error))
+
+@unload.error
+async def saveroster_error(self, ctx, error):
+    self.ctx = ctx
+    if isinstance(error, commands.CheckFailure):
+        print("Permission error!!!")
+        await self.ctx.send('⛔ - You don\'t have the right permission!!!')
     
       
 
