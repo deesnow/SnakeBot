@@ -16,4 +16,3 @@ logs/
 #ignore log files
 *.log
 
-.gitignore
