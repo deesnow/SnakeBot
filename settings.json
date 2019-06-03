@@ -1,6 +1,6 @@
 {
     "production":{
-        "version": "1.02",
+        "version": "1.1",
         "token": "NTU4MjI0MDYyMTY2MzM1NTA5.D3TwfA.O8FZKYREf8DCy8BniYQeEfuei4A",
         "db_host": "192.168.0.10",
         "db_port" : "32770",
