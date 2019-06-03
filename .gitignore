@@ -16,3 +16,5 @@ logs/
 #ignore log files
 *.log
 
+Untitled.ipynb
+.ipynb_checkpoints/Untitled-checkpoint.ipynb
