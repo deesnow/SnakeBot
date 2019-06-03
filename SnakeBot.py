@@ -7,10 +7,10 @@ import discord
 from discord.ext import commands
 from discord import Game
 import asyncio
+import settings
 
 import db_handler as mongo
-#Global variables
-VERSION = 1.02
+
 
 
 # Define logger ---------------------------------------------------------
@@ -26,16 +26,18 @@ def setup_logging(
     if value:
         path = value
     if os.path.exists(path):
-        with open(path, 'rt') as f:
-            config = json.load(f)
-        logging.config.dictConfig(config)
+        with open(path, 'rt') as log_settings:
+            log_config = json.load(log_settings)
+        logging.config.dictConfig(log_config)
     else:
         logging.basicConfig(level=default_level)
 
 
-
-logger = logging.getLogger(__name__)
 setup_logging()
+logger = logging.getLogger(__name__)
+
+#Setup Dev or Release discord settings
+
 
 #Setup base Discord Bot ------------------------------------------------------
 
@@ -45,7 +47,6 @@ class MyClient(commands.Bot):
 
 
             self.BOT_PREFIX = ("?", "!")
-            self.SERVER_ID = "558221252024598539"
 
             
 
@@ -110,7 +111,7 @@ if __name__ == '__main__':
     for extension in extensions:
         try:
             bot.load_extension(extension)
-            print ('{} is loaded.'.format(extension))
+            #print ('{} is loaded.'.format(extension))
         except Exception as error:
             print ('{} cannot be loaded. [{}]'.format(extension, error))
 
@@ -118,10 +119,4 @@ if __name__ == '__main__':
 
 
 
-#Snake
-#TOKEN = "NTU4MjI0MDYyMTY2MzM1NTA5.D3TwfA.O8FZKYREf8DCy8BniYQeEfuei4A"
-#Dev 
-TOKEN = "NTc4OTk1OTA5Njk0ODQ5MDI3.XOP_Ew.QkJq77KgFVd_gLSght5JPJr8ft8"
-
-
-bot.run(TOKEN)
+bot.run(settings.TOKEN)

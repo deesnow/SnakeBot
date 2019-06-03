@@ -1,7 +1,7 @@
 import pymongo
 import json
 from dateutil.parser import parse
-
+import settings
 import logging
 
 
@@ -13,7 +13,15 @@ class Dbhandler(object):
 
     def __init__(self, logger=None):
         self.logger = logging.getLogger(__name__)
-        self.dbclient = pymongo.MongoClient('mongodb://localhost:27017')
+
+        if settings.PROD:
+            self.dbclient = pymongo.MongoClient(settings.MONGO_CLIENT,
+                                            settings.DB_USER,
+                                            settings.DB_PASS,
+                                            settings.DB_AUTHSource,
+                                            settings.DB_AUTHMech)
+        else:
+            self.dbclient = pymongo.MongoClient(settings.MONGO_CLIENT)
         # self.dbclient = pymongo.MongoClient('mongodb://192.168.0.10:32770',
         #                                     username='mongo',
         #                                     password='mongopwd01',
