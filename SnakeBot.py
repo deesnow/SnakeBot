@@ -55,7 +55,8 @@ class MyClient(commands.Bot):
         #OnReady Message
         async def on_ready(self):
             print('We have logged in as {0.user}'.format(self))
-            await self.change_presence(activity=Game(name="RC2 - Under Development"))
+            presence = "Version: {} - Under Development".format(settings.VERSION)
+            await self.change_presence(activity=Game(name=presence))
             logger.info('We have logged in as {0.user}'.format(self))
 
         

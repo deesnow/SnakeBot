@@ -31,7 +31,7 @@ DB_USER = ds[release]['db_user']
 DB_PASS = ds[release]['password']
 DB_AUTHSource = ds[release]['authSource']
 DB_AUTHMech = ds[release]['authMechanism']
-MONGO_CLIENT = 'mongodb://' + DB_HOST + ':' + DB_PORT
+# MONGO_CLIENT = 'mongodb://' + DB_HOST + ':' + DB_PORT + '/'
 CHANNEL_ID = ds[release]['botchannel_id']
 
 

@@ -15,13 +15,17 @@ class Dbhandler(object):
         self.logger = logging.getLogger(__name__)
 
         if settings.PROD:
-            self.dbclient = pymongo.MongoClient(settings.MONGO_CLIENT,
-                                            settings.DB_USER,
-                                            settings.DB_PASS,
-                                            settings.DB_AUTHSource,
-                                            settings.DB_AUTHMech)
+            self.dbclient = pymongo.MongoClient(host=settings.DB_HOST,
+                                                port=settings.DB_PORT,
+                                                username=settings.DB_USER,
+                                                password=settings.DB_PASS,
+                                                authSource=settings.DB_AUTHSource,
+                                                authMechanism=settings.DB_AUTHMech,
+                                                connect=True)
         else:
-            self.dbclient = pymongo.MongoClient(settings.MONGO_CLIENT)
+            self.dbclient = pymongo.MongoClient(host=settings.DB_HOST,
+                                                port=settings.DB_PORT,
+                                                connect=True)
         # self.dbclient = pymongo.MongoClient('mongodb://192.168.0.10:32770',
         #                                     username='mongo',
         #                                     password='mongopwd01',
