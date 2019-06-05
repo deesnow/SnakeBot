@@ -134,7 +134,7 @@ class SaveRoster(commands.Cog):
     
     #NOW COMMAND
     @commands.command(aliases= ['now'],pass_context = True)    
-    @commands.has_any_role('Master') # User need this role to run command (can have multiple)
+    #@commands.has_any_role('Master') # User need this role to run command (can have multiple)
     async def getnow(self, ctx, user, save1):
         self.ctx = ctx
         self.save1 = save1
