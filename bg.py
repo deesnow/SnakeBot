@@ -41,6 +41,7 @@ class BgTask(commands.Cog):
                 except Exception as error:
                     self.logger.error('swgoh_getuser drop exeption for user {}'.format(self.discord_id))
                     print(error)
+                await asyncio.sleep(0.0001)
 
             await channel.send('Daily backgroud progress save DONE for {} users'.format(self.counter))
             self.logger.info('Daily backgroud progress save DONE for {} users'.format(self.counter))

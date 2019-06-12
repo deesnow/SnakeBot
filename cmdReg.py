@@ -13,11 +13,6 @@ class Reg(commands.Cog):
         self.logger = logging.getLogger(__name__)
         self.logger.info('Init cmdReg COG')
 
-    @commands.command()
-    async def ping(self, ctx):
-        await ctx.send('Pont+')
-
-
     @commands.command(aliases= ['reg', 'r'])
     async def register(self, ctx, user,  ally_code):
         await ctx.message.add_reaction("🐍")

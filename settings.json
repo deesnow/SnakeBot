@@ -14,7 +14,7 @@
     },
 
     "development":{
-        "version": "1.02",
+        "version": "1.2",
         "token": "NTc4OTk1OTA5Njk0ODQ5MDI3.XOP_Ew.QkJq77KgFVd_gLSght5JPJr8ft8",
         "db_host": "127.0.0.1",
         "db_port" : 27017,
