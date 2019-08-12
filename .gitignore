@@ -16,5 +16,8 @@ logs/
 #ignore log files
 *.log
 
+#ignore pycache
+*.pyc
+
 Untitled.ipynb
 .ipynb_checkpoints/Untitled-checkpoint.ipynb
