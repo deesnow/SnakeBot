@@ -29,3 +29,5 @@ __pycache__/bg.cpython-36.pyc
 __pycache__/cmdReg.cpython-36.pyc
 __pycache__/cmdRoster.cpython-36.pyc
 settings.json
+SnakeBot.code-workspace
+.gitignore
