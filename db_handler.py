@@ -315,9 +315,27 @@ class Dbhandler(object):
 
         return self.diff_list
 
+# Progress related db functions --------------------------
+    
+    def getProgress(self, discord_id):
+
+        self.col_discord = self.mydb['discordUsers']
+        self.discord_id = discord_id
+        self.query = {'discord_id': self.discord_id, 'progress': {"$exists" : True}}
+
+        self.progress_data = {}
+
+        try:
+            self.progress_data  = self.col_discord.find_one(self.query, {'progress':1,'_id':0})['progress']
+            return self.progress_data            
+        except Exception:
+            self.logger.error('Get Progress data is FAILED', exc_info=True)
+            return None
+        
 
 
 
+# Link related db functions ------------------------------
     def link_add(self, shortname, desc, url):
         self.col_links = self.mydb['links']
         self.shortname = shortname

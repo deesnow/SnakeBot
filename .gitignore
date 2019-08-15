@@ -9,9 +9,10 @@ SnakeBot.code-workspace
 
 
 #ignore these folders
-__pycache__/
+_pycache_/
 logs/
 .vscode/
+temp/
 
 #ignore log files
 *.log
@@ -21,3 +22,9 @@ logs/
 
 Untitled.ipynb
 .ipynb_checkpoints/Untitled-checkpoint.ipynb
+.vscode/settings.json
+__pycache__/db_handler.cpython-36.pyc
+.vscode/settings.json
+__pycache__/bg.cpython-36.pyc
+__pycache__/cmdReg.cpython-36.pyc
+__pycache__/cmdRoster.cpython-36.pyc
