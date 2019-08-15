@@ -106,7 +106,7 @@ async def saveroster_error(self, ctx, error):
 
 # -----------------------------------------
 
-extensions = ['cmdReg', 'cmdGetLinks',  'cmdRoster', 'cmdProgress', 'bg'] 
+extensions = settings.EXTENSIONS
 
 if __name__ == '__main__':
     for extension in extensions:

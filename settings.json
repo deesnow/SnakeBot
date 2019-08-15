@@ -1,6 +1,6 @@
 {
     "production":{
-        "version": "1.1",
+        "version": "1.2",
         "token": "NTU4MjI0MDYyMTY2MzM1NTA5.D3TwfA.O8FZKYREf8DCy8BniYQeEfuei4A",
         "db_host": "192.168.0.10",
         "db_port" : 32770,
@@ -9,12 +9,13 @@
         "password": "mongopwd01",
         "authSource": "admin",
         "authMechanism": "SCRAM-SHA-1",
-        "botchannel_id": "451385630543577088"
+        "botchannel_id": "451385630543577088",
+        "extensions": ["cmdReg", "cmdGetLinks",  "cmdRoster", "cmdProgress", "bg"]
 
     },
 
     "development":{
-        "version": "1.2",
+        "version": "1.3",
         "token": "NTc4OTk1OTA5Njk0ODQ5MDI3.XOP_Ew.QkJq77KgFVd_gLSght5JPJr8ft8",
         "db_host": "127.0.0.1",
         "db_port" : 27017,
@@ -23,7 +24,8 @@
         "password": "mongopwd01",
         "authSource": "admin",
         "authMechanism": "SCRAM-SHA-1",
-        "botchannel_id": "573490564646043649"
+        "botchannel_id": "573490564646043649",
+        "extensions": ["cmdReg", "cmdGetLinks",  "cmdRoster", "cmdProgress"]
 
     }
 
