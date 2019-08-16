@@ -23,14 +23,16 @@ class Dbhandler(object):
                                                 authMechanism=settings.DB_AUTHMech,
                                                 connect=True)
         else:
+            # self.dbclient = pymongo.MongoClient(host=settings.DB_HOST,
+            #                                     port=settings.DB_PORT,
+            #                                     connect=True)
             self.dbclient = pymongo.MongoClient(host=settings.DB_HOST,
                                                 port=settings.DB_PORT,
+                                                username=settings.DB_USER,
+                                                password=settings.DB_PASS,
+                                                authSource=settings.DB_AUTHSource,
+                                                authMechanism=settings.DB_AUTHMech,
                                                 connect=True)
-        # self.dbclient = pymongo.MongoClient('mongodb://192.168.0.10:32770',
-        #                                     username='mongo',
-        #                                     password='mongopwd01',
-        #                                     authSource='admin',
-        #                                     authMechanism='SCRAM-SHA-1')
         self.mydb = self.dbclient['mydatabase']
         self.col_chars = self.mydb['characters']
         self.col_ships = self.mydb['ships']

@@ -17,8 +17,8 @@
     "development":{
         "version": "1.3",
         "token": "NTc4OTk1OTA5Njk0ODQ5MDI3.XVU5Tw.vx3IDaubfGzMHka_HXLv7KDob_A",
-        "db_host": "127.0.0.1",
-        "db_port" : 27017,
+        "db_host": "192.168.0.10",
+        "db_port" : 32770,
         "auth": false,
         "db_user" : "mongo",
         "password": "mongopwd01",

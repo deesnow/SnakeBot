@@ -42,6 +42,7 @@ class Progresshandler(object):
         self.df1['date'] = self.df['last_updated'].astype('datetime64[ns]')
         self.df1['week'] = self.df1['date'].dt.week
         self.df1['short_date'] = self.df1['date'].dt.date
+        self.df1.set_index('short_date', inplace=True)
         
         return self.df1
 
@@ -72,18 +73,21 @@ class Progresshandler(object):
         ax2.bar(df3.index ,df3.avggp_per_day, color='blue')
         ax3 = self.fig.add_subplot(223)
         ax3.set_xlabel('Date')
-        ax3.set_ylabel('GP (k)')
+        ax3.set_ylabel('Rank')
         ax3.set_title('Arena Rank')
         ax3.set_ylim((max(df1.arena_rank) + max(df1.arena_rank) * 0.2 ), (min(df1.arena_rank) - min(df1.arena_rank)*0.1 ))
-        ax3.plot(df1.short_date ,df1.arena_rank, color="green")
-        ax3.set_xticklabels(df1.short_date, rotation=90)
+        ax3.plot(df1.arena_rank, color="green")
+        for tick in ax3.get_xticklabels():
+            tick.set_rotation(90)
         ax4 = self.fig.add_subplot(224)
         ax4.set_xlabel('Date')
-        ax4.set_ylabel('GP (k)')
+        ax4.set_ylabel('Rank')
         ax4.set_title('Fleet Rank')
         ax4.set_ylim(max(df1.fleet_rank) + max(df1.fleet_rank)* 0.1, (min(df1.fleet_rank) - 1))
-        ax4.plot(df1.short_date ,df1.fleet_rank, color="red")
-        ax4.set_xticklabels(df1.short_date, rotation=90)
+        ax4.plot(df1.fleet_rank, color="red")
+        for tick in ax4.get_xticklabels():
+            tick.set_rotation(90)
+        
 
         self.fig.savefig(filename, bbox_inches='tight')
 

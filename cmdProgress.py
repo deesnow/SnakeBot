@@ -3,6 +3,7 @@ import logging
 import settings
 import discord
 from discord.ext import commands
+import os
 
 import db_handler as mongo
 import progress_handler as progress
@@ -40,6 +41,8 @@ class Progress(commands.Cog):
             if self.prog_img != None:
                 await self.ctx.send('**Here we are**')
                 await self.channel.send(file=discord.File(self.prog_img))
+                await asyncio.sleep(5)
+                os.remove(self.prog_img)
             else:
                 await self.ctx.message.add_reaction("💥")
                 await self.ctx.send('Booom.... somehow the charts are not generated!')
