@@ -10,7 +10,7 @@
         "authSource": "admin",
         "authMechanism": "SCRAM-SHA-1",
         "botchannel_id": "451385630543577088",
-        "extensions": ["cmdReg", "cmdGetLinks",  "cmdRoster", "cmdProgress", "bg"]
+        "extensions": ["cmdReg",  "cmdRoster", "cmdProgress", "bg"]
 
     },
 
@@ -25,7 +25,7 @@
         "authSource": "admin",
         "authMechanism": "SCRAM-SHA-1",
         "botchannel_id": "573490564646043649",
-        "extensions": ["cmdReg", "cmdGetLinks",  "cmdRoster", "cmdProgress"]
+        "extensions": ["cmdReg",  "cmdRoster", "cmdProgress"]
 
     }
 
