@@ -1,8 +1,0 @@
-{
-    "python.linting.pylintEnabled": true,
-    "python.linting.enabled": true,
-    "python.linting.pep8Enabled": false,
-    "python.linting.flake8Enabled": false,
-    "python.pythonPath": "F:\\_DEV\\Envs\\SnakeBot\\Scripts\\python.exe",
-    
-}
