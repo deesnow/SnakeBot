@@ -4,6 +4,7 @@ import db_handler as mongo
 import swgoh_handler
 import logging
 import settings
+from datetime import datetime 
 
 db = mongo.Dbhandler()
 sw = swgoh_handler.Swgoh()
@@ -24,6 +25,8 @@ class BgTask(commands.Cog):
         while True:
             self.alluser = db.getalluser()
             self.counter = 0
+            self.today = datetime.today()
+            nextrun = datetime( self.today.year, self.today.month, self.today.day +1 , 3, 0 , 0  )
 
             for self.user in self.alluser:
                 self.discord_id = self.user['discord_id']
@@ -41,11 +44,16 @@ class BgTask(commands.Cog):
                 except Exception as error:
                     self.logger.error('swgoh_getuser drop exeption for user {}'.format(self.discord_id))
                     print(error)
-                await asyncio.sleep(0.0001)
+                await asyncio.sleep(2)
 
             await channel.send('Daily backgroud progress save DONE for {} users'.format(self.counter))
             self.logger.info('Daily backgroud progress save DONE for {} users'.format(self.counter))
-            await asyncio.sleep(10)
+            self.delta = nextrun - datetime.now()
+
+            await channel.send('Next cycle will run after {} seconds'.format (self.delta.total_seconds()))
+            self.logger.info('Next cycle will run after {} seconds'.format (self.delta.total_seconds()))
+
+            await asyncio.sleep(self.delta.total_seconds())
             await channel.send('Daily backgroud progress start the next cycle')
             self.logger.info('Daily backgroud progress start the next cycle')
 
