@@ -14,7 +14,7 @@ class Dbhandler(object):
     def __init__(self, logger=None):
         self.logger = logging.getLogger(__name__)
 
-        if settings.PROD:
+        if settings.DB_PROD:
             self.dbclient = pymongo.MongoClient(host=settings.DB_HOST,
                                                 port=settings.DB_PORT,
                                                 username=settings.DB_USER,
@@ -22,17 +22,19 @@ class Dbhandler(object):
                                                 authSource=settings.DB_AUTHSource,
                                                 authMechanism=settings.DB_AUTHMech,
                                                 connect=True)
+            self.logger.info('Bot is connected to %s DB server', settings.DB_HOST)
         else:
+            self.dbclient = pymongo.MongoClient(host=settings.DB_HOST,
+                                                port=settings.DB_PORT,
+                                                connect=True)
+            self.logger.info('Bot is connected to %s DB server', settings.DB_HOST)
             # self.dbclient = pymongo.MongoClient(host=settings.DB_HOST,
             #                                     port=settings.DB_PORT,
+            #                                     username=settings.DB_USER,
+            #                                     password=settings.DB_PASS,
+            #                                     authSource=settings.DB_AUTHSource,
+            #                                     authMechanism=settings.DB_AUTHMech,
             #                                     connect=True)
-            self.dbclient = pymongo.MongoClient(host=settings.DB_HOST,
-                                                port=settings.DB_PORT,
-                                                username=settings.DB_USER,
-                                                password=settings.DB_PASS,
-                                                authSource=settings.DB_AUTHSource,
-                                                authMechanism=settings.DB_AUTHMech,
-                                                connect=True)
         self.mydb = self.dbclient['mydatabase']
         self.col_chars = self.mydb['characters']
         self.col_ships = self.mydb['ships']
@@ -125,7 +127,7 @@ class Dbhandler(object):
             self.alluser = self.col_discord.find({},{'ally_code':1, 'discord_id':1})
             return self.alluser
         except Exception:
-            self.logger.error('User add is FAILED', exc_info=True)
+            self.logger.error('GetAllUser is FAILED', exc_info=True)
             return "Failed"
 
 
@@ -227,6 +229,28 @@ class Dbhandler(object):
             self.logger.error('User update is FAILED', exc_info=True)
             return "Failed"
 
+# --------------------------------------------------------------------
+    def save_mod(self, discord_id, save_name, data):
+            self.discord_id = discord_id
+            self.save_name = save_name.replace('.','_')
+            self.data = data
+            self.mods_data = self.data['units'] #Need to change
+            self.col_discord = self.mydb['discordUsers']
+            self.query2 = {'discord_id': self.discord_id}
+            #self.datetime = parse(self.data['data']['last_updated'])
+            #self.date = str(self.datetime.date())
+            self.newkey = "roster." + self.save_name
+            self.new_data = {'mods': self.mods_data}
+            self.new_value = {'$set': {self.newkey: self.new_data}}
+
+            try:
+                self.action2 = self.col_discord.update_one(self.query2, self.new_value)
+                self.logger.info('User update DONE with new {} roster data'.format(self.date))
+                return 'Done'
+            except Exception:
+                self.logger.error('User update is FAILED', exc_info=True)
+                return "Failed"
+# --------------------------------------------------------------------
     def delete_now(self, discord_id):
         self.discord_id = discord_id
         self.col_discord = self.mydb['discordUsers']

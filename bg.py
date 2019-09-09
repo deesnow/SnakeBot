@@ -45,7 +45,11 @@ class BgTask(commands.Cog):
 
             await channel.send('Daily backgroud progress save DONE for {} users'.format(self.counter))
             self.logger.info('Daily backgroud progress save DONE for {} users'.format(self.counter))
-            await asyncio.sleep(86400)
+            await asyncio.sleep(10)
+            await channel.send('Daily backgroud progress start the next cycle')
+            self.logger.info('Daily backgroud progress start the next cycle')
+
+        self.logger.info('BG task is ended , while loop is False')
 
                 
                 
