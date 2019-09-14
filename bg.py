@@ -34,13 +34,23 @@ class BgTask(commands.Cog):
 
                 #Get progress data from swgoh.gg, and write it to DB
                 try:
-                    self.newdata = sw.swgoh_getuser(self.allycode)['data']
+                    self.newdata = sw.swgoh_getuser(self.allycode)
                     try:
-                        self.write_user = db.user_update(self.discord_id, self.newdata)
+                        self.write_user = db.user_update(self.discord_id, self.newdata['data'])
                         self.counter += 1
                     except Exception as error:
-                        self.logger.error('Mongo DB update - FAILED from bg task')
+                        self.logger.error('Mongo DB progress update - FAILED from bg task')
                         print(error)
+                    #write daily roster data into xxnowxx
+                    try:
+                        self.write_user = db.save_roster(self.discord_id, 'xxnowxx' , self.newdata)
+                        
+                    except Exception as error:
+                        self.logger.error('Mongo DB roster update - FAILED from bg task')
+                        print(error)
+
+                    
+
                 except Exception as error:
                     self.logger.error('swgoh_getuser drop exeption for user {}'.format(self.discord_id))
                     print(error)
@@ -58,11 +68,14 @@ class BgTask(commands.Cog):
             self.logger.info('Daily backgroud progress start the next cycle')
 
         self.logger.info('BG task is ended , while loop is False')
+#-------------------------------------------------------------------------------
+  
+        
 
                 
                 
 
-
+#-------------------------------------------------------------------------------
     
     @commands.Cog.listener()
     async def on_ready(self):

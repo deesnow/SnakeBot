@@ -172,13 +172,13 @@ class SaveRoster(commands.Cog):
                     except Exception as error:
                         print (error)
                     #delete temp xxnowxx
-                    await asyncio.sleep(5)
-                    try:
-                        self.rm = db.delete_now(self.user_id)
-                        self.logger.info('xxnowxx delete done for {}'.format(self.user_id))
-                    except Exception as error:
-                        self.logger.error('xxnowxx delete failed for {}'.format(self.user_id))
-                        print(error)
+                    # await asyncio.sleep(5)
+                    # try:
+                    #     self.rm = db.delete_now(self.user_id)
+                    #     self.logger.info('xxnowxx delete done for {}'.format(self.user_id))
+                    # except Exception as error:
+                    #     self.logger.error('xxnowxx delete failed for {}'.format(self.user_id))
+                    #     print(error)
                     
                 else:
                     await ctx.message.add_reaction("💥")
