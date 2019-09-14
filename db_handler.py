@@ -223,7 +223,7 @@ class Dbhandler(object):
 
         try:
             self.action2 = self.col_discord.update_one(self.query2, self.new_value)
-            self.logger.info('User update DONE with new {} roster data'.format(self.date))
+            self.logger.info('User update DONE with new {} roster data for {} discord ID'.format(self.date, self.discord_id))
             return 'Done'
         except Exception:
             self.logger.error('User update is FAILED', exc_info=True)
@@ -245,7 +245,7 @@ class Dbhandler(object):
 
             try:
                 self.action2 = self.col_discord.update_one(self.query2, self.new_value)
-                self.logger.info('User update DONE with new {} roster data'.format(self.date))
+                self.logger.info('User update DONE with new {} roster datafor {} discord ID'.format(self.date, self.discord_id))
                 return 'Done'
             except Exception:
                 self.logger.error('User update is FAILED', exc_info=True)
