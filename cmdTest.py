@@ -37,7 +37,28 @@ class HelpApiTest(commands.Cog):
         
         self.logger.info(f"{tasklist}")        
         self.logger.info(f"Just something to print")
-        
+
+    @commands.command(pass_context=True)
+    # Get avatar pic URL
+    async def pic(self, ctx, user='me'):
+        self.ctx = ctx
+        await self.ctx.message.add_reaction("🐍")
+
+        if user != "me":
+            
+            self.user = ctx.message.mentions[0]
+        else:
+            self.user = ctx.author
+        self.url = self.user.avatar_url._url
+        self.guild_name = self.user.roles[0].guild.name
+        self.user_roles = self.user.roles[0].guild._roles
+
+            
+
+        await ctx.send(f'Link for the user: {self.url} ; {self.guild_name} ; {self.user_roles}')
+            
+    
+
 
 
 #-------------------------------------------------------------------------------

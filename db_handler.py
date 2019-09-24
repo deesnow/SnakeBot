@@ -65,7 +65,7 @@ class Dbhandler(object):
 
            
 
-    def update_docs(self, collection, filter, data):
+    def update_docs(self, collection, filter: dict, data: dict):
         ''' Update filtered docs in collection '''
         self.mycol = self.mydb[collection]
         self.fileter = filter
@@ -101,7 +101,7 @@ class Dbhandler(object):
     def user_add(self, data):
         self.col_discord = self.mydb['discordUsers']
         self.user_data = data
-        self.x = self.col_discord.find_one({"discord_id": self.user_data['discord_id']})
+        self.x = self.col_discord.find_one({"discord_id": str(self.user_data['discord_id'])})
         
         if self.x == None:
             try:
@@ -134,7 +134,7 @@ class Dbhandler(object):
     def user_update(self, discord_id, data):
         self.col_discord = self.mydb['discordUsers']
         self.data = data
-        self.discord_id = discord_id
+        self.discord_id = str(discord_id)
         self.query = {'discord_id': self.discord_id, 'progress': {"$exists" : True}}
         self.query2 = {'discord_id': self.discord_id}
         self.datetime = parse(self.data['last_updated'])
@@ -178,7 +178,7 @@ class Dbhandler(object):
 
     def get_allycode(self, user_id):
         self.col_discord = self.mydb['discordUsers']
-        self.user_id = user_id
+        self.user_id = str(user_id)
 
         try:
             self.allycode = self.col_discord.find_one({'discord_id': self.user_id},{'_id':0, 'ally_code': 1})
@@ -209,7 +209,7 @@ class Dbhandler(object):
             return "Already"
 
     def save_roster(self, discord_id, save_name, data):
-        self.discord_id = discord_id
+        self.discord_id = str(discord_id)
         self.save_name = save_name.replace('.','_')
         self.data = data
         self.roster_data = self.data['units']
@@ -220,18 +220,28 @@ class Dbhandler(object):
         self.newkey = "roster." + self.save_name
         self.new_data = {'date': self.date, 'data': self.roster_data}
         self.new_value = {'$set': {self.newkey: self.new_data}}
+        self.newkey2 = self.newkey + ".datetime"
+        self.new_value2 = {'$set': {self.newkey2: self.datetime}}
 
         try:
             self.action2 = self.col_discord.update_one(self.query2, self.new_value)
             self.logger.info('User update DONE with new {} roster data for {} discord ID'.format(self.date, self.discord_id))
-            return 'Done'
+            
         except Exception:
             self.logger.error('User update is FAILED', exc_info=True)
             return "Failed"
 
+        try:
+            self.action3 = self.col_discord.update_one(self.query2, self.new_value2)
+            self.logger.info(f'Datetime is inserter to {self.discord_id} ID')
+            return 'Done'
+        except Exception:
+            self.logger.error(f'Datetime insert is FAILED for {self.discord_id} ID', exc_info=True)
+            return "Failed"
+
 # --------------------------------------------------------------------
     def save_mod(self, discord_id, save_name, data):
-            self.discord_id = discord_id
+            self.discord_id = str(discord_id)
             self.save_name = save_name.replace('.','_')
             self.data = data
             self.mods_data = self.data['units'] #Need to change
@@ -252,7 +262,7 @@ class Dbhandler(object):
                 return "Failed"
 # --------------------------------------------------------------------
     def delete_now(self, discord_id):
-        self.discord_id = discord_id
+        self.discord_id = str(discord_id)
         self.col_discord = self.mydb['discordUsers']
         self.rm_data = {'$unset': {'roster.xxnowxx':''}}
         self.query = {'discord_id': self.discord_id}
@@ -265,7 +275,7 @@ class Dbhandler(object):
             self.logger.error('User update is FAILED', exc_info=True)
 
     def delete_save(self, discord_id, save):
-        self.discord_id = discord_id
+        self.discord_id = str(discord_id)
         self.save = save
         self.col_discord = self.mydb['discordUsers']
         self.rm_data = 'roster.' + self.save
@@ -283,7 +293,7 @@ class Dbhandler(object):
 
     def listsaves(self, discord_id):
         self.col_discord = self.mydb['discordUsers']
-        self.discord_id = discord_id
+        self.discord_id = str(discord_id)
         self.query = {'discord_id': self.discord_id, 'roster': {"$exists" : True}}
         self.saves = {}
 
@@ -302,7 +312,7 @@ class Dbhandler(object):
 
     def getdiff(self, discord_id, save1, save2):
         self.col_discord = self.mydb['discordUsers']
-        self.discord_id = discord_id
+        self.discord_id = str(discord_id)
         self.save1 = save1
         self.save2 = save2
         self.match1 = {'$match': {'discord_id': self.discord_id, 'roster': {"$exists" : True}}}
@@ -346,7 +356,7 @@ class Dbhandler(object):
     def getProgress(self, discord_id):
 
         self.col_discord = self.mydb['discordUsers']
-        self.discord_id = discord_id
+        self.discord_id = str(discord_id)
         self.query = {'discord_id': self.discord_id, 'progress': {"$exists" : True}}
 
         self.progress_data = {}
