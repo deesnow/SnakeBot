@@ -2,7 +2,11 @@ from discord.ext import commands
 import asyncio
 import logging
 import settings
-from datetime import datetime 
+from datetime import datetime
+import db_handler as mongo
+
+db = mongo.Dbhandler()
+
 
 
 class HelpApiTest(commands.Cog):
@@ -47,20 +51,33 @@ class HelpApiTest(commands.Cog):
         if user != "me":
             
             self.user = ctx.message.mentions[0]
+            self.discord_id = str(self.ctx.message.mentions[0].id)
         else:
             self.user = ctx.author
+            self.discord_id = str(self.ctx.author.id)
         self.url = self.user.avatar_url._url
-        self.guild_name = self.user.roles[0].guild.name
-        self.user_roles = self.user.roles[0].guild._roles
+        
+        #self.guild_name = self.user.roles[0].guild.name
+        self.guild_id = str(self.user.guild.id)
+        self.user_roles = self.user.roles
+        self.filtered_roles = {}
+        for self.role in self.user_roles:
+            self.filtered_roles[self.role.name] = str(self.role.id)
+        self.server_dict = {}
+        self.server_dict[self.guild_id ] = {
+                        "name" : self.user.roles[0].guild.name,
+                        "rolesOfUser" : self.filtered_roles
+                            }
 
-            
+        self.linkD = db.linkDiscord(self.discord_id, self.server_dict, self.url)
+        if self.linkD == "Done":
+            await ctx.message.add_reaction("✅")
+            await ctx.send(f'Server info successfully linked')
+        else:
+            await ctx.message.add_reaction("💥")
+            await ctx.send(f'Something whent wrong. Check the logs.')
 
-        await ctx.send(f'Link for the user: {self.url} ; {self.guild_name} ; {self.user_roles}')
-            
-    
-
-
-
+ 
 #-------------------------------------------------------------------------------
 def setup(bot):
     bot.add_cog(HelpApiTest(bot))

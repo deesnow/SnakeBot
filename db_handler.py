@@ -174,6 +174,83 @@ class Dbhandler(object):
                 return 'Already'
 
 
+# Link discord server info to used db --------------------
+    def linkDiscord(self, discord_id, serverdata, avatar):
+        self.col_discord = self.mydb['discordUsers']
+        self.discord_id = str(discord_id)
+        self.serverdata = serverdata
+        self.avatar = str(avatar)
+
+        self.query = {'discord_id': self.discord_id}
+        
+        self.newkey2 = "avatar_url"
+        self.new_value2 = {'$set': {self.newkey2: self.avatar}}
+
+        try:
+            self.db_record = self.col_discord.find(self.query)
+            self.logger.info(f'Discord id: {self.discord_id} found.', exc_info=True)
+
+            if "snakeServersOfUser" in self.db_record[0].keys():
+                '''
+                If the user have snakeServersOfUser, than have to extend it with new server info,
+                or update the current one.
+                '''
+                self.server_id = list(self.serverdata.keys())[0]
+
+                self.newkey = "snakeServersOfUser" + "." +   str(self.server_id)
+                self.new_value = {'$set': {self.newkey: self.serverdata[self.server_id]}}
+                
+                return self.useerdb_update(self.query, self.new_value)
+
+
+            else:
+                self.newkey = "snakeServersOfUser"
+                self.new_value = {'$set': {self.newkey: self.serverdata}}
+                # try:
+                #     self.update_record = self.col_discord.update(self.query, self.new_value)
+                #     self.logger.info(f'Discord id: {self.discord_id} updated with serverinfo.', exc_info=True)
+                #     try:
+                #         self.update_record = self.col_discord.update(self.query, self.new_value2)
+                #         self.logger.info(f'Discord id: {self.discord_id} updated with avatar_url.', exc_info=True)
+                #         return "Done"
+                #     except Exception:
+                #         self.logger.error(f'Discord id: {self.discord_id} updated FAILED for avatar_url', exc_info=True)
+                #         return "Failed"
+                # except Exception:
+                #     self.logger.error(f'Discord id: {self.discord_id} updated FAILED', exc_info=True)
+                #     return "Failed"
+
+                return self.useerdb_update(self.query, self.new_value)
+            
+        except Exception:
+                self.logger.error(f'Discord id: {self.discord_id} not found in the DB', exc_info=True)
+                return "Failed"
+
+
+
+# Update user data -----------------------------------
+
+    def useerdb_update(self, query, newvalue):
+        
+        self.new_value = newvalue
+        self.query = query
+
+        try:
+            self.update_record = self.col_discord.update(self.query, self.new_value)
+            self.logger.info(f'Discord id: {self.discord_id} updated with serverinfo.', exc_info=True)
+            try:
+                self.update_record = self.col_discord.update(self.query, self.new_value2)
+                self.logger.info(f'Discord id: {self.discord_id} updated with avatar_url.', exc_info=True)
+                return "Done"
+            except Exception:
+                self.logger.error(f'Discord id: {self.discord_id} updated FAILED for avatar_url', exc_info=True)
+                return "Failed"
+        except Exception:
+            self.logger.error(f'Discord id: {self.discord_id} updated FAILED', exc_info=True)
+            return "Failed"
+
+
+
 
 
     def get_allycode(self, user_id):
@@ -350,6 +427,7 @@ class Dbhandler(object):
         self.diff_list = list(self.col_discord.aggregate(self.pipeline))
 
         return self.diff_list
+
 
 # Progress related db functions --------------------------
     
