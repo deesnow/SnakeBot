@@ -310,7 +310,7 @@ class Dbhandler(object):
 
         try:
             self.action3 = self.col_discord.update_one(self.query2, self.new_value2)
-            self.logger.info(f'Datetime is inserter to {self.discord_id} ID')
+            self.logger.info(f'Datetime is inserted to {self.discord_id} ID')
             return 'Done'
         except Exception:
             self.logger.error(f'Datetime insert is FAILED for {self.discord_id} ID', exc_info=True)
