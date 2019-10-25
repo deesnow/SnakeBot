@@ -1,6 +1,6 @@
 import time
 import discord
-
+from numpy import *
 from discord.ext import commands
 from api_swgoh_help import api_swgoh_help, settings
 import settings as mysettings
