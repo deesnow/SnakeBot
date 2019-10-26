@@ -3,6 +3,8 @@ Created on Tue Sep  4  2018
 
 @author: martrepodi
 
+aiohttp modification made by: deesnow
+
 Built upon code borrowed from platzman and shittybill
 """
 
@@ -12,7 +14,7 @@ import asyncio
 from json import loads, dumps
 import time
 
-class api_swgoh_help():
+class async_swgoh_help():
     def __init__(self, settings):
         self.user = "username=" + settings.username
         self.user += "&password=" + settings.password
@@ -50,16 +52,6 @@ class api_swgoh_help():
                           'units':'/swgoh/units',
                           'battles':'/swgoh/battles'}
     
-    async def main_httpr(self, url, headers, payload):
-        self.url = url
-        self.headers = headers
-        self.payload = payload
-        async with aiohttp.ClientSession() as session:
-            async with session.post(self.url, headers=self.headers, data=self.payload) as self.resp:
-                pass
-
-
-        
     async def _getAccessToken(self):
         if 'expires' in self.token.keys():
             token_expire_time = self.token['expires']
@@ -69,36 +61,55 @@ class api_swgoh_help():
         payload = self.user
         head = {"Content-type": "application/x-www-form-urlencoded"}
 
-        self.response = await self.main_httpr(signin_url, head, payload)
+        async with aiohttp.ClientSession() as session:
+            async with session.post(signin_url, headers=head, data=payload, timeout=10) as self.r:
+                if self.r.status != 200:
+                    error = "Login failed!"
+                    return  {"status_code" : self.r.status,
+                            "message": error}
+                response = await self.r.json()
+
+                self.token = { 'Authorization': "Bearer " + response['access_token'],
+                            'expires': time.time() + response['expires_in'] - 30}
+                return self.token
         
 
 
 
-        # r = requests.request('POST',signin_url, headers=head, data=payload, timeout = 10)
-        # if r.status_code != 200:
-        #     error = 'Login failed!'
-        #     return  {"status_code" : r.status_code,
-        #              "message": error}
-        # response = loads(r.content.decode('utf-8'))
-        # self.token = { 'Authorization': "Bearer " + response['access_token'],
-        #                'expires': time.time() + response['expires_in'] - 30}
-        # return(self.token)
+   
 
-    def fetchAPI(self, url, payload):
-        self._getAccessToken()
+    async def fetchAPI(self, url, payload):
+        await self._getAccessToken()
         head = {'Content-Type': 'application/json', 'Authorization': self.token['Authorization']}
         data_url = self.urlBase + url
+        
         try:
-            r = requests.request('POST', data_url, headers=head, data=dumps(payload))
-            if r.status_code != 200:
-                error = 'Cannot fetch data - error code'
-                data = {"status_code": r.status_code,
-                        "message": error}
-            else:
-                data = loads(r.content.decode('utf-8'))
+            async with aiohttp.ClientSession() as session:
+                async with session.post(data_url, headers=head, data=dumps(payload)) as self.r:
+                    if self.r.status != 200:
+                        error = "Login failed!"
+                        data =  {"status_code" : self.r.status,
+                                "message": error}
+                    else:
+                        self.data = await self.r.json()
         except Exception as e:
-            data = {"message": 'Cannot fetch data'}
-        return data
+            self.data = {"message": 'Cannot fetch data'}
+        
+        return self.data
+        
+
+
+        # try:
+        #     r = requests.request('POST', data_url, headers=head, data=dumps(payload))
+        #     if r.status_code != 200:
+        #         error = 'Cannot fetch data - error code'
+        #         data = {"status_code": r.status_code,
+        #                 "message": error}
+        #     else:
+        #         data = loads(r.content.decode('utf-8'))
+        # except Exception as e:
+        #     data = {"message": 'Cannot fetch data'}
+        # return data
 
     def fetchZetas(self):
         try:
