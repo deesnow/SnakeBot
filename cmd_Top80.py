@@ -1,12 +1,12 @@
 import time
 from numpy import *
 from discord.ext import commands
-from api_swgoh_help import api_swgoh_help, settings
+from async_swgoh_help import async_swgoh_help, settings
 import settings as mysettings
  
 creds = settings(mysettings.HELPAPI_USER, mysettings.HELPAPI_PASS)
 
-client = api_swgoh_help(creds)
+client = async_swgoh_help(creds)
 
 class Top80(commands.Cog):
     def __init__(self, bot):
@@ -14,17 +14,24 @@ class Top80(commands.Cog):
 
     @commands.command(aliases=['Top 80'])
     #@commands.has_any_role('CobraAdmin')  # User need this role to run command (can have multiple)
-    async def Top80(self,ctx,allycode:int):
-
+    async def Top80(self, ctx, allycode:int):
+        self.allycode = allycode
         tic()
         await ctx.message.add_reaction("⏳")
 
-        raw_player = client.fetchPlayers(allycode)
+        #raw_player = client.fetchPlayers(allycode)
+        p1 = self.bot.loop.create_task(client.fetchPlayers(self.allycode))
+        await p1
+
+        raw_player = p1._result
+
+
+
 
         temp = 0
 
         try:
-            raw_player['status_code'] == 404
+            raw_player['message'] == 'Cannot fetch data'
             await ctx.send("Hibás ally kód!")
             await ctx.message.add_reaction("❌")
             temp = -1
@@ -73,6 +80,7 @@ def fetchPlayerRoster(raw_player):
         i += 1
 
     return player
+
 
 def TicTocGenerator():
     # Generator that returns time differences
