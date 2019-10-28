@@ -2,11 +2,11 @@ import time
 import discord
 from numpy import *
 from discord.ext import commands
-from api_swgoh_help import api_swgoh_help, settings
+from async_swgoh_help import async_swgoh_help, settings
 import settings as mysettings
  
 creds = settings(mysettings.HELPAPI_USER, mysettings.HELPAPI_PASS)
-client = api_swgoh_help(creds)
+client = async_swgoh_help(creds)
  
 class TW(commands.Cog):
     def __init__(self, bot):
@@ -39,14 +39,19 @@ class TW(commands.Cog):
         ship_list2 = ["Han's Millennium Falcon",
                       "Anakin's Eta-2 Starfighter"]
  
-        raw_guild1 = client.fetchGuilds(allycode1)
-        raw_guild2 = client.fetchGuilds(allycode2)
+        rg1 = self.bot.loop.create_task(client.fetchGuilds(allycode1))
+        rg2 = self.bot.loop.create_task(client.fetchGuilds(allycode2))
+        await rg1
+        await rg2
+
+        raw_guild1 = rg1._result
+        raw_guild2 = rg2._result
  
         temp1 = 0
         temp2 = 0
  
         try:
-            raw_guild1['status_code'] == 404
+            raw_guild1['message'] == 'Cannot fetch data'
             await ctx.send("Hibás ally 1 kód!")
             await ctx.message.add_reaction("❌")
             temp1 = -1
@@ -54,7 +59,7 @@ class TW(commands.Cog):
             pass
  
         try:
-            raw_guild2['status_code'] == 404
+            raw_guild2['message'] == 'Cannot fetch data'
             await ctx.send("Hibás ally 2 kód!")
             await ctx.message.add_reaction("❌")
             temp2 = -1
@@ -65,13 +70,13 @@ class TW(commands.Cog):
  
             await ctx.message.add_reaction("✅")
  
-            guilddata1 = fetchGuildRoster(raw_guild1)
-            guilddata2 = fetchGuildRoster(raw_guild2)
+            guilddata1 = await self.fetchGuildRoster(raw_guild1)
+            guilddata2 = await self.fetchGuildRoster(raw_guild2)
  
             embed = discord.Embed(title=raw_guild1[0]['name'] + ' vs ' + raw_guild2[0]['name'], url="https://swgoh.gg/p/" + str(raw_guild2[0]['roster'][0]['allyCode']) + "/", color=0x7289da)
  
-            overview1 = overview(raw_guild1, guilddata1)
-            overview2 = overview(raw_guild2, guilddata2)
+            overview1 = self.overview(raw_guild1, guilddata1)
+            overview2 = self.overview(raw_guild2, guilddata2)
  
             lth: int = 6
  
@@ -100,8 +105,8 @@ class TW(commands.Cog):
                 if lth <= 8:
                     lth += 2
  
-                guild1 = character_data_search(guilddata1, character_list[i])
-                guild2 = character_data_search(guilddata2, character_list[i])
+                guild1 = self.character_data_search(guilddata1, character_list[i])
+                guild2 = self.character_data_search(guilddata2, character_list[i])
  
                 embed.add_field(name='=' * (lth - 2) + ' ' + character_list2[i] + ' ' + '=' * (lth - 2), value=
                 '```#    :: ' + ' ' * round(1 / len(str(guild1['osszes']))) + str(guild1['osszes']) + ' vs ' + str(guild2['osszes']) + '\n' +
@@ -125,8 +130,8 @@ class TW(commands.Cog):
                 if lth <= 8:
                     lth += 2
  
-                guild1 = ship_data_search(guilddata1, ship_list[i])
-                guild2 = ship_data_search(guilddata2, ship_list[i])
+                guild1 = self.ship_data_search(guilddata1, ship_list[i])
+                guild2 = self.ship_data_search(guilddata2, ship_list[i])
  
                 embed.add_field(name='=' * (lth - 2) + ' ' + ship_list2[i] + ' ' + '=' * (lth - 2), value=
                 '```#    :: ' + ' ' * round(1 / len(str(guild1['osszes']))) + str(guild1['osszes']) + ' vs ' + str(guild2['osszes']) + '\n' +
@@ -148,166 +153,173 @@ class TW(commands.Cog):
         if isinstance(error, commands.CheckFailure):
             print("Permission error!!!")
             await self.ctx.send('⛔ - Nincsen hozzá jogosultságod!')
+        else:
+            await self.ctx.send('⛔ - Szar van a palacsintában! \n', error)
  
  
-def fetchGuildRoster(raw_guild):
-    guilddata = []
-    chardata_ally = []
-    chardata_ally2 = []
-    i: int = 0
-    lth = int_(len(raw_guild[0]['roster']))
-    lthp2 = int_(round(lth/2, 0))
-    while i < lthp2:
-        chardata_ally.insert(i, raw_guild[0]['roster'][i]['allyCode'])
-        i += 1
- 
-    guilddata = client.fetchPlayers(chardata_ally)
- 
-    while i < lth:
-        chardata_ally2.insert(i, raw_guild[0]['roster'][i]['allyCode'])
-        i += 1
- 
-    guilddata += client.fetchPlayers(chardata_ally2)
- 
-    return guilddata
- 
- 
-def overview(GuildpPlayersData, GuilDdata):
-    guild_ow = {
-        "tagok_szama": 0,
-        "ossz_gp": 0.0,
-        "squad_avg": 0.0,
-        "fleet_avg": 0.0,
-        "g11": 0,
-        "g12": 0,
-        "g13": 0,
-        "zetas": 0,
-        "6dot": 0,
-        "10speed": 0,
-        "15speed": 0,
-        "20speed": 0,
-        "25speed": 0,
-        "100off": 0
-    }
- 
-    s_avg = 0
-    f_avg = 0
- 
-    guild_ow['tagok_szama'] = GuildpPlayersData[0]['members']
-    guild_ow['ossz_gp'] = round(GuildpPlayersData[0]['gp'] / 1000000, 1)
- 
-    i = 0
-    for a in GuilDdata:
-        chardata = GuilDdata[i]['roster']
-        s_avg += GuilDdata[i]['arena']['char']['rank']
-        f_avg += GuilDdata[i]['arena']['ship']['rank']
-        j = 0
-        for b in chardata:
-            if chardata[j]['gear'] == 11:
-                guild_ow["g11"] += 1
-            if chardata[j]['gear'] == 12:
-                guild_ow["g12"] += 1
-            if chardata[j]['gear'] == 13:
-                guild_ow["g13"] += 1
-            for c in chardata[j]['skills']:
-                if c['tier'] == 8 and c['isZeta'] == True:
-                    guild_ow['zetas'] += 1
-            for d in chardata[j]['mods']:
-                if d['pips'] == 6:
-                    guild_ow['6dot'] += 1
-                for e in d['secondaryStat']:
-                    if e['unitStat'] == "UNITSTATSPEED" and e['value'] >= 10:
-                        guild_ow['10speed'] += 1
-                    if e['unitStat'] == "UNITSTATSPEED" and e['value'] >= 15:
-                        guild_ow['15speed'] += 1
-                    if e['unitStat'] == "UNITSTATSPEED" and e['value'] >= 20:
-                        guild_ow['20speed'] += 1
-                    if e['unitStat'] == "UNITSTATSPEED" and e['value'] >= 25:
-                        guild_ow['25speed'] += 1
-                    if e['unitStat'] == "UNITSTATOFFENSE" and e['value'] >= 100:
-                        guild_ow['100off'] += 1
-            j += 1
-        i += 1
- 
-    guild_ow['squad_avg'] = round(s_avg / guild_ow['tagok_szama'], 1)
-    guild_ow['fleet_avg'] = round(f_avg / guild_ow['tagok_szama'], 1)
- 
-    return guild_ow
+    async def fetchGuildRoster(self, raw_guild):
+        guilddata = []
+        chardata_ally = []
+        chardata_ally2 = []
+        i: int = 0
+        lth = int_(len(raw_guild[0]['roster']))
+        lthp2 = int_(round(lth/2, 0))
+        while i < lthp2:
+            chardata_ally.insert(i, raw_guild[0]['roster'][i]['allyCode'])
+            i += 1
+    
+        gd1 = self.bot.loop.create_task(client.fetchPlayers(chardata_ally))
+    
+        while i < lth:
+            chardata_ally2.insert(i, raw_guild[0]['roster'][i]['allyCode'])
+            i += 1
+    
+        gd2 = self.bot.loop.create_task(client.fetchPlayers(chardata_ally2))
+
+        await gd1
+        await gd2
+        
+        guilddata = gd1._result + gd2._result
+    
+        return guilddata
  
  
-def character_data_search(guilddata, charname):
-    character = {"osszes": 0,
-                 "otcsillag": 0,
-                 "hatcsillag": 0,
-                 "hetcsillag": 0,
-                 "g11": 0,
-                 "g12": 0,
-                 "g13": 0,
-                 "egyzeta": 0,
-                 "ketzeta": 0,
-                 "haromzeta": 0,
-                 "karakternev": charname
-                 }
- 
-    i = 0
-    for a in guilddata:
-        chardata = guilddata[i]['roster']
-        j = 0
-        for b in chardata:
-            if chardata[j]['defId'] == charname:
-                character["osszes"] += 1
-                if chardata[j]['rarity'] == 5:
-                    character["otcsillag"] += 1
-                if chardata[j]['rarity'] == 6:
-                    character["hatcsillag"] += 1
-                if chardata[j]['rarity'] == 7:
-                    character["hetcsillag"] += 1
+    def overview(self, GuildpPlayersData, GuilDdata):
+        guild_ow = {
+            "tagok_szama": 0,
+            "ossz_gp": 0.0,
+            "squad_avg": 0.0,
+            "fleet_avg": 0.0,
+            "g11": 0,
+            "g12": 0,
+            "g13": 0,
+            "zetas": 0,
+            "6dot": 0,
+            "10speed": 0,
+            "15speed": 0,
+            "20speed": 0,
+            "25speed": 0,
+            "100off": 0
+        }
+    
+        s_avg = 0
+        f_avg = 0
+    
+        guild_ow['tagok_szama'] = GuildpPlayersData[0]['members']
+        guild_ow['ossz_gp'] = round(GuildpPlayersData[0]['gp'] / 1000000, 1)
+    
+        i = 0
+        for a in GuilDdata:
+            chardata = GuilDdata[i]['roster']
+            s_avg += GuilDdata[i]['arena']['char']['rank']
+            f_avg += GuilDdata[i]['arena']['ship']['rank']
+            j = 0
+            for b in chardata:
                 if chardata[j]['gear'] == 11:
-                    character["g11"] += 1
+                    guild_ow["g11"] += 1
                 if chardata[j]['gear'] == 12:
-                    character["g12"] += 1
+                    guild_ow["g12"] += 1
                 if chardata[j]['gear'] == 13:
-                    character["g13"] += 1
-                sumz = 0
+                    guild_ow["g13"] += 1
                 for c in chardata[j]['skills']:
                     if c['tier'] == 8 and c['isZeta'] == True:
-                        sumz += 1
-                if sumz == 1:
-                    character["egyzeta"] += 1
-                if sumz == 2:
-                    character["ketzeta"] += 1
-                if sumz == 3:
-                    character["haromzeta"] += 1
-            j += 1
-        i += 1
- 
-    return character
- 
-def ship_data_search(guilddata, shipname):
-    ship = {"osszes": 0,
-            "otcsillag": 0,
-            "hatcsillag": 0,
-            "hetcsillag": 0,
-            "karakternev": shipname
-            }
- 
-    i = 0
-    for a in guilddata:
-        shipdata = guilddata[i]['roster']
-        j = 0
-        for b in shipdata:
-            if shipdata[j]['defId'] == shipname:
-                ship["osszes"] += 1
-                if shipdata[j]['rarity'] == 5:
-                    ship["otcsillag"] += 1
-                if shipdata[j]['rarity'] == 6:
-                    ship["hatcsillag"] += 1
-                if shipdata[j]['rarity'] == 7:
-                    ship["hetcsillag"] += 1
-            j += 1
-        i += 1
- 
-    return ship
+                        guild_ow['zetas'] += 1
+                for d in chardata[j]['mods']:
+                    if d['pips'] == 6:
+                        guild_ow['6dot'] += 1
+                    for e in d['secondaryStat']:
+                        if e['unitStat'] == "UNITSTATSPEED" and e['value'] >= 10:
+                            guild_ow['10speed'] += 1
+                        if e['unitStat'] == "UNITSTATSPEED" and e['value'] >= 15:
+                            guild_ow['15speed'] += 1
+                        if e['unitStat'] == "UNITSTATSPEED" and e['value'] >= 20:
+                            guild_ow['20speed'] += 1
+                        if e['unitStat'] == "UNITSTATSPEED" and e['value'] >= 25:
+                            guild_ow['25speed'] += 1
+                        if e['unitStat'] == "UNITSTATOFFENSE" and e['value'] >= 100:
+                            guild_ow['100off'] += 1
+                j += 1
+            i += 1
+    
+        guild_ow['squad_avg'] = round(s_avg / guild_ow['tagok_szama'], 1)
+        guild_ow['fleet_avg'] = round(f_avg / guild_ow['tagok_szama'], 1)
+    
+        return guild_ow
+    
+    
+    def character_data_search(self, guilddata, charname):
+        character = {"osszes": 0,
+                    "otcsillag": 0,
+                    "hatcsillag": 0,
+                    "hetcsillag": 0,
+                    "g11": 0,
+                    "g12": 0,
+                    "g13": 0,
+                    "egyzeta": 0,
+                    "ketzeta": 0,
+                    "haromzeta": 0,
+                    "karakternev": charname
+                    }
+    
+        i = 0
+        for a in guilddata:
+            chardata = guilddata[i]['roster']
+            j = 0
+            for b in chardata:
+                if chardata[j]['defId'] == charname:
+                    character["osszes"] += 1
+                    if chardata[j]['rarity'] == 5:
+                        character["otcsillag"] += 1
+                    if chardata[j]['rarity'] == 6:
+                        character["hatcsillag"] += 1
+                    if chardata[j]['rarity'] == 7:
+                        character["hetcsillag"] += 1
+                    if chardata[j]['gear'] == 11:
+                        character["g11"] += 1
+                    if chardata[j]['gear'] == 12:
+                        character["g12"] += 1
+                    if chardata[j]['gear'] == 13:
+                        character["g13"] += 1
+                    sumz = 0
+                    for c in chardata[j]['skills']:
+                        if c['tier'] == 8 and c['isZeta'] == True:
+                            sumz += 1
+                    if sumz == 1:
+                        character["egyzeta"] += 1
+                    if sumz == 2:
+                        character["ketzeta"] += 1
+                    if sumz == 3:
+                        character["haromzeta"] += 1
+                j += 1
+            i += 1
+    
+        return character
+    
+    def ship_data_search(self, guilddata, shipname):
+        ship = {"osszes": 0,
+                "otcsillag": 0,
+                "hatcsillag": 0,
+                "hetcsillag": 0,
+                "karakternev": shipname
+                }
+    
+        i = 0
+        for a in guilddata:
+            shipdata = guilddata[i]['roster']
+            j = 0
+            for b in shipdata:
+                if shipdata[j]['defId'] == shipname:
+                    ship["osszes"] += 1
+                    if shipdata[j]['rarity'] == 5:
+                        ship["otcsillag"] += 1
+                    if shipdata[j]['rarity'] == 6:
+                        ship["hatcsillag"] += 1
+                    if shipdata[j]['rarity'] == 7:
+                        ship["hetcsillag"] += 1
+                j += 1
+            i += 1
+    
+        return ship
  
 def TicTocGenerator():
     # Generator that returns time differences

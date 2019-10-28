@@ -102,7 +102,25 @@ async def saveroster_error(self, ctx, error):
         print("Permission error!!!")
         await self.ctx.send('⛔ - You don\'t have the right permission!!!')
     
-      
+@bot.command(aliases= ['rl'])
+@commands.has_any_role('Master') # User need this role to run command (can have multiple)
+async def reload(ctx, extension):
+    try:
+        bot.unload_extension(extension)
+        bot.load_extension(extension)
+        await ctx.message.add_reaction("✅")
+
+    except Exception as error:
+        await ctx.message.add_reaction("💥")
+        await ctx.send('{} cannot be unloaded. [{}]'.format(extension, error))
+        logger.exception ('{} cannot be unloaded. [{}]'.format(extension, error))
+
+@reload.error
+async def saveroster_error(self, ctx, error):
+    self.ctx = ctx
+    if isinstance(error, commands.CheckFailure):
+        print("Permission error!!!")
+        await self.ctx.send('⛔ - You don\'t have the right permission!!!')      
 
 # -----------------------------------------
 
