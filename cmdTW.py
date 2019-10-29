@@ -156,7 +156,7 @@ class TW(commands.Cog):
             await ctx.send(embed=embed)
  
             elapsedTime = toc()
-            await ctx.send("Elapsed time: %f seconds.\n" %elapsedTime)
+            #await ctx.send("Elapsed time: %f seconds.\n" %elapsedTime)
  
         else:
             pass

@@ -62,7 +62,7 @@ class async_swgoh_help():
         head = {"Content-type": "application/x-www-form-urlencoded"}
 
         async with aiohttp.ClientSession() as session:
-            async with session.post(signin_url, headers=head, data=payload, timeout=10) as self.r:
+            async with session.post(signin_url, headers=head, data=payload, timeout=20) as self.r:
                 if self.r.status != 200:
                     error = "Login failed!"
                     return  {"status_code" : self.r.status,
