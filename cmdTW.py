@@ -155,7 +155,8 @@ class TW(commands.Cog):
             await ctx.send(":metal: :metal: :metal: Yohooooo... Itt vannak az adatok  :metal: :metal: :metal: ")
             await ctx.send(embed=embed)
  
-            toc()
+            elapsedTime = toc()
+            await ctx.send("Elapsed time: %f seconds.\n" %elapsedTime)
  
         else:
             pass
@@ -350,7 +351,8 @@ def toc(tempBool=True):
     # Prints the time difference yielded by generator instance TicToc
     tempTimeInterval = next(TicToc)
     if tempBool:
-        print( "Elapsed time: %f seconds.\n" %tempTimeInterval )
+        #print( "Elapsed time: %f seconds.\n" %tempTimeInterval )
+        return tempTimeInterval
  
 def tic():
     # Records a time in TicToc, marks the beginning of a time interval
