@@ -1,5 +1,6 @@
 from discord.ext import commands
 import asyncio
+import time
 import logging
 import settings
 from datetime import datetime
@@ -17,30 +18,42 @@ class HelpApiTest(commands.Cog):
 
 #-------------------------------------------------------------------------------
 
-    async def getGuild(self, taskNo):
-        
-        self.starttime = datetime.now()
-        self.logger.info(f"No{taskNo} task is started.")
-        await asyncio.sleep(10)
-        self.logger.info(f"No{taskNo} task is completed")
-        return taskNo + 10
-
-
-
-
-
     @commands.command(pass_context=True)
     # 
     async def test(self, ctx):
-        self.ctx = ctx
-        await self.ctx.message.add_reaction("🐍")
-
-        myloop = asyncio.get_event_loop()
-
-        tasklist = await asyncio.gather(self.getGuild(1), self.getGuild(2), self.getGuild(3))
         
-        self.logger.info(f"{tasklist}")        
-        self.logger.info(f"Just something to print")
+
+        self.TicToc = self.ticTocGenerator()
+
+        self.tic()
+
+        asyncio.sleep(5)
+
+        self.toc()
+
+    def ticTocGenerator(self):
+        # Generator that returns time differences
+        ti = 0           # initial time
+        tf = time.time() # final time
+        while True:
+            ti = tf
+            tf = time.time()
+            yield tf-ti # returns the time difference
+    
+    
+    
+    # This will be the main function through which we define both tic() and toc()
+    async def toc(self, tempBool=True):
+        # Prints the time difference yielded by generator instance TicToc
+        tempTimeInterval = next(self.TicToc)
+        if tempBool:
+            print( "Elapsed time: %f seconds.\n" %tempTimeInterval )
+            await ctx.send("Elapsed time: %f seconds.\n" %tempTimeInterval)
+    
+    def tic(self):
+        # Records a time in TicToc, marks the beginning of a time interval
+        self.toc(False)
+        
 
     
         

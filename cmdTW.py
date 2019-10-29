@@ -12,7 +12,7 @@ class TW(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
  
-    @commands.command(aliases=['Territory War'])
+    @commands.command(aliases=['Territory War'],pass_context=True)
     @commands.has_any_role('Master', 'Officer')  # User need this role to run command (can have multiple)
  
     async def tw(self, ctx, allycode1: int, allycode2: int):
@@ -41,6 +41,9 @@ class TW(commands.Cog):
  
         rg1 = self.bot.loop.create_task(client.fetchGuilds(allycode1))
         rg2 = self.bot.loop.create_task(client.fetchGuilds(allycode2))
+
+        self.msg1 = await ctx.send('Guild adatok lekérdezése folyamatban 🔎')
+        
         await rg1
         await rg2
 
@@ -68,10 +71,19 @@ class TW(commands.Cog):
  
         if temp1 != -1 and temp2 != -1:
  
-            await ctx.message.add_reaction("✅")
+            #await ctx.message.add_reaction("✅")
+            await self.msg1.edit(content='✅ - Guild adatok letöltve, játékosok roosterének lekérdezése folyamatban 🔎')
+            
  
-            guilddata1 = await self.fetchGuildRoster(raw_guild1)
-            guilddata2 = await self.fetchGuildRoster(raw_guild2)
+            self.gddata1 = self.bot.loop.create_task( self.fetchGuildRoster(raw_guild1))
+            self.gddata2 = self.bot.loop.create_task( self.fetchGuildRoster(raw_guild2))
+            await self.gddata1
+            await self.gddata2
+
+            guilddata1 = self.gddata1._result
+            guilddata2 = self.gddata2._result
+
+            msg2 = await self.msg1.edit(content='✅ - Játoés roster adatok letöltve, feldolgozás folyamatban 🔄')
  
             embed = discord.Embed(title=raw_guild1[0]['name'] + ' vs ' + raw_guild2[0]['name'], url="https://swgoh.gg/p/" + str(raw_guild2[0]['roster'][0]['allyCode']) + "/", color=0x7289da)
  
@@ -139,7 +151,8 @@ class TW(commands.Cog):
                 '6*   :: ' + ' ' * round(1 / len(str(guild1['hatcsillag']))) + str(guild1['hatcsillag']) + ' vs ' + str(guild2['hatcsillag']) + '\n' +
                 '7*   :: ' + ' ' * round(1 / len(str(guild1['hetcsillag']))) + str(guild1['hetcsillag']) + ' vs ' + str(guild2['hetcsillag']) + '\n' + '```')
                 i += 1
- 
+
+            await ctx.send(":metal: :metal: :metal: Yohooooo... Itt vannak az adatok  :metal: :metal: :metal: ")
             await ctx.send(embed=embed)
  
             toc()
@@ -154,7 +167,7 @@ class TW(commands.Cog):
             print("Permission error!!!")
             await self.ctx.send('⛔ - Nincsen hozzá jogosultságod!')
         else:
-            await self.ctx.send('⛔ - Szar van a palacsintában! \n', error)
+            await self.ctx.send('⛔ - Szar van a palacsintában, próbáld újra \n')
  
  
     async def fetchGuildRoster(self, raw_guild):
