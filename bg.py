@@ -26,7 +26,8 @@ class BgTask(commands.Cog):
             self.alluser = db.getalluser()
             self.counter = 0
             self.today = datetime.today()
-            nextrun = datetime( self.today.year, self.today.month, self.today.day +1 , 3, 0 , 0  )
+            self.today +=  datetime.timedelta(days=1)
+            nextrun = datetime( self.today.year, self.today.month, self.today.day , 3, 0 , 0  )
 
             for self.user in self.alluser:
                 self.discord_id = self.user['discord_id']
