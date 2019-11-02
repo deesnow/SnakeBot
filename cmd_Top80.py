@@ -8,11 +8,11 @@ creds = settings(mysettings.HELPAPI_USER, mysettings.HELPAPI_PASS)
 
 client = async_swgoh_help(creds)
 
-class Top80(commands.Cog):
+class Top80(commands.Cog, name='Top 80 GP'):
     def __init__(self, bot):
         self.bot = bot
 
-    @commands.command(aliases=['Top 80'])
+    @commands.command(aliases=['top80'], description='Top80 characters GP' )
     #@commands.has_any_role('CobraAdmin')  # User need this role to run command (can have multiple)
     async def Top80(self, ctx, allycode:int):
         self.allycode = allycode

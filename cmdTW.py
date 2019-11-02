@@ -8,11 +8,11 @@ import settings as mysettings
 creds = settings(mysettings.HELPAPI_USER, mysettings.HELPAPI_PASS)
 client = async_swgoh_help(creds)
  
-class TW(commands.Cog):
+class TW(commands.Cog, name='Territory War'):
     def __init__(self, bot):
         self.bot = bot
  
-    @commands.command(aliases=['Territory War'],pass_context=True)
+    @commands.command(aliases=['Territory War'],pass_context=True, name='tw')
     @commands.has_any_role('Master', 'Officer')  # User need this role to run command (can have multiple)
  
     async def tw(self, ctx, allycode1: int, allycode2: int):
