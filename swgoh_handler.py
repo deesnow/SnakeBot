@@ -22,7 +22,12 @@ class Swgoh():
             self.response = requests.request("GET", self.url, data=self.payload)
             self.logger.info('Response 200 OK')
 
-            return json.loads(self.response.text)
+            if self.response != None:
+                return json.loads(self.response.text)
+
+            else:
+                return None
+                self.logger.error(f'Response for {self.allycode} was empty!')
             
         except Exception as error:
             self.logger.exception('GET url is failed - [{}]'.format(error))
