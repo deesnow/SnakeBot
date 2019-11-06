@@ -68,6 +68,10 @@ class TW(commands.Cog, name='Territory War'):
             temp2 = -1
         except:
             pass
+
+        leader1 = self.getLeader(raw_guild1)
+        leader2 = self.getLeader(raw_guild2)
+
  
         if temp1 != -1 and temp2 != -1:
  
@@ -90,7 +94,7 @@ class TW(commands.Cog, name='Territory War'):
             overview1 = self.overview(raw_guild1, guilddata1)
             overview2 = self.overview(raw_guild2, guilddata2)
  
-            lth: int = 6
+            lth: int = 10
  
             embed.add_field(name='=========== Összefoglaló ===========', value=
             '```Létszám         ::  ' + ' ' * (lth - len(str(overview1['tagok_szama']))) + str(overview1['tagok_szama']) + ' vs ' + str(overview2['tagok_szama']) + '\n' +
@@ -106,7 +110,9 @@ class TW(commands.Cog, name='Territory War'):
             '15+ speed mods  :: ' + ' ' * (lth - len(str(overview1['15speed']))) + str('{:,}'.format(overview1['15speed'])) + ' vs ' + str('{:,}'.format(overview2['15speed'])) + '\n' +
             '20+ speed mods  ::  ' + ' ' * (lth - len(str(overview1['20speed']))) + str('{:,}'.format(overview1['20speed'])) + ' vs ' + str('{:,}'.format(overview2['20speed'])) + '\n' +
             '25+ speed mods  ::  ' + ' ' * (lth - len(str(overview1['25speed']))) + str('{:,}'.format(overview1['25speed'])) + ' vs ' + str('{:,}'.format(overview2['25speed'])) + '\n' +
-            '100+ off mods   :: ' + ' ' * (lth - len(str(overview1['100off']))) + str('{:,}'.format(overview1['100off'])) + ' vs ' + str('{:,}'.format(overview2['100off'])) + '```')
+            '100+ off mods   :: ' + ' ' * (lth - len(str(overview1['100off']))) + str('{:,}'.format(overview1['100off'])) + ' vs ' + str('{:,}'.format(overview2['100off'])) + '\n' +
+            'Leader          ::  ' + ' ' * (lth - len(str(leader1['name']))) + str('{}'.format(leader1['name'])) + ' vs ' + str('{}'.format(leader2['name'])) + '\n' +
+            'Leader allyCode ::  ' + ' ' * (lth - len(str(leader1['allyCode']))) + str('{}'.format(leader1['allyCode'])) + ' vs ' + str('{}'.format(leader2['allyCode']))  + '```')
  
             i = 0
             j: int = 30
@@ -338,6 +344,16 @@ class TW(commands.Cog, name='Territory War'):
             i += 1
     
         return ship
+
+    def getLeader(self, rawguild):
+        self.rawguild = rawguild
+        self.leader = {}
+        for i in self.rawguild[0]['roster']:
+            if i['guildMemberLevel'] == 'GUILDLEADER':
+                self.leader['name'] = i['name']
+                self.leader['allyCode'] = i['allyCode']
+                break
+        return self.leader
  
 def TicTocGenerator():
     # Generator that returns time differences
