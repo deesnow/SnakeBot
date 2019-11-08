@@ -4,7 +4,7 @@ import db_handler as mongo
 import swgoh_handler
 import logging
 import settings
-from datetime import datetime 
+import datetime 
 
 db = mongo.Dbhandler()
 sw = swgoh_handler.Swgoh()
@@ -20,14 +20,14 @@ class BgTask(commands.Cog):
         #snake
         #channel = self.bot.get_channel(451385630543577088)
         channel = self.bot.get_channel(int(settings.CHANNEL_ID))
-        await channel.send('SnakeBot start daily background roster check for registered users')
+        self.msg1 = await channel.send('SnakeBot start daily background roster check for registered users')
         #Get list of {ally:code , user_id}
         while True:
             self.alluser = db.getalluser()
             self.counter = 0
-            self.today = datetime.today()
+            self.today = datetime.datetime.today()
             self.today +=  datetime.timedelta(days=1)
-            nextrun = datetime( self.today.year, self.today.month, self.today.day , 3, 0 , 0  )
+            nextrun = datetime.datetime( self.today.year, self.today.month, self.today.day , 3, 0 , 0  )
 
             for self.user in self.alluser:
                 self.discord_id = self.user['discord_id']
@@ -55,11 +55,14 @@ class BgTask(commands.Cog):
                 except Exception as error:
                     self.logger.error('swgoh_getuser drop exeption for user {}'.format(self.discord_id))
                     print(error)
+                
+                self.msg2 = str(self.counter) + '. user update finished'
+                await self.msg1.edit(content=self.msg2)
                 await asyncio.sleep(20)
 
             await channel.send('Daily backgroud progress save DONE for {} users'.format(self.counter))
             self.logger.info('Daily backgroud progress save DONE for {} users'.format(self.counter))
-            self.delta = nextrun - datetime.now()
+            self.delta = nextrun - datetime.datetime.now()
 
             await channel.send('Next cycle will run after {} seconds'.format (self.delta.total_seconds()))
             self.logger.info('Next cycle will run after {} seconds'.format (self.delta.total_seconds()))

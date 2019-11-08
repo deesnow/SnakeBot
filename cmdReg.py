@@ -28,7 +28,7 @@ class Reg(commands.Cog):
         try:
             ally_code = int(ally_code.replace('-',''))
 
-            user_data = {'discord_id':reg_id,
+            user_data = {'discord_id':str(reg_id),
                             'user_id':reg_user,
                             'ally_code': ally_code }
             try:
