@@ -68,10 +68,10 @@ class Dbhandler(object):
     def update_docs(self, collection, filter: dict, data: dict):
         ''' Update filtered docs in collection '''
         self.mycol = self.mydb[collection]
-        self.fileter = filter
+        self.filter = filter
         self.data = {"$set": data}
         try:
-            self.mycol.update_one(self.fileter, self.data)
+            self.mycol.update_one(self.filter, self.data)
             self.logger.info('MongoDb updated with %s', self.mycol)            
         except Exception:
             self.logger.error('Cannot update %s', self.mycol, exc_info=True)

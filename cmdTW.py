@@ -112,7 +112,7 @@ class TW(commands.Cog, name='Territory War'):
             '25+ speed mods  ::  ' + ' ' * (lth - len(str(overview1['25speed']))) + str('{:,}'.format(overview1['25speed'])) + ' vs ' + str('{:,}'.format(overview2['25speed'])) + '\n' +
             '100+ off mods   :: ' + ' ' * (lth - len(str(overview1['100off']))) + str('{:,}'.format(overview1['100off'])) + ' vs ' + str('{:,}'.format(overview2['100off'])) + '\n' +
             'Leader          ::  ' + ' ' * (lth - len(str(leader1['name']))) + str('{}'.format(leader1['name'])) + ' vs ' + str('{}'.format(leader2['name'])) + '\n' +
-            'Leader allyCode ::  ' + ' ' * (lth - len(str(leader1['allyCode']))) + str('{}'.format(leader1['allyCode'])) + ' vs ' + str('{}'.format(leader2['allyCode']))  + '```')
+            'Leader allyCode ::  ' + ' ' * (lth - len(str(leader1['allyCode']))) + str('{}'.format(leader1['allyCode'])) + ' vs ' + str('{}'.format(leader2['allyCode']))  + '```', inline=False)
  
             i = 0
             j: int = 30
@@ -137,7 +137,7 @@ class TW(commands.Cog, name='Territory War'):
                 'R3+  :: ' + ' ' * round(1 / len(str(guild1['R3+']))) + str(guild1['R3+']) + ' vs ' + str(guild2['R3+']) + '\n' +
                 'z    :: ' + ' ' * round(1 / len(str(guild1['egyzeta']))) + str(guild1['egyzeta']) + ' vs ' + str(guild2['egyzeta']) + '\n' +
                 'zz   :: ' + ' ' * round(1 / len(str(guild1['ketzeta']))) + str(guild1['ketzeta']) + ' vs ' + str(guild2['ketzeta']) + '\n' +
-                'zzz  :: ' + ' ' * round(1 / len(str(guild1['haromzeta']))) + str(guild1['haromzeta']) + ' vs ' + str(guild2['haromzeta']) + '```')
+                'zzz  :: ' + ' ' * round(1 / len(str(guild1['haromzeta']))) + str(guild1['haromzeta']) + ' vs ' + str(guild2['haromzeta']) + '```', inline=False)
                 i += 1
  
             i = 0
@@ -156,7 +156,7 @@ class TW(commands.Cog, name='Territory War'):
                 '```#    :: ' + ' ' * round(1 / len(str(guild1['osszes']))) + str(guild1['osszes']) + ' vs ' + str(guild2['osszes']) + '\n' +
                 '5*   :: ' + ' ' * round(1 / len(str(guild1['otcsillag']))) + str(guild1['otcsillag']) + ' vs ' + str(guild2['otcsillag']) + '\n' +
                 '6*   :: ' + ' ' * round(1 / len(str(guild1['hatcsillag']))) + str(guild1['hatcsillag']) + ' vs ' + str(guild2['hatcsillag']) + '\n' +
-                '7*   :: ' + ' ' * round(1 / len(str(guild1['hetcsillag']))) + str(guild1['hetcsillag']) + ' vs ' + str(guild2['hetcsillag']) + '\n' + '```')
+                '7*   :: ' + ' ' * round(1 / len(str(guild1['hetcsillag']))) + str(guild1['hetcsillag']) + ' vs ' + str(guild2['hetcsillag']) + '\n' + '```', inline=False)
                 i += 1
 
             await ctx.send(":metal: :metal: :metal: Yohooooo... Itt vannak az adatok  :metal: :metal: :metal: ")
