@@ -88,7 +88,7 @@ class BgTask(commands.Cog):
                 
                 self.msg2 = str(self.counter) + '. user update finished'
                 await self.msg1.edit(content=self.msg2)
-                await asyncio.sleep(0.1)
+                await asyncio.sleep(20)
 
             db2.set("endCycle", True)
             db2.set('lastId', 'null')
@@ -100,8 +100,7 @@ class BgTask(commands.Cog):
             await channel.send('Next cycle will run after {} seconds'.format (self.delta.total_seconds()))
             self.logger.info('Next cycle will run after {} seconds'.format (self.delta.total_seconds()))
 
-            #await asyncio.sleep(self.delta.total_seconds())
-            await asyncio.sleep(10)
+            await asyncio.sleep(self.delta.total_seconds())
             await channel.send('Daily backgroud progress start the next cycle')
             self.logger.info('Daily backgroud progress start the next cycle')
 
