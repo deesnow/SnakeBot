@@ -61,7 +61,7 @@ class BgTask(commands.Cog):
 
                 #Get progress data from swgoh.gg, and write it to DB
                 try:
-                    #self.newdata = sw.swgoh_getuser(self.allycode)
+                    self.newdata = sw.swgoh_getuser(self.allycode)
                     try:
                         self.write_user = db.user_update(self.discord_id, self.newdata['data'])
                         self.counter += 1
@@ -88,7 +88,7 @@ class BgTask(commands.Cog):
                 
                 self.msg2 = str(self.counter) + '. user update finished'
                 await self.msg1.edit(content=self.msg2)
-                await asyncio.sleep(20)
+                await asyncio.sleep(30)
 
             db2.set("endCycle", True)
             db2.set('lastId', 'null')
