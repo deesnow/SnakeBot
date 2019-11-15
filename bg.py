@@ -63,18 +63,18 @@ class BgTask(commands.Cog):
                 try:
                     #self.newdata = sw.swgoh_getuser(self.allycode)
                     try:
-                        #self.write_user = db.user_update(self.discord_id, self.newdata['data'])
+                        self.write_user = db.user_update(self.discord_id, self.newdata['data'])
                         self.counter += 1
                     except Exception as error:
                         self.logger.error('Mongo DB progress update - FAILED from bg task for {}'.format(self.discord_id))
                         print(error)
                     #write daily roster data into xxnowxx
-                    # try:
-                    #     self.write_user = db.save_roster(self.discord_id, 'xxnowxx' , self.newdata)
+                    try:
+                        self.write_user = db.save_roster(self.discord_id, 'xxnowxx' , self.newdata)
                         
-                    # except Exception as error:
-                    #     self.logger.error('Mongo DB roster update - FAILED from bg task for {}'.format(self.discord_id))
-                    #     print(error)
+                    except Exception as error:
+                        self.logger.error('Mongo DB roster update - FAILED from bg task for {}'.format(self.discord_id))
+                        print(error)
 
                     db2.set('lastId', str(self.allycode))
                     db2.set("endCycle", False)
