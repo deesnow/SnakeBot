@@ -81,7 +81,7 @@ class SaveRoster(commands.Cog):
 
     # SAVE mentioned user date to local DB
     @commands.command(aliases= ['sr', 'save'],pass_context = True)
-    @commands.has_any_role('Master', 'Confederate Generals') # User need this role to run command (can have multiple)
+    @commands.has_any_role('Master', 'Grand Inquisitor', 'Officer') # User need this role to run command (can have multiple)
     async def saveroster(self, ctx, user, save_name):
         self.ctx = ctx
         self.save_name = save_name
@@ -205,7 +205,7 @@ class SaveRoster(commands.Cog):
     
     #Delete SAVE
     @commands.command(aliases= ['ds'],pass_context = True)    
-    @commands.has_any_role('Master') # User need this role to run command (can have multiple)
+    @commands.has_any_role('Master', 'Grand Inquisitor', 'Officer') # User need this role to run command (can have multiple)
     async def del_save(self, ctx, user, save):
         self.ctx = ctx
         self.save_name = save
