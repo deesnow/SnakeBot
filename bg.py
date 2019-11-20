@@ -126,13 +126,13 @@ class BgTask(commands.Cog):
         self.logger.info('BG task called by On Ready.')
         channel = self.bot.get_channel(int(settings.CHANNEL_ID))
 
-        try:
-            self.bg_task.cancel()
-            await channel.send('Daily roster saves - STOPPED')
-        except Exception as error:
-            pass
+        # try:
+        #     self.bg_task.cancel()
+        #     await channel.send('Daily roster saves - STOPPED')
+        # except Exception as error:
+        #     pass
 
-        self.bg_task = self.bot.loop.create_task(self.user_progress())
+        # self.bg_task = self.bot.loop.create_task(self.user_progress())
         
 
     @commands.command(pass_context=True)
