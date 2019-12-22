@@ -11,6 +11,16 @@ client = async_swgoh_help(creds)
 class Top80(commands.Cog, name='Top 80 GP'):
     def __init__(self, bot):
         self.bot = bot
+        self.relicTierGp= {
+            '2': 0,
+            '3': 759,
+            '4': 1594,
+            '5': 2505,
+            '6': 3492,
+            '7': 4554,
+            '8': 6072,
+            '9': 7969
+        }
 
     @commands.command(aliases=['top80'], description='Top80 characters GP' )
     #@commands.has_any_role('CobraAdmin')  # User need this role to run command (can have multiple)
@@ -23,7 +33,7 @@ class Top80(commands.Cog, name='Top 80 GP'):
         p1 = self.bot.loop.create_task(client.fetchPlayers(self.allycode))
         await p1
 
-        raw_player = p1._result
+        self.raw_player = p1._result
 
 
 
@@ -31,7 +41,7 @@ class Top80(commands.Cog, name='Top 80 GP'):
         temp = 0
 
         try:
-            raw_player['message'] == 'Cannot fetch data'
+            self.raw_player['message'] == 'Cannot fetch data'
             await ctx.send("Hibás ally kód!")
             await ctx.message.add_reaction("❌")
             temp = -1
@@ -42,7 +52,7 @@ class Top80(commands.Cog, name='Top 80 GP'):
 
             await ctx.message.add_reaction("✅")
 
-            player = fetchPlayerRoster(raw_player)
+            player = fetchPlayerRoster(self, self.raw_player)
 
             await ctx.send(ctx.message.author.mention + "  " + player['jatekosnev'] + " top 80 karakter GP-je: " + str('{:,}'.format(player['top80'])))
 
@@ -59,27 +69,32 @@ class Top80(commands.Cog, name='Top 80 GP'):
             print("Permission error!!!")
             await self.ctx.send('⛔ - Nincsen hozzá jogosultságod!')
 
-def fetchPlayerRoster(raw_player):
-    player = {
+def fetchPlayerRoster(self, raw_player):
+    self.player = {
         "jatekosnev": " ",
         "top80": 0
     }
 
     temp = []
-    player['jatekosnev'] = raw_player[0]['name']
+    self.player['jatekosnev'] = raw_player[0]['name']
     i = 0
     for a in raw_player[0]['roster']:
         if raw_player[0]['roster'][i]['combatType'] == "CHARACTER":
             temp.insert(i, raw_player[0]['roster'][i]['gp'])
+            if raw_player[0]['roster'][i]['gear'] == 13:
+                reliclvl =  str(raw_player[0]['roster'][i]['relic']['currentTier'])
+                relicGp = self.relicTierGp[reliclvl]
+                fullGp = raw_player[0]['roster'][i]['gp'] + relicGp
+                temp.insert(i, fullGp)
         i += 1
     temp.sort(reverse=True)
 
     i = 0
     while i < 80:
-        player['top80'] += temp[i]
+        self.player['top80'] += temp[i]
         i += 1
 
-    return player
+    return self.player
 
 
 def TicTocGenerator():
