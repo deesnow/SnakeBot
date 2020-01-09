@@ -6,6 +6,7 @@ import logging
 import settings
 from datetime import datetime
 import bgDB_handler as mongo
+import cache
 
 db = mongo.Bg_dbhandler()
 
@@ -14,6 +15,7 @@ db = mongo.Bg_dbhandler()
 class HelpApiTest(commands.Cog, name="TEST COG"):
     def __init__(self, bot):
         self.bot = bot
+        self.cache = cache.MyCacheLayer(self.bot)
         self.logger = logging.getLogger(__name__)
         self.logger.info('Init Test COG')
 
@@ -21,40 +23,16 @@ class HelpApiTest(commands.Cog, name="TEST COG"):
 
     @commands.command(pass_context=True)
     # 
-    async def test(self, ctx):
-        # reset = db.reset()
+    async def test(self, ctx, key):
 
-        # if reset:
-        #     print(f'Reset Done')
-        # else:
-        #     print(f'Error')
+        keys = [376764962, 567793738, 471941296]
 
-        #time.sleep(120)
+        data = await self.cache.get_allycodes(keys)
 
-        tasks = asyncio.Task.all_tasks()
+        print ('got it')
+
+
         
-        
-
-        for task in tasks:
-            
-            
-            print (task)
-            if task._state !='FINISHED':
-                try:
-                    if task._coro.cr_code.co_name == 'user_progress' and task._state == 'PENDING':
-                        task.cancel()
-                        print('--------------------------------------')
-                        break
-                    else:
-                        print ('not matched coro')
-                except Exception as error:
-                    pass
-                
-            
-           
-
-
-        print(tasks)
 
 
         
