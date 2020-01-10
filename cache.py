@@ -163,21 +163,34 @@ class MyCacheLayer:
 
             if len(self.non_cached_keys) > 20:
                 self.lth = round(len(self.non_cached_keys)/2)
+                self.keys1 = self.non_cached_keys[:self.lth]
+                self.keys2 = self.non_cached_keys[self.lth:]
 
-                self.rawplayers1 = self.bot.loop.create_task(self.client.fetchPlayers(self.non_cached_keys[:self.lth]))
-                self.rawplayers2 = self.bot.loop.create_task(self.client.fetchPlayers(self.non_cached_keys[self.lth:]))
-                await self.rawplayers1
-                await self.rawplayers2
+                self.fetchplayer1 = self.bot.loop.create_task(self.client.fetchPlayers(self.keys1))
+                
+                self.fetchplayer2 = self.bot.loop.create_task(self.client.fetchPlayers(self.keys2))
+                await self.fetchplayer1
+                await self.fetchplayer2
 
-                self.players_data += self.rawplayers1._result + self.rawplayers2._result
+                self.rawplayers = self.fetchplayer1._result + self.fetchplayer2._result
+
+                self.players_data += self.rawplayers
+
+                for self.player in self.rawplayers:         #update cacheDB
+                    self.cachedb.update(self.player['allyCode'], self.player)
+
+
+
+            elif len(self.non_cached_keys) == 0:
+                pass
             
             else:
                 self.rawplayers = self.bot.loop.create_task(self.client.fetchPlayers(self.non_cached_keys))
                 await self.rawplayers
                 self.players_data += self.rawplayers._result
 
-            for self.player in self.rawplayers._result:         #update cacheDB
-                self.cachedb.update(self.player['allyCode'], self.player)
+                for self.player in self.rawplayers._result:         #update cacheDB
+                    self.cachedb.update(self.player['allyCode'], self.player)
 
 
             return self.players_data 

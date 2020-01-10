@@ -53,10 +53,10 @@ class async_swgoh_help():
                           'battles':'/swgoh/battles'}
     
     async def _getAccessToken(self):
-        if 'expires' in self.token.keys():
-            token_expire_time = self.token['expires']
-            if token_expire_time > time.time():
-                return(self.token)
+        # if 'expires' in self.token.keys():
+        #     token_expire_time = self.token['expires']
+        #     if token_expire_time > time.time():
+        #         return(self.token)
         signin_url = self.urlBase+self.signin
         payload = self.user
         head = {"Content-type": "application/x-www-form-urlencoded"}
@@ -70,7 +70,7 @@ class async_swgoh_help():
                 response = await self.r.json()
 
                 self.token = { 'Authorization': "Bearer " + response['access_token'],
-                            'expires': time.time() + response['expires_in'] - 30}
+                            'expires': time.time() + response['expires_in'] - 300}
                 return self.token
         
 
@@ -88,7 +88,7 @@ class async_swgoh_help():
                 async with session.post(data_url, headers=head, data=dumps(payload)) as self.r:
                     if self.r.status != 200:
                         error = "Login failed!"
-                        data =  {"status_code" : self.r.status,
+                        self.data =  {"status_code" : self.r.status,
                                 "message": error}
                     else:
                         self.data = await self.r.json()

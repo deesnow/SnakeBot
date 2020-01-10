@@ -1,9 +1,11 @@
 import time
 import discord
+import logging
 from numpy import *
 from discord.ext import commands
 from async_swgoh_help import async_swgoh_help, settings
 import settings as mysettings
+import cache
  
 creds = settings(mysettings.HELPAPI_USER, mysettings.HELPAPI_PASS)
 client = async_swgoh_help(creds)
@@ -11,6 +13,10 @@ client = async_swgoh_help(creds)
 class TW(commands.Cog, name='Territory War'):
     def __init__(self, bot):
         self.bot = bot
+        self.cache = cache.MyCacheLayer(self.bot)
+        self.logger = logging.getLogger(__name__)
+        self.logger.info(f'Init {__name__} COG')
+
  
     @commands.command(aliases=['Territory War'],pass_context=True, name='tw')
     @commands.has_any_role('Master', 'Grand Inquisitor', 'Officer')  # User need this role to run command (can have multiple)
@@ -39,13 +45,16 @@ class TW(commands.Cog, name='Territory War'):
         ship_list2 = ["Han's Millennium Falcon",
                       "Negotiator"]
  
-        rg1 = self.bot.loop.create_task(client.fetchGuilds(allycode1))
-        rg2 = self.bot.loop.create_task(client.fetchGuilds(allycode2))
-
         self.msg1 = await ctx.send('Guild adatok lekérdezése folyamatban 🔎')
-        
+
+        rg1 = self.bot.loop.create_task(client.fetchGuilds(allycode1))
         await rg1
+        rg2 = self.bot.loop.create_task(client.fetchGuilds(allycode2))
         await rg2
+        
+        
+        
+        
 
         raw_guild1 = rg1._result
         raw_guild2 = rg2._result
@@ -69,24 +78,31 @@ class TW(commands.Cog, name='Territory War'):
         except:
             pass
 
-        leader1 = self.getLeader(raw_guild1)
-        leader2 = self.getLeader(raw_guild2)
+        
 
  
         if temp1 != -1 and temp2 != -1:
+
+            leader1 = self.getLeader(raw_guild1)
+            leader2 = self.getLeader(raw_guild2)
  
             #await ctx.message.add_reaction("✅")
             await self.msg1.edit(content='✅ - Guild adatok letöltve, játékosok roosterének lekérdezése folyamatban 🔎')
             
  
-            self.gddata1 = self.bot.loop.create_task( self.fetchGuildRoster(raw_guild1))
-            self.gddata2 = self.bot.loop.create_task( self.fetchGuildRoster(raw_guild2))
-            await self.gddata1
-            await self.gddata2
+            # self.gddata1 = self.bot.loop.create_task( self.fetchGuildRoster(raw_guild1))
+            # await self.gddata1
+            # self.gddata2 = self.bot.loop.create_task( self.fetchGuildRoster(raw_guild2))
+            # await self.gddata2
+            
 
-            guilddata1 = self.gddata1._result
-            guilddata2 = self.gddata2._result
+            # guilddata1 = self.gddata1._result
+            # guilddata2 = self.gddata2._result
 
+            guilddata1 = await self.fetchGuildRoster(raw_guild1)
+            guilddata2 = await self.fetchGuildRoster(raw_guild2)
+
+            
             msg2 = await self.msg1.edit(content='✅ - Játékos roster adatok letöltve, feldolgozás folyamatban 🔄')
  
             embed = discord.Embed(title=raw_guild1[0]['name'] + ' vs ' + raw_guild2[0]['name'], url="https://swgoh.gg/p/" + str(raw_guild2[0]['roster'][0]['allyCode']) + "/", color=0x7289da)
@@ -181,26 +197,34 @@ class TW(commands.Cog, name='Territory War'):
     async def fetchGuildRoster(self, raw_guild):
         guilddata = []
         chardata_ally = []
-        chardata_ally2 = []
+        # chardata_ally2 = []
         i: int = 0
         lth = int_(len(raw_guild[0]['roster']))
-        lthp2 = int_(round(lth/2, 0))
-        while i < lthp2:
+        # lthp2 = int_(round(lth/2, 0))
+        # while i < lthp2:
+        #     chardata_ally.insert(i, raw_guild[0]['roster'][i]['allyCode'])
+        #     i += 1
+        while i < lth:
             chardata_ally.insert(i, raw_guild[0]['roster'][i]['allyCode'])
             i += 1
-    
-        gd1 = self.bot.loop.create_task(client.fetchPlayers(chardata_ally))
-    
-        while i < lth:
-            chardata_ally2.insert(i, raw_guild[0]['roster'][i]['allyCode'])
-            i += 1
-    
-        gd2 = self.bot.loop.create_task(client.fetchPlayers(chardata_ally2))
-
-        await gd1
-        await gd2
         
-        guilddata = gd1._result + gd2._result
+    
+        # gd1 = self.bot.loop.create_task(client.fetchPlayers(chardata_ally))
+
+        
+    
+        # while i < lth:
+        #     chardata_ally2.insert(i, raw_guild[0]['roster'][i]['allyCode'])
+        #     i += 1
+    
+        # gd2 = self.bot.loop.create_task(client.fetchPlayers(chardata_ally2))
+
+        # await gd1
+        # await gd2
+        
+        # guilddata = gd1._result + gd2._result
+
+        guilddata =  await self.cache.get_allycodes(chardata_ally)
     
         return guilddata
  
