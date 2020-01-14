@@ -266,6 +266,26 @@ class Dbhandler(object):
             return "Failed"
 
 
+# Get Discord_ID by allycodes --------------------------
+
+    def get_discordID(self, allycode):
+            self.col_discord = self.mydb['discordUsers']
+            self.allycode = allycode
+
+            try:
+                self.user = self.col_discord.find_one({'ally_code': self.allycode},{'_id':0, 'user_id': 1, 'discord_id':1})
+                self.logger.info('%s found', self.allycode)
+                return self.user['discord_id'], self.user['user_id'] 
+            
+            except TypeError as error:
+                self.logger.error('Get DiscordID is FAILED for %s.', self.allycode, exc_info=True)
+                return None, None
+
+            except:
+                self.logger.error('Get DiscordID is FAILED for %s.', self.allycode, exc_info=True)
+                return None, None
+
+
 
     def user_purge(self, discord_user):
         self.discord_user = str(discord_user)
@@ -446,6 +466,7 @@ class Dbhandler(object):
             self.logger.error('Get Progress data is FAILED', exc_info=True)
             return None
         
+
 
 
 
