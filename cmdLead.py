@@ -6,7 +6,7 @@ import logging
 creds = settings(mysettings.HELPAPI_USER, mysettings.HELPAPI_PASS)
 client = async_swgoh_help(creds)
 
-class Leader(commands.Cog,  name='Fetch Guild Leader'):
+class Leader(commands.Cog,  name='Guild Commands'):
     def __init__(self, bot):
         self.bot = bot
         self.logger = logging.getLogger(__name__)

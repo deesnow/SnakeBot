@@ -12,7 +12,7 @@ client = async_swgoh_help(creds)
 db = mongo.Dbhandler()
 sw = swgoh_handler.Swgoh()
 
-class GuildSave(commands.Cog, name='Territory War'):
+class GuildSave(commands.Cog, name='Guild Commands'):
     def __init__(self, bot):
         self.bot = bot
         self.logger = logging.getLogger(__name__)
