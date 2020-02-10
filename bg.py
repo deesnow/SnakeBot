@@ -136,7 +136,7 @@ class BgTask(commands.Cog):
         
 
     @commands.command(pass_context=True)
-    @commands.has_any_role('Master') # User need this role to run command (can have multiple)
+    @commands.has_any_role('BotAdmin') # User need this role to run command (can have multiple)
     async def startbg(self, ctx):
         self.ctx = ctx
         await self.ctx.message.add_reaction("🐍")
@@ -146,7 +146,7 @@ class BgTask(commands.Cog):
 
 
     @commands.command(pass_context=True)
-    @commands.has_any_role('Master') # User need this role to run command (can have multiple)
+    @commands.has_any_role('BotAdmin') # User need this role to run command (can have multiple)
     async def stopbg(self, ctx):
         self.ctx = ctx
         await self.ctx.message.add_reaction("🐍")

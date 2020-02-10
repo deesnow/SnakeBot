@@ -65,7 +65,7 @@ bot = MyClient(command_prefix = 'snk ')
 
 
 @bot.command(aliases= ['l'])
-@commands.has_any_role('Master') # User need this role to run command (can have multiple)
+@commands.has_any_role('BotAdmin') # User need this role to run command (can have multiple)
 async def load(ctx, extension, description='Load command extension. Only person with right permission can call it'):
     try:
         bot.load_extension(extension)
@@ -84,7 +84,7 @@ async def saveroster_error(self, ctx, error):
         await self.ctx.send('⛔ - You don\'t have the right permission!!!')
 
 @bot.command(aliases= ['u'])
-@commands.has_any_role('Master') # User need this role to run command (can have multiple)
+@commands.has_any_role('BotAdmin') # User need this role to run command (can have multiple)
 async def unload(ctx, extension, description='Unload command extension. Only person with right permission can call it'):
     try:
         bot.unload_extension(extension)
@@ -103,7 +103,7 @@ async def saveroster_error(self, ctx, error):
         await self.ctx.send('⛔ - You don\'t have the right permission!!!')
     
 @bot.command(aliases= ['rl'])
-@commands.has_any_role('Master') # User need this role to run command (can have multiple)
+@commands.has_any_role('BotAdmin') # User need this role to run command (can have multiple)
 async def reload(ctx, extension, description='Reload/Refresh command extension. Only person with right permission can call it'):
     try:
         bot.unload_extension(extension)
