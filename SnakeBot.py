@@ -1,21 +1,16 @@
-import pymongo
 import json
 import os
 import logging
 import logging.config
-import discord
 from discord.ext import commands
 from discord import Game
 import asyncio
-import settings
-
-import db_handler as mongo
-
+from botSettings import settings
 
 
 # Define logger ---------------------------------------------------------
 def setup_logging(
-    default_path='logging.json',
+    default_path='botSettings\\logging.json',
     default_level=logging.INFO,
     env_key='LOG_CFG'):
     """Setup logging configuration

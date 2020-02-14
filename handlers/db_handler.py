@@ -1,7 +1,7 @@
 import pymongo
 import json
 from dateutil.parser import parse
-import settings
+from botSettings import settings
 import logging
 
 
