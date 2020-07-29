@@ -2,7 +2,7 @@ import json
 import os
 import logging
 import logging.config
-from discord.ext import commands
+from discord.ext import commands, tasks
 from discord import Game
 import asyncio
 from botSettings import settings
@@ -31,8 +31,6 @@ def setup_logging(
 setup_logging()
 logger = logging.getLogger(__name__)
 
-#Setup Dev or Release discord settings
-
 
 #Setup base Discord Bot ------------------------------------------------------
 
@@ -50,7 +48,7 @@ class MyClient(commands.Bot):
         #OnReady Message
         async def on_ready(self):
             print('We have logged in as {0.user}'.format(self))
-            presence = "Version: {} - Under Development".format(settings.VERSION)
+            presence = f'Version: {settings.VERSION} - Under Development'
             await self.change_presence(activity=Game(name=presence))
             logger.info('We have logged in as {0.user}'.format(self))
 
@@ -63,7 +61,7 @@ bot = MyClient(command_prefix = 'snk ')
 @commands.has_any_role('BotAdmin') # User need this role to run command (can have multiple)
 async def load(ctx, extension, description='Load command extension. Only person with right permission can call it'):
     try:
-        bot.load_extension(extension)
+        bot.load_extension('expansions.'+ extension)
         await ctx.message.add_reaction("✅")
 
     except Exception as error:
@@ -82,7 +80,7 @@ async def saveroster_error(self, ctx, error):
 @commands.has_any_role('BotAdmin') # User need this role to run command (can have multiple)
 async def unload(ctx, extension, description='Unload command extension. Only person with right permission can call it'):
     try:
-        bot.unload_extension(extension)
+        bot.unload_extension('expansions.'+ extension)
         await ctx.message.add_reaction("✅")
 
     except Exception as error:
@@ -101,8 +99,8 @@ async def saveroster_error(self, ctx, error):
 @commands.has_any_role('BotAdmin') # User need this role to run command (can have multiple)
 async def reload(ctx, extension, description='Reload/Refresh command extension. Only person with right permission can call it'):
     try:
-        bot.unload_extension(extension)
-        bot.load_extension(extension)
+        bot.unload_extension('expansions.'+ extension)
+        bot.load_extension('expansions.'+ extension)
         await ctx.message.add_reaction("✅")
 
     except Exception as error:
@@ -124,13 +122,12 @@ extensions = settings.EXTENSIONS
 if __name__ == '__main__':
     for extension in extensions:
         try:
-            bot.load_extension(extension)
+            bot.load_extension('expansions.'+ extension)
             #print ('{} is loaded.'.format(extension))
         except Exception as error:
             print ('{} cannot be loaded. [{}]'.format(extension, error))
 
-#BG Tasks ---------------------------------------------
-
+# -----------------------------------------
 
 
 bot.run(settings.TOKEN)
