@@ -1,15 +1,15 @@
-import pymongo
+#import pymongo
 import json
 import os
 import logging
 import logging.config
-import discord
+#import discord
 from discord.ext import commands
 from discord import Game
-import asyncio
+#import asyncio
 import settings
 
-import db_handler as mongo
+#import db_handler as mongo
 
 
 
@@ -42,24 +42,19 @@ logger = logging.getLogger(__name__)
 #Setup base Discord Bot ------------------------------------------------------
 
 class MyClient(commands.Bot):
-        def __init__(self, *args, **kwargs):
-            super().__init__(*args, **kwargs)
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
 
-            self.BOT_PREFIX = ("?", "!")
+        self.BOT_PREFIX = ("?", "!")
 
-            
+    #OnReady Message
+    async def on_ready(self):
+        print('We have logged in as {0.user}'.format(self))
+        presence = "Version: {} - Under Development".format(settings.VERSION)
+        await self.change_presence(activity=Game(name=presence))
+        logger.info('We have logged in as {0.user}'.format(self))
 
-            
-
-        #OnReady Message
-        async def on_ready(self):
-            print('We have logged in as {0.user}'.format(self))
-            presence = "Version: {} - Under Development".format(settings.VERSION)
-            await self.change_presence(activity=Game(name=presence))
-            logger.info('We have logged in as {0.user}'.format(self))
-
-        
 bot = MyClient(command_prefix = 'snk ')
 
 

@@ -3,8 +3,8 @@ import json
 
 #Global variables
 
-PROD = False #Set this to True if production
-DB_PROD = False #Set this to True if production
+PROD = True #Set this to True if production
+DB_PROD = True #Set this to True if production
 
 
 def discord_setup(default_path='botSettings\settings.json'):
