@@ -3,11 +3,11 @@ import json
 
 #Global variables
 
-PROD = True #Set this to True if production
-DB_PROD = True #Set this to True if production
+PROD = False #Set this to True if production
+DB_PROD = False #Set this to True if production
 
 
-def discord_setup(default_path='botSettings\settings.json'):
+def discord_setup(default_path='botSettings/settings.json'):
     path = default_path
     if os.path.exists(path):
         with open(path, 'rt') as discord_settings:
