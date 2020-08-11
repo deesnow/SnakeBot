@@ -7,7 +7,7 @@ PROD = False #Set this to True if production
 DB_PROD = False #Set this to True if production
 
 
-def discord_setup(default_path='settings.json'):
+def discord_setup(default_path='botSettings\settings.json'):
     path = default_path
     if os.path.exists(path):
         with open(path, 'rt') as discord_settings:
