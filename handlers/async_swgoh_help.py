@@ -8,7 +8,7 @@ aiohttp modification made by: deesnow
 Built upon code borrowed from platzman and shittybill
 """
 
-import requests
+#import requests
 import aiohttp
 import asyncio
 from json import loads, dumps
@@ -56,6 +56,7 @@ class async_swgoh_help():
 
         #Extend Roster with crinilo_stats
         self.crinolo = CrinoloStat()
+        self.logger = logging.getLogger(__name__)
     
     async def _getAccessToken(self):
         # if 'expires' in self.token.keys():
@@ -173,7 +174,8 @@ class async_swgoh_help():
             return self.fetchAPI(self.endpoints['players'], payload)
             
         except Exception as e:
-            return str(e)
+            return {'Error' : 'Fetch player data Failed, possinle API Error'}
+            self.logger.error('Fetch player data Failed, possinle API Error')
 
     def fetchGuilds(self, payload):
         if type(payload) == list:

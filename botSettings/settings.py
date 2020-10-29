@@ -46,3 +46,4 @@ DB_SERVER_CONNECTION = False
 SHITTYBOT_REQUESTS = 0
 CRINOLO_IP = ds[release]['crinolostat_ip']
 CRINOLO_PORT = ds[release]['crinolostat_port']
+ROLES = ds['roles']

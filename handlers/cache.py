@@ -116,7 +116,7 @@ class MyCacheLayer:
         self.settings = mysettings
         self.cred = async_swgoh_help.settings(self.settings.HELPAPI_USER, self.settings.HELPAPI_PASS)
         self.client = async_swgoh_help.async_swgoh_help(self.cred)
-        self.crinolo = async_swgoh_help.CrinoloStat()
+        #self.crinolo = async_swgoh_help.CrinoloStat()
         self.bot = bot
 
     #----------------------------------------------------------------------
@@ -153,7 +153,7 @@ class MyCacheLayer:
         self.non_cached_keys = []
 
         if prio == 1:
-            self.validity_hours = 6
+            self.validity_hours = 1
         else:
             self.validity_hours = 24
 
@@ -169,8 +169,9 @@ class MyCacheLayer:
                 #get data from swgoh.gg API, update cacheDB, and return data back
                 self.rawdata = self.bot.loop.create_task(self.client.fetchPlayers(self.keys))
                 await self.rawdata
-                self.roster_stats = self.crinolo.fetch_sdata(self.rawdata._result[0])
-                await self.roster_stats
+                #Add crinolostats data to roster json -- later implementation 
+                #self.roster_stats = self.crinolo.fetch_sdata(self.rawdata._result[0])
+                #await self.roster_stats
                 self.players_data.append(self.rawdata._result[0])
 
                 self.cachedb.update(self.keys, self.rawdata._result[0]) #update cacheDB
@@ -196,7 +197,7 @@ class MyCacheLayer:
                 self.fetchplayer2 = self.bot.loop.create_task(self.client.fetchPlayers(self.keys2))
                 await self.fetchplayer1
                 await self.fetchplayer2
-
+                #HIBAKEZELÉS HIÁNYZIK
                 self.rawplayers = self.fetchplayer1._result + self.fetchplayer2._result
 
                 self.players_data += self.rawplayers
@@ -213,8 +214,8 @@ class MyCacheLayer:
                 self.rawplayers = self.bot.loop.create_task(self.client.fetchPlayers(self.non_cached_keys))
                 await self.rawplayers
                 self.players_data += self.rawplayers._result
-                self.players_sdata = self.crinolo.fetch_sdata(self.players_data)
-                await self.players_sdata
+                #self.players_sdata = self.crinolo.fetch_sdata(self.players_data)
+                #await self.players_sdata
                 for self.player in self.rawplayers._result:         #update cacheDB
                     self.cachedb.update(self.player['allyCode'], self.player)
 
