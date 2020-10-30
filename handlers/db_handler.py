@@ -313,7 +313,7 @@ class Dbhandler(object):
         self.query = {'ally_code': self.allycode}
 
         try:
-            #self.rm = self.col_discord.find_one_and_update(self.query, self.rm_data)
+            self.rm = self.col_discord.find_one_and_update(self.query, self.rm_data)
             self.logger.info('%s roster save deleted for %s', self.save, self.allycode)
             return 'Done'
         except Exception:
