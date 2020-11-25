@@ -3,8 +3,8 @@ import json
 
 #Global variables
 
-PROD = True #Set this to True if production
-DB_PROD = True #Set this to True if production
+PROD = False #Set this to True if production
+DB_PROD = False #Set this to True if production
 
 
 def discord_setup(path):
