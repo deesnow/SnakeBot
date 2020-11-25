@@ -1,21 +1,23 @@
 import json
+from pathlib import Path
 import os
 import logging
 import logging.config
-from discord.ext import commands, tasks
-from discord import Game
 import asyncio
+from discord.ext import commands
+from discord import Game
+
 from botSettings import settings
 
 
 # Define logger ---------------------------------------------------------
-def setup_logging(
-    default_path='botSettings\\logging.json',
+def setup_logging(default_path,
     default_level=logging.INFO,
     env_key='LOG_CFG'):
     """Setup logging configuration
 
     """
+    
     path = default_path
     value = os.getenv(env_key, None)
     if value:
@@ -27,30 +29,31 @@ def setup_logging(
     else:
         logging.basicConfig(level=default_level)
 
-
-setup_logging()
+log_set = Path.cwd() / 'botSettings/logging.json'
+print (log_set)
+setup_logging(default_path=log_set)
 logger = logging.getLogger(__name__)
 
 
 #Setup base Discord Bot ------------------------------------------------------
 
 class MyClient(commands.Bot):
-        def __init__(self, *args, **kwargs):
-            super().__init__(*args, **kwargs)
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
 
 
-            self.BOT_PREFIX = ("?", "!")
-
-            
+        self.BOT_PREFIX = ("?", "!")
 
             
 
-        #OnReady Message
-        async def on_ready(self):
-            print('We have logged in as {0.user}'.format(self))
-            presence = f'Version: {settings.VERSION} - Under Development'
-            await self.change_presence(activity=Game(name=presence))
-            logger.info('We have logged in as {0.user}'.format(self))
+            
+
+    #OnReady Message
+    async def on_ready(self):
+        print('We have logged in as {0.user}'.format(self))
+        presence = f'Version: {settings.VERSION} - Under Development'
+        await self.change_presence(activity=Game(name=presence))
+        logger.info('We have logged in as {0.user}'.format(self))
 
         
 bot = MyClient(command_prefix = 'snk ')

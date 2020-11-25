@@ -1,20 +1,21 @@
-import os
+from pathlib import Path
 import json
 
 #Global variables
 
-PROD = False #Set this to True if production
-DB_PROD = False #Set this to True if production
+PROD = True #Set this to True if production
+DB_PROD = True #Set this to True if production
 
 
-def discord_setup(default_path='botSettings\\settings.json'):
-    path = default_path
-    if os.path.exists(path):
+def discord_setup(path):
+    if Path.is_file(path):
         with open(path, 'rt') as discord_settings:
             return json.load(discord_settings)
+    else:
+        return None
         
-      
-ds = discord_setup()
+path = Path.cwd() / 'botSettings/settings.json'
+ds = discord_setup(path)
 
 if PROD:
     release = "production"

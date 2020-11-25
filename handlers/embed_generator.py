@@ -35,7 +35,7 @@ class EmbedGen(object):
                     self.embed = Embed()
                     self.embed = self.embed.gen_base_embed(title=self.title, description=self.description)
 
-                if self.counter < 800:
+                if self.counter < 1500:
                     #generate embed with title + description
                    self.add_field(self.diff[self.character])
                    self.new_embed = False
@@ -47,7 +47,7 @@ class EmbedGen(object):
                     self.page += 1
                     self.new_embed = True
             
-            if self.page == 1:
+            if  self.new_embed == False:
                 self.embeds_list.append(self.embed)
 
         
@@ -68,6 +68,7 @@ class EmbedGen(object):
         self.name =self.name_line_no * '-' + '   ' + self.char_dict['name'] + '   ' + self.name_line_no * '-'
         if (len(self.char_dict['name']) % 2) != 0:
             self.name += '-'
+        self.counter += 50
         self.value = '```xml\n'
 
         if self.char_dict['level_diff'] > 0:
@@ -79,25 +80,25 @@ class EmbedGen(object):
             self.old_rar = int(self.char_dict['old_rarity'])
             self.new_rar = int(self.char_dict['new_rarity'])
             self.value += self.value_pos ('Csillag', self.old_rar, self.new_rar)
-            self.counter += 20
+            self.counter += 50
 
         if self.char_dict['gear_diff'] > 0:
             self.old_gear = int(self.char_dict['old_gear'])
             self.new_gear = int(self.char_dict['new_gear'])
             self.value += self.value_pos ('Gear', self.old_gear, self.new_gear)
-            self.counter += 20
+            self.counter += 50
 
         if self.char_dict['relic_diff'] > 0:
             self.old_rel = int(self.char_dict['old_relic'])
             self.new_rel = int(self.char_dict['new_relic'])
             self.value += self.value_pos ('Relic', self.old_rel, self.new_rel)
-            self.counter += 20
+            self.counter += 50
 
         if self.char_dict['zeta_diff'] > 0:
             self.old_zeta = int(self.char_dict['old_zeta'])
             self.new_zeta = int(self.char_dict['new_zeta'])
             self.value += self.value_pos ('Zeta', self.old_zeta, self.new_zeta)
-            self.counter += 20
+            self.counter += 50
         
         self.value += '\n```'
         #self.value += '----------------------------------------------'

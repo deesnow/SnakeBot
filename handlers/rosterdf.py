@@ -33,22 +33,25 @@ class RosterDf(object):
         
         #read saved roster
         self.old_roster = self.db.get_roster(self.allycode, self.save)
+        #get fresh roster via cache layer
+        self.new_roster = await self.cache.get_allycode(self.allycode, prio=1)
 
         if 'Error' in self.old_roster:
             return self.old_roster
         
         else:
             if self.old_roster is not None:
-                #fill df with old data
-                if self.check_if_gg(self.old_roster):
-                    self.append_gg()
-                else:
-                    self.append_help()
+                #fill df with new data
+                self.append_help_new()
 
-                #get fresh roster via cache layer
-                self.new_roster = await self.cache.get_allycode(self.allycode, prio=1)
-                #add new data to df
-                self.update_df(self.new_roster)
+                
+                #add old data to df
+                if self.check_if_gg(self.old_roster):
+                    self.update_df_gg(self.old_roster)
+                else:
+                    self.update_df_help(self.old_roster)
+
+                
                 #generate diff df
                 return self.generate_diff()
             else:
@@ -150,7 +153,100 @@ class RosterDf(object):
         self.df1 = pd.DataFrame(self.units_data_list)
         
         self.df1.set_index('base_id', inplace=True)
-        
+# -------------------------------------------------------------------------------------------        
+
+    def append_help_new(self):
+            self.units_data_list = []
+
+            for self.units in self.new_roster[0]['roster']:
+                self.name = self.units['nameKey']
+                self.base_id = self.units['defId']
+                self.new_level = self.units['level']
+                self.new_rarity = self.units['rarity']
+                if self.units['combatType'] == "CHARACTER" :
+                    self.new_gear = self.units['gear']
+                    self.new_relic = max(0, self.units['relic']['currentTier'] -2)
+                    self.new_zeta = 0
+                    for skill in self.units['skills']:
+                        if skill['tiers']==skill['tier'] and skill['isZeta']:
+                            self.new_zeta += 1
+
+                    self.unit_data = {
+                        'base_id': self.base_id,
+                        'name': self.name,
+                        'new_level': self.new_level,
+                        'new_rarity': self.new_rarity,
+                        'new_gear': self.new_gear,
+                        'new_relic': self.new_relic,
+                        'new_zeta': self.new_zeta}
+
+                else:
+                    self.unit_data = {
+                        'base_id': self.base_id,
+                        'name': self.name,
+                        'new_level': self.new_level,
+                        'new_rarity': self.new_rarity}
+
+                self.units_data_list.append(self.unit_data)
+            
+            self.df1 = pd.DataFrame(self.units_data_list)
+            
+            self.df1.set_index('base_id', inplace=True)
+
+
+# -------------------------------------------------------------------------------------------
+    def update_df_gg(self, roster):
+    
+        #self.logger.info(f'DF update by .loc STARTED')
+        for self.units in roster:
+            self.base_id = self.units['data']['base_id']
+            self.old_level = self.units['data']['level']
+            self.old_rarity = self.units['data']['rarity']
+
+            self.df1.loc[self.base_id, 'old_level'] = self.old_level
+            self.df1.loc[self.base_id, 'old_rarity'] = self.old_rarity
+
+
+            if self.units['data']['combat_type'] == 1 :
+                self.old_gear = self.units['data']['gear_level']
+                self.old_relic = max(0, self.units['data']['relic_tier'] - 2)
+                self.old_zeta = len(self.units['data']['zeta_abilities'])
+                
+                self.df1.loc[self.base_id, 'old_gear'] = self.old_gear
+                self.df1.loc[self.base_id, 'old_relic'] = self.old_relic
+                self.df1.loc[self.base_id, 'old_zeta'] = self.old_zeta
+
+        #self.logger.info(f'DF update by .loc FINISHED')
+
+# ------------------------------------------------------------------------------------------- 
+    def update_df_help(self, roster):
+    
+        #self.logger.info(f'DF update by .loc STARTED')
+        for self.units in roster:
+            self.base_id = self.units['defId']
+            self.old_level = self.units['level']
+            self.old_rarity = self.units['rarity']
+
+            self.df1.loc[self.base_id, 'old_level'] = self.old_level
+            self.df1.loc[self.base_id, 'old_rarity'] = self.old_rarity
+
+
+            if self.units['combatType'] == "CHARACTER" :
+                self.old_gear = self.units['gear']
+                self.old_relic = max(0, self.units['relic']['currentTier'] - 2)
+                self.old_zeta = 0
+                for skill in self.units['skills']:
+                    if skill['tiers']==skill['tier'] and skill['isZeta']:
+                        self.old_zeta += 1
+                
+                self.df1.loc[self.base_id, 'old_gear'] = self.old_gear
+                self.df1.loc[self.base_id, 'old_relic'] = self.old_relic
+                self.df1.loc[self.base_id, 'old_zeta'] = self.old_zeta
+
+        #self.logger.info(f'DF update by .loc FINISHED')
+
+# ------------------------------------------------------------------------------------------- 
+
 
     def update_df(self, roster):
 
@@ -167,7 +263,7 @@ class RosterDf(object):
             if self.units['combatType'] == "CHARACTER" :
                 self.new_gear = self.units['gear']
                 self.new_relic = 0
-                if self.units['relic']['currentTier'] > 3:
+                if self.units['relic']['currentTier'] > 2:
                     self.new_relic = self.units['relic']['currentTier'] - 2
                 self.new_zeta = 0
                 for skill in self.units['skills']:

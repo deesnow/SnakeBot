@@ -17,7 +17,7 @@ class Dev(commands.Cog):
         self.bot = bot
         self.db = mongo.Dbhandler()
         self.logger = logging.getLogger(__name__)
-        self.logger.info('Init cmdRoster COG')
+        self.logger.info('Init cmdDevTest COG')
         self.cache = cache.MyCacheLayer(self.bot)
         self.queue = queue.jobsQueue()
         self.settings = settings

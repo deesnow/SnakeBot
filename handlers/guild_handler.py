@@ -101,5 +101,5 @@ class GuildHandles(object):
             if self.save_delete == 'Done':
                 self.done_list.append(self.player)
 
-        return {'Finished':self.failed_list,
+        return {'Finished':self.done_list,
                 'Failed': self.failed_list }
