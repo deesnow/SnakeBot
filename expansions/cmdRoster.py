@@ -3,6 +3,7 @@ from discord.ext import commands
 import logging
 
 from handlers import db_handler as mongo
+from handlers import mdb_handler as mdb
 from handlers import cache
 from handlers import rosterdf
 from handlers import embed_generator as eg
@@ -17,6 +18,7 @@ class SaveRoster(commands.Cog, name='Roster Parancsok'):
         self.logger.info('Init cmdRoster COG')
         self.cache = cache.MyCacheLayer(self.bot)
         self.eg = eg.EmbedGen(self.bot)
+        self.mdb = mdb.mDbhandler()
         
 #--------------------------------------------------------
 #--------------------------------------------------------
@@ -128,12 +130,23 @@ class SaveRoster(commands.Cog, name='Roster Parancsok'):
     #NOW COMMAND
     @commands.command(aliases= ['now', 'fejlodes'],pass_context = True, name='Fejlődés')    
     #@commands.has_any_role('Master') # User need this role to run command (can have multiple)
-    async def getnow(self, ctx, user, save1):
+    async def getnow(self, ctx, user, save1, filter=None):
         self.ctx = ctx
         self.save1 = save1
         self.diff = rosterdf.RosterDf(self.bot)
         #self.save_name = 'xxnowxx'
         await self.ctx.message.add_reaction("🐍")
+
+        self.filter = filter
+        self.server_id = ctx.message.guild.id
+
+        self.result = self.bot.loop.create_task(self.mdb.get_team(self.filter, self.server_id))
+        await self.result
+        self.team_dict = self.result._result
+        self.team = []
+        if self.team_dict is not None:
+            for char in self.team_dict['Ids']:
+                self.team.append(char[0])
         
         
 
@@ -149,14 +162,17 @@ class SaveRoster(commands.Cog, name='Roster Parancsok'):
             await ctx.message.add_reaction("⏳")
 
             #get diff dataframe
-            self.diff_df = await self.diff.save_now_compare(self.allycode, self.save1)
+            if len(self.team) == 5:
+                self.diff_df = await self.diff.save_now_compare(self.allycode, self.save1, self.team)
+            else:
+                self.diff_df = await self.diff.save_now_compare(self.allycode, self.save1)
 
             
 
             
             if "Error" not in self.diff_df:
-
-                #call embed generator
+                
+                
                 self.embed_msg_list = self.eg.embed_roster(self.diff_df)
 
                 for self.msg in self.embed_msg_list:
@@ -165,9 +181,6 @@ class SaveRoster(commands.Cog, name='Roster Parancsok'):
             else:
                 self.error_msg = self.diff_df['Error']
                 await ctx.send(f'`💥 - {self.error_msg}`')
-
-
-
 
 
         else:

@@ -8,7 +8,7 @@ import logging
 
 # Discord Bot cog
 
-class Reg(commands.Cog):
+class Reg(commands.Cog, name='Regisztráció'):
     def __init__(self, bot):
         self.bot = bot
         self.db = mongo.Dbhandler()

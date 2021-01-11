@@ -22,10 +22,11 @@ class RosterDf(object):
 
 
 
-    async def save_now_compare(self, allycode, save):
+    async def save_now_compare(self, allycode, save, filter=None):
         """Compare current roster with a save and calculate the differense"""
         self.allycode = allycode
         self.save = save
+        self.filter = filter
 
         # self.df1 = pd.DataFrame(columns=['base_id', 'name', 'old_level', 'old_rarity', 'old_gear', 'old_relic', 'old_zeta',
         #                                       'new_level', 'new_rarity', 'new_gear', 'new_relic', 'new_zeta'])
@@ -53,7 +54,7 @@ class RosterDf(object):
 
                 
                 #generate diff df
-                return self.generate_diff()
+                return self.generate_diff(self.filter)
             else:
                 self.error = {'Error': 'NINCS ILYEN MENTÉS'}
                 return self.error
@@ -276,9 +277,11 @@ class RosterDf(object):
 
         #self.logger.info(f'DF update by .loc FINISHED')
 
-    def generate_diff(self):
+    def generate_diff(self, filter):
 
-        
+        self.filter = filter
+        self.df1.fillna(0, inplace=True)
+       
         
         self.df1['level_diff'] = self.df1['new_level'] - self.df1['old_level']
         self.df1['rarity_diff'] = self.df1['new_rarity'] - self.df1['old_rarity']
@@ -295,7 +298,11 @@ class RosterDf(object):
         self.diff_df = self.df1[self.level_cond | self.rarity_cond | self.gear_cond |
                                  self.relic_cond | self.zeta_cond ]
 
-        return self.diff_df.to_dict('index')
+        if self.filter is None:
+            return self.diff_df.to_dict('index')
+        else:
+            self.diff_df2 = self.diff_df[self.diff_df.index.isin(filter)]
+            return self.diff_df2.to_dict('index')
 
 
 
