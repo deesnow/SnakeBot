@@ -1,5 +1,5 @@
 import logging
-import asyncio
+#import asyncio
 import motor.motor_asyncio
 from botSettings import settings
 
@@ -15,7 +15,7 @@ class mDbhandler(object):
         
         if settings.DB_PROD:
             self.mongouri = f'mongodb://{settings.DB_USER}:{settings.DB_PASS}@{settings.DB_HOST}:{settings.DB_PORT}/?authSource=admin'
-            self.mclient = motor.motor_async.AsyncIOMotorClient(self.mongouri)
+            self.mclient = motor.motor_asyncio.AsyncIOMotorClient(self.mongouri)
             
             
         else:
@@ -103,6 +103,18 @@ class mDbhandler(object):
         self.filter = f'.*{team_name}.*'
 
         self.cursor = self.mcol.find({'TeamName': {'$regex' : self.filter}, 'ServerID':server_id })
+        for self.docs in await self.cursor.to_list(length=10):
+            self.results.append(self.docs)
+        
+        return self.results
+
+# --------------------------------------------------------------------
+    async def list_team(self, server_id):
+        self.mcol = self.mdb['Squads']
+        self.results = []
+        self.filter = {'ServerID': server_id}
+
+        self.cursor = self.mcol.find(self.filter)
         for self.docs in await self.cursor.to_list(length=10):
             self.results.append(self.docs)
         

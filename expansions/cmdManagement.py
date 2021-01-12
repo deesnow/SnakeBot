@@ -209,6 +209,56 @@ class Management(commands.Cog, name='Team Management'):
             await self.ctx.send('⛔ - NINCS MEGFELELŐ JOGOSULTSÁGOD!!!')
 
 # ---------------------------------------------
+# LIST Team
+# ---------------------------------------------
+
+    @commands.command(aliases= ['listteam', 'lt'])
+    @commands.has_any_role(*ROLES)  # User need this role to run command
+    async def list_team(self, ctx):
+        
+        self.server_id = ctx.message.guild.id
+        
+
+        await ctx.message.add_reaction("🐍")
+        if settings.DB_SERVER_CONNECTION:
+            self.result = self.bot.loop.create_task(self.mdb.list_team(self.server_id))
+            await self.result
+            self.count = 1
+
+            if len(self.result._result) == 0:
+                await ctx.send(f'Did not find any team.')
+            else:
+                self.msg = '__**Team List:**__\n```md\n'    
+                for team in self.result._result:
+                    self.team_name = team['TeamName']
+                    self.team_members = team['Members']
+                    
+                    if len(self.team_members)== 5:
+                        ch1 = self.team_members[0]
+                        ch2 = self.team_members[1]
+                        ch3 = self.team_members[2]
+                        ch4 = self.team_members[3]
+                        ch5 = self.team_members[4]
+
+                        self.msg += f'{self.count}. [{self.count}. {self.team_name}]  <{ch1}, {ch2}, {ch3}, {ch4}, {ch5}>\n'
+                        self.count += 1
+                    else:
+                        self.msg += f'__**{self.count}. {self.team_name}**__ is not Complete!\n'
+                    
+                self.msg += '```'
+                await ctx.send(self.msg)
+                
+        else:
+            await ctx.send('Database connection is DOWN!')
+
+    @list_team.error
+    async def list_team_error(self, ctx, error):
+        self.ctx = ctx
+        if isinstance(error, commands.CheckFailure):
+            print("Permission error!!!", error)
+            await self.ctx.send('⛔ - NINCS MEGFELELŐ JOGOSULTSÁGOD!!!')
+
+# ---------------------------------------------
 # DELETE Team
 # ---------------------------------------------
 
