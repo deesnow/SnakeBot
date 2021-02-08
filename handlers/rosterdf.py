@@ -1,8 +1,8 @@
-import asyncio
-import json
 import logging
 import pandas as pd
-import datetime
+from datetime import datetime
+import shortuuid
+
 #from pandas.io.json import json_normalize
 
 from handlers.async_swgoh_help import async_swgoh_help, settings
@@ -54,7 +54,8 @@ class RosterDf(object):
 
                 
                 #generate diff df
-                return self.generate_diff(self.filter)
+                self.generate_diff()
+                return self.df_to_dict(self.filter)
             else:
                 self.error = {'Error': 'NINCS ILYEN MENTÉS'}
                 return self.error
@@ -64,10 +65,9 @@ class RosterDf(object):
         #check type of save. True if the save is done from .gg
         self.roster = roster
 
-        try:
-            self.roster[0]['data']
+        if 'data' in self.roster[0]:
             return True
-        except KeyError:
+        else:
             return False
 
     def append_gg(self):
@@ -158,8 +158,17 @@ class RosterDf(object):
 
     def append_help_new(self):
             self.units_data_list = []
+            if type(self.new_roster) == list and len(self.new_roster) ==1:
+                self.player_name = self.new_roster[0]['name']
+                
+                self.new_roster = self.new_roster[0]['roster']
+            
+            elif type(self.new_roster) == dict:
+                self.player_name = self.new_roster['name'] 
+                self.guild_name =  self.new_roster['guildName']
+                self.new_roster = self.new_roster['roster']
 
-            for self.units in self.new_roster[0]['roster']:
+            for self.units in self.new_roster:
                 self.name = self.units['nameKey']
                 self.base_id = self.units['defId']
                 self.new_level = self.units['level']
@@ -277,9 +286,12 @@ class RosterDf(object):
 
         #self.logger.info(f'DF update by .loc FINISHED')
 
-    def generate_diff(self, filter):
+# ------------------------------------------------------------------------------------------- 
+# Generate Diff
+# ------------------------------------------------------------------------------------------- 
 
-        self.filter = filter
+    def generate_diff(self):
+
         self.df1.fillna(0, inplace=True)
        
         
@@ -298,11 +310,102 @@ class RosterDf(object):
         self.diff_df = self.df1[self.level_cond | self.rarity_cond | self.gear_cond |
                                  self.relic_cond | self.zeta_cond ]
 
+        
+        
+    def df_to_dict(self, filter):
+
+        self.filter = filter
+
         if self.filter is None:
             return self.diff_df.to_dict('index')
         else:
             self.diff_df2 = self.diff_df[self.diff_df.index.isin(filter)]
             return self.diff_df2.to_dict('index')
+
+
+
+
+
+# ------------------------------------------------------------------------------------------- 
+# Guild level DF for for Guild Progress report
+# ------------------------------------------------------------------------------------------- 
+
+    async def guild_report (self, players_data, save, filter=None):
+
+        self.players_data = players_data
+        self.save = save
+        self.filter = filter
+        self.guild_diff_df = pd.DataFrame()
+        self.users_with_error = [] 
+        
+        
+
+        for self.player in self.players_data:
+            self.player_name = self.player['name']
+            print (f'***Actual Player*** - ', self.player['name'])
+            if hasattr(self, 'diff_df'):
+                self.diff_df = self.diff_df[0:0]
+                self.df1 = self.df1[0:0]
+
+            self.old_roster = self.db.get_roster(self.player['allyCode'], self.save)
+            
+            if self.old_roster is None:
+                ## Need to add something to DF and highlight the player have no save
+                self.users_with_error.append(self.player['name'])
+                self.logger.error (f'{self.player_name} has no {self.save} save')
+                continue
+
+            else:
+
+                if 'Error' in self.old_roster:
+                    self.users_with_error.append(self.player['name'])
+                    self.logger.error (f'{self.player_name} has Error to get {self.save} save')
+                    continue
+
+                else:
+                    
+                    self.new_roster = self.player
+                    self.append_help_new()
+                    #add old data to df
+                    if self.check_if_gg(self.old_roster):
+                        self.update_df_gg(self.old_roster)
+                    else:
+                        self.update_df_help(self.old_roster)
+                    
+                    #generate diff df
+                    self.generate_diff()
+
+                    # add name to self.diff_df
+                    self.diff_df = self.diff_df.assign(player = self.player_name)
+                    self.guild_diff_df = self.guild_diff_df.append(self.diff_df)
+
+            
+            
+        
+        # Generate Excel spredsheet
+        self.date = datetime.date(datetime.today())
+        self.uid = shortuuid.ShortUUID().random(length=4)
+        
+        self.file_name = f'temp/GuildReport - {self.date} - {self.uid}.xlsx'
+
+        with pd.ExcelWriter(self.file_name) as writer:
+            self.guild_diff_df.to_excel(writer, sheet_name='report')
+            self.error_df = pd.DataFrame(self.users_with_error)
+            self.error_df.to_excel(writer, sheet_name='error')
+
+        return self.file_name
+
+
+            
+# ------------------------------------------------------------------------------------------- 
+# Generate Diff
+# ------------------------------------------------------------------------------------------- 
+
+    def gen_guild_diff(self):
+        pass
+
+        
+
 
 
 
