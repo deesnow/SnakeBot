@@ -19,6 +19,7 @@ class RosterDf(object):
         self.logger = logging.getLogger(__name__)
         self.db = mongo.Dbhandler()
         self.cache = cache.MyCacheLayer(self.bot)
+        
 
 
 
@@ -319,7 +320,7 @@ class RosterDf(object):
         if self.filter is None:
             return self.diff_df.to_dict('index')
         else:
-            self.diff_df2 = self.diff_df[self.diff_df.index.isin(filter)]
+            self.diff_df2 = self.diff_df[self.diff_df.index.isin(self.filter)]
             return self.diff_df2.to_dict('index')
 
 
@@ -336,8 +337,9 @@ class RosterDf(object):
         self.save = save
         self.filter = filter
         self.guild_diff_df = pd.DataFrame()
-        self.users_with_error = [] 
-        
+        self.users_with_error = []
+
+          
         
 
         for self.player in self.players_data:
@@ -377,6 +379,9 @@ class RosterDf(object):
 
                     # add name to self.diff_df
                     self.diff_df = self.diff_df.assign(player = self.player_name)
+                    #filter it here
+                    if self.filter is not None:
+                        self.diff_df = self.diff_df[self.diff_df.index.isin(self.filter)]
                     self.guild_diff_df = self.guild_diff_df.append(self.diff_df)
 
             

@@ -184,7 +184,7 @@ class Guild(commands.Cog, name='Guild Parancsok'):
                 await self.ctx.send('✅ - Játékos adatok letöltve, riport készítése folyamatban ⏳')
                 # Generate Guild Progress Report
                 # ------------------------------
-                self.guild_report_file = self.bot.loop.create_task(self.diff.guild_report(self.players_data, self.save_name, self.filter))
+                self.guild_report_file = self.bot.loop.create_task(self.diff.guild_report(self.players_data, self.save_name, self.team))
                 await self.guild_report_file
                 self.guild_report_file = self.guild_report_file._result
                 await self.ctx.send('✅ - Elkészült a riport. DM-ben küldöm!')
