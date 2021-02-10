@@ -88,7 +88,7 @@ class SaveRoster(commands.Cog, name='Roster Parancsok'):
         
 
         if user != "me":
-            self.user_id = self.ctx.message.mentions[0].id
+            self.discord_id = self.ctx.message.mentions[0].id
             
         else:
             self.discord_id = self.ctx.author.id
