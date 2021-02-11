@@ -16,7 +16,10 @@ Amennyiben bármivel elakadnál akkor gyere fel a bothoz létrehozott [Fejleszt�
     - [1.4.3 MentésTörlés](#143-mentéstörlés)
     - [1.4.4 Fejlődés](#144-fejlődés)
       - [1.4.4.1 Fejlődés lekérdezés filterrel](#1441-fejlődés-lekérdezés-filterrel)
-    - [1.4.1](#141)
+  - [1.5 Guild Parancsok](#15-guild-parancsok)
+    - [1.5.1 GuildReport](#151-guildreport)
+    - [1.5.2 GuildSave](#152-guildsave)
+    - [1.5.3 GuildTörlés](#153-guildtörlés)
 
 # 1. Parancsok
 
@@ -197,4 +200,50 @@ Are these droids you are looking for?
 
 
 
-### 1.4.1
+## 1.5 Guild Parancsok
+A guild parancsok csak Master joggal rendelkezők érhetik el. Itt a teljes guildre kiterjedően lehet mentést készíteni, vagy törölni, illetve fejlődés riportot lekérdezni.
+
+### 1.5.1 GuildReport
+A bot a teljes guild minden tagjára kiterjedő riportot generál a megadott mentéshez képest. A riportot DM-ben kapja meg a parancs futtatója excel formátumban. A riportra filter is alkalmazható, azaz a riport lekérhető egy specifikus csapatra.
+
+> `snk [GuildReport|gr] <save_name> [filter]`
+
+például
+> `snk gr 20210201 KAM`
+
+Az eredmény excel fileként érkezik.
+
+### 1.5.2 GuildSave
+Guild szintű mentés, azaz az aktuális állapotról minden a guildhez tartozó játékosról mentés készül, akkor is ha valaki nincs regisztrálva. Későbbi regisztráció esetén a mentések autómatikusan a regisztrált játékoshoz kapcsolódnak.
+
+> `snk [GuildSave|gs] <save_name>`
+
+például
+> `snk gs gs20210210`
+
+```md
+Guild adatok lekérdezése folyamatban 
+ - Guild adatok letöltve, játékosok roosterének lekérdezése folyamatban 
+ - Játékos adatok letöltve, mentések indítása
+ - Játékos adatok mentése befejezve
+Nem Regisztrált Játékosok:
+Regisztráld a felsorolt játékosokat a következő paranccsal:
+snk reg <discordUser> <allycode>
+-------------------- 1-10 -------------------
+[roberto baggio]      ------   [858848128]
+[Uruwiel]      -------------   [776341154]
+[Hnorbee]      -------------   [639149383]
+[Hegzsa]      --------------   [638846191]
+[Roffus]      --------------   [587317346]
+[Olasz]      ---------------   [414293475]
+Are these droids you are looking for?
+```
+
+### 1.5.3 GuildTörlés
+
+A parancs segítségével törölhető a nem kívánt vagy már elavult guild szintű mentés.
+
+> `snk [GuildTörlés|gd] <save_name>`
+
+például
+> `snk gd gs20210210`
