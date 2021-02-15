@@ -20,6 +20,13 @@ Amennyiben bármivel elakadnál akkor gyere fel a bothoz létrehozott [Fejleszt�
     - [1.5.1 GuildReport](#151-guildreport)
     - [1.5.2 GuildSave](#152-guildsave)
     - [1.5.3 GuildTörlés](#153-guildtörlés)
+  - [1.6 Team Management](#16-team-management)
+    - [1.6.1 Karakter keresése](#161-karakter-keresése)
+    - [1.6.2 Alias hozzárendelése](#162-alias-hozzárendelése)
+    - [1.6.3 Alias eltávolítása](#163-alias-eltávolítása)
+    - [1.6.4 Csapat hozzáadása](#164-csapat-hozzáadása)
+    - [1.6.5 Csapat törlése](#165-csapat-törlése)
+    - [1.6.6 Csapat keresése](#166-csapat-keresése)
 
 # 1. Parancsok
 
@@ -160,7 +167,7 @@ Are these droids you are looking for?
 ```
 
 #### 1.4.4.1 Fejlődés lekérdezés filterrel
-Amikor nagyon sok karaktereden történt változás, de csak egy speciális csapatot (5 kari, egy teljes squad) szeretnél megnézni, akkor van lehetőség egy filter megadására. Filter létrehozásához a Guild-ben valakinek rendelkezni kell a megfelelő Discord joggal (role; jelenleg ez Master). A filter-ek adminisztrációjáról külön szekcióban beszélek majd [itt].
+Amikor nagyon sok karaktereden történt változás, de csak egy speciális csapatot (5 kari, egy teljes squad) szeretnél megnézni, akkor van lehetőség egy filter megadására. Filter létrehozásához a Guild-ben valakinek rendelkezni kell a megfelelő Discord joggal (role; jelenleg ez Master). A filter-ek adminisztrációjáról külön szekcióban beszélek majd [itt](#16-Team-Management).
 
 Első körben nézzük meg a guildben elérhető filtereket:
 
@@ -247,3 +254,92 @@ A parancs segítségével törölhető a nem kívánt vagy már elavult guild sz
 
 például
 > `snk gd gs20210210`
+
+## 1.6 Team Management
+A Team Management szekció alatt lévő panacsok segítségével 5 fős squad-ok hozhatók létre. Ezek a csapatok használhatók a [Fejlődés](#144-fejlődés) és a [GuildReport](#151-guildreport) parancsokban mint filter.
+
+### 1.6.1 Karakter keresése
+Kerekter ID (eygedi azonosító) keresése azért szükséges, mert csak ehhez tudunk egy általunk használt rövid becenevet (alias-t) hozzárendelni. **A keresésben az első betű mindig nagybetű legyen!**
+
+> `snk [search_char|searchchar|sc] <char>`
+
+például
+
+> `snk sc Revan`
+
+```
+1.  DARTHREVAN
+ aliases: ['dr']
+2.  JEDIKNIGHTREVAN
+ aliases: ['jkr']
+ ```
+
+ Ha a karakterhez van mér hozzárendelt alias akkor azt a search_char kilistázza. Az egyedi **ID** a sorszám utáni **NAGYBETŰS** név Egy karakterhez több alias is hozzáadható.
+
+ ### 1.6.2 Alias hozzárendelése
+
+ Becenév hozzárendelése
+
+ > `snk [add_alias|aa] <id> <new_alias>`
+
+például
+> `snk aa JEDIKNIGHTREVAN jkr`
+
+### 1.6.3 Alias eltávolítása
+Rossz vagy nem használt alias törlése
+
+> `snk [pop_alias|pop|pa] <id> <new_alias>`
+
+például
+> `snk pop JEDIKNIGHTREVAN jkr`
+
+### 1.6.4 Csapat hozzáadása
+Egy csapat létrehozásához szükséged lesz az 5 csapattag alias-ára. Az elő lesz mindig a leader.
+
+> `snk [add_team|addteam|at] <team_name> [ch1] [ch2] [ch3] [ch4] [ch5]`
+
+azaz
+> `snk at KAM shaakti rex fives echo arc`
+
+```ini
+Team KAM created
+ [KAM]  <shaakti, rex, fives, echo, arc>
+ ```
+### 1.6.5 Csapat törlése
+
+Szükésgtelen csapatok törlése
+
+> `snk [delete_team|deleteteam|dt] <team>`
+
+például
+> `snk dt KAM`
+
+```
+Team: KAM deleted.
+```
+### 1.6.6 Csapat keresése
+Ha nem akarod az össes csapatot listázni, akkor keresni is tudsz. Elegendő a csapat kezdetét megadni.
+
+> `snk [search_team|searchteam|st] <team>`
+
+például
+> `snk st SL`
+
+```
+Team 1:
+[SLKRPitP1]
+= Supreme Leader Kylo Ren =
+- Kylo Ren (Unmasked)
+- General Hux
+- Wat Tambor
+- Grand Admiral Thrawn
+```
+
+
+
+ 
+
+
+
+
+

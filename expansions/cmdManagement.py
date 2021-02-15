@@ -240,7 +240,7 @@ class Management(commands.Cog, name='Team Management'):
                         ch4 = self.team_members[3]
                         ch5 = self.team_members[4]
 
-                        self.msg += f'{self.count}. [{self.count}. {self.team_name}]  <{ch1}, {ch2}, {ch3}, {ch4}, {ch5}>\n'
+                        self.msg += f'{self.count}. [{self.team_name}]  <{ch1}, {ch2}, {ch3}, {ch4}, {ch5}>\n'
                         self.count += 1
                     else:
                         self.msg += f'__**{self.count}. {self.team_name}**__ is not Complete!\n'
