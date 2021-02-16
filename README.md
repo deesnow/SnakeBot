@@ -67,9 +67,9 @@ You can also type snk help category for more info on a category.
 
 > `snk help RosterMentés`
 
-```
-snk [RosterMentés|sr|save] <user> <save_name>
-```
+
+> `snk [RosterMentés|sr|save] <user> <save_name>`
+
 Prefix | [Parancs] | <paraméter_1> | <paraméter_2>
 -------|---------|-------------|------------
 snk| RosterMentés vagy sr vagy save| Játékos Discord tag vagy saját magad esetén `me` |Egy mentés név
