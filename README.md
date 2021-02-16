@@ -3,7 +3,29 @@
 Ez a **SnakeBot** rövid ismertetője, mely a SWGOH mobil játékhoz készült. A következőkben megpróbálom bemutatni a SnakeBot működését.
 Amennyiben bármivel elakadnál akkor gyere fel a bothoz létrehozott [Fejlesztői Discord Server-re](https://discord.gg/xr9KUmH9) ahol szívesen segítünk.
 
-
+- [SnakeBot - Egy SWGOH Bot a fejlődés követéséhez](#snakebot---egy-swgoh-bot-a-fejlődés-követéséhez)
+- [1. Parancsok](#1-parancsok)
+  - [1.1 Help](#11-help)
+    - [1.1.1 Alap help megjelenítése](#111-alap-help-megjelenítése)
+  - [1.2 Parancs szintaktika](#12-parancs-szintaktika)
+  - [1.3 Játékos Regisztrálása](#13-játékos-regisztrálása)
+  - [1.4 Roster Parancsok](#14-roster-parancsok)
+    - [1.4.1 RosterMentés](#141-rostermentés)
+    - [1.4.2 MentésLista](#142-mentéslista)
+    - [1.4.3 MentésTörlés](#143-mentéstörlés)
+    - [1.4.4 Fejlődés](#144-fejlődés)
+      - [1.4.4.1 Fejlődés lekérdezés filterrel](#1441-fejlődés-lekérdezés-filterrel)
+  - [1.5 Guild Parancsok](#15-guild-parancsok)
+    - [1.5.1 GuildReport](#151-guildreport)
+    - [1.5.2 GuildSave](#152-guildsave)
+    - [1.5.3 GuildTörlés](#153-guildtörlés)
+  - [1.6 Team Management](#16-team-management)
+    - [1.6.1 Karakter keresése](#161-karakter-keresése)
+    - [1.6.2 Alias hozzárendelése](#162-alias-hozzárendelése)
+    - [1.6.3 Alias eltávolítása](#163-alias-eltávolítása)
+    - [1.6.4 Csapat hozzáadása](#164-csapat-hozzáadása)
+    - [1.6.5 Csapat törlése](#165-csapat-törlése)
+    - [1.6.6 Csapat keresése](#166-csapat-keresése)
 
 # 1. Parancsok
 
@@ -51,10 +73,11 @@ Egy help így néz ki
 
 Ennek értelmezése
 
-Prefix | [Parancs] | <paraméter_1> | <paraméter_2>
--------|---------|-------------|------------
-snk| RosterMentés vagy sr vagy save| Játékos Discord tag vagy saját magad esetén `me` |Egy mentés név
--------
+> Prefix | [Parancs] | <paraméter_1> | <paraméter_2>
+> -------|---------|-------------|------------
+> snk| RosterMentés vagy sr vagy save| Játékos Discord tag vagy saját magad esetén `me` |Egy mentés név
+> -------
+
 
 Egy helyes parancs a fentiek alapján így nézne ki:
 
