@@ -10,7 +10,7 @@ Built upon code borrowed from platzman and shittybill
 
 #import requests
 import aiohttp
-import asyncio
+#import asyncio
 from json import loads, dumps
 import time
 from botSettings import settings as mysettings
@@ -18,6 +18,7 @@ import logging
 
 class async_swgoh_help():
     def __init__(self, settings):
+        self.logger = logging.getLogger(__name__)
         self.user = "username=" + settings.username
         self.user += "&password=" + settings.password
         self.user += "&grant_type=password"
@@ -71,8 +72,11 @@ class async_swgoh_help():
             async with session.post(signin_url, headers=head, data=payload, timeout=20) as self.r:
                 if self.r.status != 200:
                     error = "Login failed!"
+                    self.logger.error(f'{error} - Status:{self.r.status} - API Server is DOWN!')
                     return  {"status_code" : self.r.status,
                             "message": error}
+                    
+                    
                 response = await self.r.json()
 
                 self.token = { 'Authorization': "Bearer " + response['access_token'],
@@ -86,6 +90,8 @@ class async_swgoh_help():
 
     async def fetchAPI(self, url, payload):
         await self._getAccessToken()
+        if self.token == {}:
+            return {'Error': 'API HIBA, az API nem elérhető'}
         head = {'Content-Type': 'application/json', 'Authorization': self.token['Authorization']}
         data_url = self.urlBase + url
         
@@ -105,55 +111,7 @@ class async_swgoh_help():
         
 
 
-        # try:
-        #     r = requests.request('POST', data_url, headers=head, data=dumps(payload))
-        #     if r.status_code != 200:
-        #         error = 'Cannot fetch data - error code'
-        #         data = {"status_code": r.status_code,
-        #                 "message": error}
-        #     else:
-        #         data = loads(r.content.decode('utf-8'))
-        # except Exception as e:
-        #     data = {"message": 'Cannot fetch data'}
-        # return data
 
-    # def fetchZetas(self):
-    #     try:
-    #         return self.fetchAPI(self.endpoints['zetas'], {})
-    #     except Exception as e:
-    #         return str(e)
-
-    # def fetchSquads(self):
-    #     try:
-    #         return self.fetchAPI(self.endpoints['squads'], {})
-    #     except Exception as e:
-    #         return str(e)
-
-    # def fetchBattles(self, payload):
-    #     if not payload:
-    #         payload = { "language": "eng_us", "enums": True }
-    #     try:
-    #         return self.fetchAPI(self.endpoints['battles'], payload)
-    #     except Exception as e:
-    #         return str(e)
-
-    # def fetchEvents(self, payload):
-    #     if not payload:
-    #         payload = { "language": "eng_us", "enums": True }
-    #     try:
-    #         return self.fetchAPI(self.endpoints['events'], payload)
-    #     except Exception as e:
-    #         return str(e)
-
-    # def fetchData(self, payload):
-    #     if type(payload) != dict:
-    #         return({'message': "Payload ERROR: dict expected."})
-    #     if 'collection' not in payload.keys():
-    #         return({'message': "Payload ERROR: No collection element in provided dictionary."})
-    #     try:
-    #         return self.fetchAPI(self.endpoints['data'], payload)
-    #     except Exception as e:
-    #         return str(e)
 
     def fetchPlayers(self, payload):
         if type(payload) == list:
